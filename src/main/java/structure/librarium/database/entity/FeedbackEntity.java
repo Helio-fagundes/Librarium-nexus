@@ -6,21 +6,21 @@ import org.springframework.hateoas.RepresentationModel;
 import java.util.UUID;
 
 @Entity
-@Table(name = "feedback")
+@Table(name = "avaliacoes")
 public class FeedbackEntity extends RepresentationModel<FeedbackEntity> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id_feedback;
+    private Integer id_avaliacao;
     private String nome_do_usuario;
     private String descricao;
 
-    public UUID getId_feedback() {
-        return id_feedback;
+    public Integer getId_avaliacao() {
+        return id_avaliacao;
     }
 
-    public void setId_feedback(UUID id_feedback) {
-        this.id_feedback = id_feedback;
+    public void setId_avaliacao(Integer id_avaliacao) {
+        this.id_avaliacao = id_avaliacao;
     }
 
     public String getNome_do_usuario() {

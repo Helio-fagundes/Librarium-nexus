@@ -10,15 +10,15 @@ public class PagamentosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id_pagamento;
+    private Integer id_pagamentos;
     private Integer id_pedidos;
 
-    public UUID getId_pagamento() {
-        return id_pagamento;
+    public Integer getId_pagamento() {
+        return id_pagamentos;
     }
 
-    public void setId_pagamento(UUID id_pagamento) {
-        this.id_pagamento = id_pagamento;
+    public void setId_pagamento(Integer id_pagamento) {
+        this.id_pagamentos = id_pagamento;
     }
 
     public Integer getId_pedidos() {

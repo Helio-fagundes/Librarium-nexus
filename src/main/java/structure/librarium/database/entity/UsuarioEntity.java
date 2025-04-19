@@ -11,16 +11,16 @@ public class UsuarioEntity extends RepresentationModel<UsuarioEntity> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id_usuario;
+    private Integer id_usuario;
     private String cpf;
     private String adress;
     private String tell;
 
-    public UUID getId_usuario() {
+    public Integer getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(UUID id_usuario) {
+    public void setId_usuario(Integer id_usuario) {
         this.id_usuario = id_usuario;
     }
 

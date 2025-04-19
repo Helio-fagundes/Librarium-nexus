@@ -10,7 +10,7 @@ public class LivrosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id_livro;
+    private Integer id_livros;
     private String nome;
     private String descricao;
     private Double preco;
@@ -18,12 +18,12 @@ public class LivrosEntity {
     private Integer id_categoria;
     private Integer id_feedback;
 
-    public UUID getId_livro() {
-        return id_livro;
+    public Integer getId_livros() {
+        return id_livros;
     }
 
-    public void setId_livro(UUID id_livro) {
-        this.id_livro = id_livro;
+    public void setId_livros(Integer id_livro) {
+        this.id_livros = id_livro;
     }
 
     public String getNome() {

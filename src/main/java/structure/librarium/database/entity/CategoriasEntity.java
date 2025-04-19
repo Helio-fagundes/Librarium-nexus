@@ -11,15 +11,15 @@ public class CategoriasEntity extends RepresentationModel<CategoriasEntity> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id_categoria;
+    private Integer id_categorias;
     private String nome;
 
-    public UUID getId_categoria() {
-        return id_categoria;
+    public Integer getId_categorias() {
+        return id_categorias;
     }
 
-    public void setId_categoria(UUID id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setId_categorias(Integer id_categoria) {
+        this.id_categorias = id_categoria;
     }
 
     public String getNome() {

@@ -11,14 +11,14 @@ public class AutorEntity extends RepresentationModel<AutorEntity> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id_autor;
+    private Integer id_autor;
     private String nome;
 
-    public UUID getId_autor() {
+    public Integer getId_autor() {
         return id_autor;
     }
 
-    public void setId_autor(UUID id_autor) {
+    public void setId_autor(Integer id_autor) {
         this.id_autor = id_autor;
     }
 

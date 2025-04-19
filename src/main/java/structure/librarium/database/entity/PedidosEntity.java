@@ -11,15 +11,15 @@ public class PedidosEntity extends RepresentationModel<PedidosEntity> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id_pedidos;
+    private Integer id_pedidos;
     private Integer id_usuario;
     private Integer id_livro;
 
-    public UUID getId_pedidos() {
+    public Integer getId_pedidos() {
         return id_pedidos;
     }
 
-    public void setId_pedidos(UUID id_pedidos) {
+    public void setId_pedidos(Integer id_pedidos) {
         this.id_pedidos = id_pedidos;
     }
 
