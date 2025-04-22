@@ -1,4 +1,4 @@
-package structure.librarium.database.entity;
+package structure.librarium.entity;
 
 import jakarta.persistence.*;
 

@@ -1,4 +1,4 @@
-package structure.librarium.database.entity;
+package structure.librarium.entity;
 
 import jakarta.persistence.*;
 
@@ -15,8 +15,8 @@ public class LivrosEntity {
     private String descricao;
     private Double preco;
     private Integer id_autor;
-    private Integer id_categoria;
-    private Integer id_feedback;
+    private Integer id_categorias;
+    private Integer id_avaliacao;
 
     public Integer getId_livros() {
         return id_livros;
@@ -58,19 +58,19 @@ public class LivrosEntity {
         this.id_autor = id_autor;
     }
 
-    public Integer getId_categoria() {
-        return id_categoria;
+    public Integer getId_categorias() {
+        return id_categorias;
     }
 
-    public void setId_categoria(Integer id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setId_categorias(Integer id_categorias) {
+        this.id_categorias = id_categorias;
     }
 
-    public Integer getId_feedback() {
-        return id_feedback;
+    public Integer getId_avaliacao() {
+        return id_avaliacao;
     }
 
-    public void setId_feedback(Integer id_feedback) {
-        this.id_feedback = id_feedback;
+    public void setId_avaliacao(Integer id_avaliacao) {
+        this.id_avaliacao = id_avaliacao;
     }
 }

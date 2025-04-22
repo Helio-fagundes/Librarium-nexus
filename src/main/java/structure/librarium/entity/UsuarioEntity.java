@@ -1,9 +1,7 @@
-package structure.librarium.database.entity;
+package structure.librarium.entity;
 
 import jakarta.persistence.*;
 import org.springframework.hateoas.RepresentationModel;
-
-import java.util.UUID;
 
 @Entity
 @Table(name = "usuario")
@@ -12,6 +10,7 @@ public class UsuarioEntity extends RepresentationModel<UsuarioEntity> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id_usuario;
+    private String nome;
     private String cpf;
     private String adress;
     private String tell;
@@ -22,6 +21,14 @@ public class UsuarioEntity extends RepresentationModel<UsuarioEntity> {
 
     public void setId_usuario(Integer id_usuario) {
         this.id_usuario = id_usuario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {

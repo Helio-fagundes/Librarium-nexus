@@ -1,9 +1,7 @@
-package structure.librarium.database.entity;
+package structure.librarium.entity;
 
 import jakarta.persistence.*;
 import org.springframework.hateoas.RepresentationModel;
-
-import java.util.UUID;
 
 @Entity
 @Table(name = "pedidos")
@@ -13,7 +11,7 @@ public class PedidosEntity extends RepresentationModel<PedidosEntity> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id_pedidos;
     private Integer id_usuario;
-    private Integer id_livro;
+    private Integer id_livros;
 
     public Integer getId_pedidos() {
         return id_pedidos;
@@ -31,11 +29,11 @@ public class PedidosEntity extends RepresentationModel<PedidosEntity> {
         this.id_usuario = id_usuario;
     }
 
-    public Integer getId_livro() {
-        return id_livro;
+    public Integer getId_livros() {
+        return id_livros;
     }
 
-    public void setId_livro(Integer id_livro) {
-        this.id_livro = id_livro;
+    public void setId_livros(Integer id_livros) {
+        this.id_livros = id_livros;
     }
 }

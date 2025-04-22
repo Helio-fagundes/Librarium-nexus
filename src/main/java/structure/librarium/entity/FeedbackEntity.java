@@ -1,9 +1,7 @@
-package structure.librarium.database.entity;
+package structure.librarium.entity;
 
 import jakarta.persistence.*;
 import org.springframework.hateoas.RepresentationModel;
-
-import java.util.UUID;
 
 @Entity
 @Table(name = "avaliacoes")
