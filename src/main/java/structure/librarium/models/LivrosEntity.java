@@ -1,8 +1,6 @@
-package structure.librarium.entity;
+package structure.librarium.models;
 
 import jakarta.persistence.*;
-
-import java.util.UUID;
 
 @Entity
 @Table(name = "livros")

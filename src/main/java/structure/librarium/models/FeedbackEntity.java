@@ -1,4 +1,4 @@
-package structure.librarium.entity;
+package structure.librarium.models;
 
 import jakarta.persistence.*;
 import org.springframework.hateoas.RepresentationModel;
