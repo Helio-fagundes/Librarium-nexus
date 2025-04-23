@@ -16,28 +16,28 @@ public class PagamentosService {
     @Autowired
     private PagamentosRepository pagamentosRepository;
 
-    public PagamentosEntity savePagamento(PagamentosRecordDto dto){
+    public PagamentosEntity save(PagamentosRecordDto dto){
         PagamentosEntity pagamentos = new PagamentosEntity();
         BeanUtils.copyProperties(dto,pagamentos);
         return pagamentosRepository.save(pagamentos);
     }
 
-    public List<PagamentosEntity> getAllPagamentos(){
+    public List<PagamentosEntity> getAll(){
         return pagamentosRepository.findAll();
     }
 
-    public Optional<PagamentosEntity> getPagamentoById(Integer id){
+    public Optional<PagamentosEntity> getById(Integer id){
         return pagamentosRepository.findById(id);
     }
 
-    public PagamentosEntity updatePagamentos(Integer id, PagamentosRecordDto dto){
+    public PagamentosEntity update(Integer id, PagamentosRecordDto dto){
         PagamentosEntity pagamentos = pagamentosRepository.findById(id).get();
         BeanUtils.copyProperties(dto,pagamentos);
         pagamentos.setId_pagamento(id);
         return pagamentosRepository.save(pagamentos);
     }
 
-    public void deletePagamentos(Integer id){
+    public void delete(Integer id){
         pagamentosRepository.deleteById(id);
     }
 }

@@ -21,28 +21,28 @@ public class AutorService {
     @Autowired
     private AutorRepository autorRepository;
 
-    public AutorEntity saveAutor(AutorRecordDto dto){
+    public AutorEntity save(AutorRecordDto dto){
         AutorEntity autor = new AutorEntity();
         BeanUtils.copyProperties(dto, autor);
         return autorRepository.save(autor);
     }
 
-    public List<AutorEntity> getAllAutor(){
+    public List<AutorEntity> getAll(){
         return autorRepository.findAll();
     }
 
-    public Optional<AutorEntity> getAutorById(Integer id){
+    public Optional<AutorEntity> getById(Integer id){
         return autorRepository.findById(id);
     }
 
-    public AutorEntity updateAutor(Integer id, AutorRecordDto dto){
+    public AutorEntity update(Integer id, AutorRecordDto dto){
         AutorEntity autor = autorRepository.findById(id).get();
         BeanUtils.copyProperties(dto, autor);
         autor.setId_autor(id);
         return autorRepository.save(autor);
     }
 
-    public void deleteAutor(Integer id){
+    public void delete(Integer id){
         autorRepository.deleteById(id);
     }
 }

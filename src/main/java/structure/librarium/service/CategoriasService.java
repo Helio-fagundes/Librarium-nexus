@@ -16,28 +16,28 @@ public class CategoriasService {
     @Autowired
     private CategoriasRepository categoriasRepository;
 
-    public CategoriasEntity saveCategorias(CategoriasRecordDto dto){
+    public CategoriasEntity save(CategoriasRecordDto dto){
         CategoriasEntity categorias = new CategoriasEntity();
         BeanUtils.copyProperties(dto, categorias);
         return categoriasRepository.save(categorias);
     }
 
-    public List<CategoriasEntity> getAllCategorias(){
+    public List<CategoriasEntity> getAll(){
         return categoriasRepository.findAll();
     }
 
-    public Optional<CategoriasEntity> getCategoriasById(Integer id){
+    public Optional<CategoriasEntity> getById(Integer id){
         return categoriasRepository.findById(id);
     }
 
-    public CategoriasEntity updateCategorias(Integer id, CategoriasRecordDto dto){
+    public CategoriasEntity update(Integer id, CategoriasRecordDto dto){
         CategoriasEntity categorias = categoriasRepository.findById(id).get();
         BeanUtils.copyProperties(dto, categorias);
         categorias.setId_categorias(id);
         return  categoriasRepository.save(categorias);
     }
 
-    public void deleteCategorias(Integer id){
+    public void delete(Integer id){
         categoriasRepository.deleteById(id);
     }
 }

@@ -16,28 +16,28 @@ public class FeedbackService {
     @Autowired
     private FeedbackRepository feedbackRepository;
 
-    public FeedbackEntity saveFeedback(FeedbackRecordDto dto){
+    public FeedbackEntity save(FeedbackRecordDto dto){
         FeedbackEntity feedback = new FeedbackEntity();
         BeanUtils.copyProperties(dto, feedback);
         return feedbackRepository.save(feedback);
     }
 
-    public List<FeedbackEntity> getAllFeedback(){
+    public List<FeedbackEntity> getAll(){
         return feedbackRepository.findAll();
     }
 
-    public Optional<FeedbackEntity> getFeedbackById(Integer id){
+    public Optional<FeedbackEntity> getById(Integer id){
         return feedbackRepository.findById(id);
     }
 
-    public FeedbackEntity updateFeedback(Integer id,FeedbackRecordDto dto){
+    public FeedbackEntity update(Integer id,FeedbackRecordDto dto){
         FeedbackEntity feedback = feedbackRepository.findById(id).get();
         BeanUtils.copyProperties(dto, feedback);
         feedback.setId_avaliacao(id);
         return feedbackRepository.save(feedback);
     }
 
-    public void deleteFeedback(Integer id){
+    public void delete(Integer id){
         feedbackRepository.deleteById(id);
     }
 }

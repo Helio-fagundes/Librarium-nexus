@@ -16,28 +16,28 @@ public class LivrosService {
     @Autowired
     private LivrosRepository livrosRepository;
 
-    public LivrosEntity saveLivro(LivrosRecordDto dto){
+    public LivrosEntity save(LivrosRecordDto dto){
         LivrosEntity livros = new LivrosEntity();
         BeanUtils.copyProperties(dto, livros);
         return livrosRepository.save(livros);
     }
 
-    public List<LivrosEntity> getAllLivros(){
+    public List<LivrosEntity> getAll(){
         return livrosRepository.findAll();
     }
 
-    public Optional<LivrosEntity> getLivrosById(Integer id){
+    public Optional<LivrosEntity> getById(Integer id){
         return livrosRepository.findById(id);
     }
 
-    public LivrosEntity updateLivro(Integer id,LivrosEntity dto){
+    public LivrosEntity update(Integer id,LivrosEntity dto){
         LivrosEntity livros = livrosRepository.findById(id).get();
         BeanUtils.copyProperties(dto, livros);
         livros.setId_livros(id);
         return livrosRepository.save(livros);
     }
 
-    public void deleteLivro(Integer id){
+    public void delete(Integer id){
         livrosRepository.deleteById(id);
     }
 }

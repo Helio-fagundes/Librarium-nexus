@@ -16,28 +16,28 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public UsuarioEntity saveUsuario(UsuarioRecordDto dto){
+    public UsuarioEntity save(UsuarioRecordDto dto){
         UsuarioEntity usuario = new UsuarioEntity();
         BeanUtils.copyProperties(dto, usuario);
         return usuarioRepository.save(usuario);
     }
 
-    public List<UsuarioEntity> getAllUsuario(){
+    public List<UsuarioEntity> getAll(){
         return usuarioRepository.findAll();
     }
 
-    public Optional<UsuarioEntity> getUsuarioById(Integer id){
+    public Optional<UsuarioEntity> getById(Integer id){
         return usuarioRepository.findById(id);
     }
 
-    public UsuarioEntity updateUsuario(Integer id, UsuarioRecordDto dto){
+    public UsuarioEntity update(Integer id, UsuarioRecordDto dto){
         UsuarioEntity usuario = usuarioRepository.findById(id).get();
         BeanUtils.copyProperties(dto, usuario);
         usuario.setId_usuario(id);
         return usuarioRepository.save(usuario);
     }
 
-    public void deleteUsuario(Integer id){
+    public void delete(Integer id){
         usuarioRepository.deleteById(id);
     }
 }

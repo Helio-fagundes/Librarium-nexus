@@ -16,28 +16,28 @@ public class PedidosService {
     @Autowired
     private PedidosRepository pedidosRepository;
 
-    public PedidosEntity savePedidos(PedidosRecordDto dto){
+    public PedidosEntity save(PedidosRecordDto dto){
         PedidosEntity pedidos = new PedidosEntity();
         BeanUtils.copyProperties(dto, pedidos);
         return pedidosRepository.save(pedidos);
     }
 
-    public List<PedidosEntity> getAllPedidos(){
+    public List<PedidosEntity> getAll(){
         return pedidosRepository.findAll();
     }
 
-    public Optional<PedidosEntity> getPedidosById(Integer id){
+    public Optional<PedidosEntity> getById(Integer id){
         return pedidosRepository.findById(id);
     }
 
-    public PedidosEntity updatePedidos(Integer id, PedidosRecordDto dto){
+    public PedidosEntity update(Integer id, PedidosRecordDto dto){
         PedidosEntity pedidos = pedidosRepository.findById(id).get();
         BeanUtils.copyProperties(dto, pedidos);
         pedidos.setId_pedidos(id);
         return pedidosRepository.save(pedidos);
     }
 
-    public void deletePedidosById(Integer id){
+    public void deleteById(Integer id){
         pedidosRepository.deleteById(id);
     }
 }
