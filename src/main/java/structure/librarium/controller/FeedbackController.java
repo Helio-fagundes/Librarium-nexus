@@ -6,8 +6,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import structure.librarium.dto.FeedbackRecordDto;
+import structure.librarium.dto.LivrosRecordDto;
 import structure.librarium.models.FeedbackEntity;
+import structure.librarium.models.LivrosEntity;
+import structure.librarium.repository.LivrosRepository;
 import structure.librarium.service.FeedbackService;
+import structure.librarium.service.LivrosService;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +25,8 @@ public class FeedbackController {
 
     @Autowired
     private FeedbackService feedbackService;
+    @Autowired
+    private LivrosService livrosService;
 
     @PostMapping
     public ResponseEntity<FeedbackEntity> saveFeedback(@RequestBody @Valid FeedbackRecordDto dto){

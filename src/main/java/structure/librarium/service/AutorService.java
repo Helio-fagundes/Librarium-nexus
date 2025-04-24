@@ -38,7 +38,6 @@ public class AutorService {
     public AutorEntity update(Integer id, AutorRecordDto dto){
         AutorEntity autor = autorRepository.findById(id).get();
         BeanUtils.copyProperties(dto, autor);
-        autor.setId_autor(id);
         return autorRepository.save(autor);
     }
 

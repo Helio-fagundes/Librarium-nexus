@@ -16,9 +16,6 @@ public class CategoriasEntity extends RepresentationModel<CategoriasEntity> {
         return id_categorias;
     }
 
-    public void setId_categorias(Integer id_categoria) {
-        this.id_categorias = id_categoria;
-    }
 
     public String getNome() {
         return nome;

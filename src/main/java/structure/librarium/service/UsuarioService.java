@@ -18,7 +18,7 @@ public class UsuarioService {
 
     public UsuarioEntity save(UsuarioRecordDto dto){
         UsuarioEntity usuario = new UsuarioEntity();
-        BeanUtils.copyProperties(dto, usuario);
+        BeanUtils.copyProperties(dto, usuario, "version");
         return usuarioRepository.save(usuario);
     }
 
@@ -33,7 +33,6 @@ public class UsuarioService {
     public UsuarioEntity update(Integer id, UsuarioRecordDto dto){
         UsuarioEntity usuario = usuarioRepository.findById(id).get();
         BeanUtils.copyProperties(dto, usuario);
-        usuario.setId_usuario(id);
         return usuarioRepository.save(usuario);
     }
 

@@ -15,12 +15,9 @@ public class UsuarioEntity extends RepresentationModel<UsuarioEntity> {
     private String adress;
     private String tell;
 
+
     public Integer getId_usuario() {
         return id_usuario;
-    }
-
-    public void setId_usuario(Integer id_usuario) {
-        this.id_usuario = id_usuario;
     }
 
     public String getNome() {

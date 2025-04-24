@@ -13,6 +13,10 @@ public class FeedbackEntity extends RepresentationModel<FeedbackEntity> {
     private String nome_do_usuario;
     private String descricao;
 
+    @ManyToOne
+    @JoinColumn(name = "id_livros")
+    private LivrosEntity livros;
+
     public Integer getId_avaliacao() {
         return id_avaliacao;
     }
@@ -35,5 +39,13 @@ public class FeedbackEntity extends RepresentationModel<FeedbackEntity> {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public LivrosEntity getLivros() {
+        return livros;
+    }
+
+    public void setLivros(LivrosEntity livros) {
+        this.livros = livros;
     }
 }

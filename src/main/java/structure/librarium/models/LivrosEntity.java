@@ -3,6 +3,8 @@ package structure.librarium.models;
 import jakarta.persistence.*;
 import org.springframework.hateoas.RepresentationModel;
 
+import java.util.List;
+
 
 @Entity
 @Table(name = "livros")
@@ -16,7 +18,9 @@ public class LivrosEntity extends RepresentationModel<LivrosEntity>{
     private Double preco;
     private Integer id_autor;
     private Integer id_categorias;
-    private Integer id_avaliacao;
+
+    @OneToMany(mappedBy = "livros")
+    private List<FeedbackEntity> feedbacks;
 
     public Integer getId_livros() {
         return id_livros;
@@ -66,11 +70,5 @@ public class LivrosEntity extends RepresentationModel<LivrosEntity>{
         this.id_categorias = id_categorias;
     }
 
-    public Integer getId_avaliacao() {
-        return id_avaliacao;
-    }
 
-    public void setId_avaliacao(Integer id_avaliacao) {
-        this.id_avaliacao = id_avaliacao;
-    }
 }

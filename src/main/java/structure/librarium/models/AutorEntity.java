@@ -12,6 +12,7 @@ public class AutorEntity extends RepresentationModel<AutorEntity> {
     private Integer id_autor;
     private String nome;
 
+
     public Integer getId_autor() {
         return id_autor;
     }

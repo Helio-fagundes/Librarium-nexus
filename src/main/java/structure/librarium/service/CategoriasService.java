@@ -33,7 +33,6 @@ public class CategoriasService {
     public CategoriasEntity update(Integer id, CategoriasRecordDto dto){
         CategoriasEntity categorias = categoriasRepository.findById(id).get();
         BeanUtils.copyProperties(dto, categorias);
-        categorias.setId_categorias(id);
         return  categoriasRepository.save(categorias);
     }
 
