@@ -30,7 +30,7 @@ public class LivrosService {
         return livrosRepository.findById(id);
     }
 
-    public LivrosEntity update(Integer id,LivrosEntity dto){
+    public LivrosEntity update(Integer id,LivrosRecordDto dto){
         LivrosEntity livros = livrosRepository.findById(id).get();
         BeanUtils.copyProperties(dto, livros);
         livros.setId_livros(id);

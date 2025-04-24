@@ -1,10 +1,11 @@
 package structure.librarium.models;
 
 import jakarta.persistence.*;
+import org.springframework.hateoas.RepresentationModel;
 
 @Entity
 @Table(name = "pagamentos")
-public class PagamentosEntity {
+public class PagamentosEntity extends RepresentationModel<PagamentosEntity> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
