@@ -1,8 +1,16 @@
 package structure.librarium.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.hateoas.RepresentationModel;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "pedidos")
 public class PedidosEntity extends RepresentationModel<PedidosEntity> {
@@ -13,27 +21,4 @@ public class PedidosEntity extends RepresentationModel<PedidosEntity> {
     private Integer id_usuario;
     private Integer id_livros;
 
-    public Integer getId_pedidos() {
-        return id_pedidos;
-    }
-
-    public void setId_pedidos(Integer id_pedidos) {
-        this.id_pedidos = id_pedidos;
-    }
-
-    public Integer getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(Integer id_usuario) {
-        this.id_usuario = id_usuario;
-    }
-
-    public Integer getId_livros() {
-        return id_livros;
-    }
-
-    public void setId_livros(Integer id_livros) {
-        this.id_livros = id_livros;
-    }
 }

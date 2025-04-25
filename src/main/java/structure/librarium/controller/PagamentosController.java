@@ -1,6 +1,7 @@
 package structure.librarium.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,17 +17,17 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/pagamentos")
 public class PagamentosController {
 
-    @Autowired
-    private PagamentosService pagamentosService;
+    private final PagamentosService pagamentosService;
 
     @PostMapping
     public ResponseEntity<PagamentosEntity> savePagamentos(@RequestBody @Valid PagamentosRecordDto dto){
         var pagamentos = pagamentosService.save(dto);
         pagamentos.add(linkTo(methodOn(PagamentosController.class)
-                .getPagamentosById(pagamentos.getId_pagamento())).withSelfRel());
+                .getPagamentosById(pagamentos.getId_pagamentos())).withSelfRel());
 
         return  ResponseEntity.status(HttpStatus.CREATED).body(pagamentos);
     }
@@ -36,7 +37,7 @@ public class PagamentosController {
         List<PagamentosEntity> pagamentosList = pagamentosService.getAll();
         if(!pagamentosList.isEmpty()){
             for(PagamentosEntity pagamentos : pagamentosList){
-                Integer id = pagamentos.getId_pagamento();
+                Integer id = pagamentos.getId_pagamentos();
                 pagamentos.add(linkTo(methodOn(PagamentosController.class)
                         .getPagamentosById(id)).withSelfRel());
             }
@@ -68,7 +69,7 @@ public class PagamentosController {
         }
         var PagamentosEntity = pagamentosService.update(id, dto);
         PagamentosEntity.add(linkTo(methodOn(PagamentosController.class)
-                .getPagamentosById(PagamentosEntity.getId_pagamento())).withSelfRel());
+                .getPagamentosById(PagamentosEntity.getId_pagamentos())).withSelfRel());
         return ResponseEntity.status(HttpStatus.OK).body(PagamentosEntity);
     }
 

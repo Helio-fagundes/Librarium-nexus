@@ -1,6 +1,7 @@
 package structure.librarium.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +17,10 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/livros")
 public class LivrosController {
 
-    @Autowired
     private LivrosService livrosService;
 
     @PostMapping

@@ -1,5 +1,6 @@
 package structure.librarium.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class PedidosService {
 
-    @Autowired
-    private PedidosRepository pedidosRepository;
+    private final PedidosRepository pedidosRepository;
 
     public PedidosEntity save(PedidosRecordDto dto){
         PedidosEntity pedidos = new PedidosEntity();

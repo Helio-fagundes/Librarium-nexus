@@ -1,6 +1,7 @@
 package structure.librarium.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +17,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/categorias")
 public class CategoriasController {
 
-    @Autowired
-    private CategoriasService categoriasService;
+    private final CategoriasService categoriasService;
 
     @PostMapping
     public ResponseEntity<CategoriasEntity> saveCategorias(@RequestBody @Valid CategoriasRecordDto dto){

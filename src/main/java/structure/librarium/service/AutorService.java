@@ -1,6 +1,7 @@
 package structure.librarium.service;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,10 +17,10 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
+@RequiredArgsConstructor
 public class AutorService {
 
-    @Autowired
-    private AutorRepository autorRepository;
+    private final AutorRepository autorRepository;
 
     public AutorEntity save(AutorRecordDto dto){
         AutorEntity autor = new AutorEntity();

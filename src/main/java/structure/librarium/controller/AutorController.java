@@ -1,6 +1,7 @@
 package structure.librarium.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +17,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/autor")
 public class AutorController {
 
-    @Autowired
-    private AutorService autorService;
+    private final AutorService autorService;
 
     @PostMapping
     public ResponseEntity<AutorEntity> saveAutor(@RequestBody @Valid AutorRecordDto dto){

@@ -1,5 +1,6 @@
 package structure.librarium.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class PagamentosService {
 
-    @Autowired
-    private PagamentosRepository pagamentosRepository;
+    private final PagamentosRepository pagamentosRepository;
 
     public PagamentosEntity save(PagamentosRecordDto dto){
         PagamentosEntity pagamentos = new PagamentosEntity();
@@ -33,7 +34,7 @@ public class PagamentosService {
     public PagamentosEntity update(Integer id, PagamentosRecordDto dto){
         PagamentosEntity pagamentos = pagamentosRepository.findById(id).get();
         BeanUtils.copyProperties(dto,pagamentos);
-        pagamentos.setId_pagamento(id);
+        pagamentos.setId_pagamentos(id);
         return pagamentosRepository.save(pagamentos);
     }
 
