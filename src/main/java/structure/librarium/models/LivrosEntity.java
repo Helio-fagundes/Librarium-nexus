@@ -19,7 +19,7 @@ public class LivrosEntity extends RepresentationModel<LivrosEntity>{
     private Integer id_autor;
     private Integer id_categorias;
 
-    @OneToMany(mappedBy = "livros")
+    @OneToMany(mappedBy = "id_livros")
     private List<FeedbackEntity> feedbacks;
 
     public Integer getId_livros() {
