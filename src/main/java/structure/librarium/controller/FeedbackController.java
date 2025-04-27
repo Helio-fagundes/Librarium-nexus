@@ -2,15 +2,11 @@ package structure.librarium.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import structure.librarium.dto.FeedbackRecordDto;
-import structure.librarium.dto.LivrosRecordDto;
 import structure.librarium.models.FeedbackEntity;
-import structure.librarium.models.LivrosEntity;
-import structure.librarium.repository.LivrosRepository;
 import structure.librarium.service.FeedbackService;
 import structure.librarium.service.LivrosService;
 

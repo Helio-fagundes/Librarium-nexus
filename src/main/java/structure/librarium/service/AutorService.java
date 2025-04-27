@@ -1,11 +1,9 @@
 package structure.librarium.service;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import structure.librarium.dto.AutorRecordDto;
 import structure.librarium.models.AutorEntity;
 import structure.librarium.repository.AutorRepository;
@@ -13,8 +11,6 @@ import structure.librarium.repository.AutorRepository;
 import java.util.List;
 import java.util.Optional;
 
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
 @RequiredArgsConstructor
