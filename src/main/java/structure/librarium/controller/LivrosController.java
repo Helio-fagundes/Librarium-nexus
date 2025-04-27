@@ -21,7 +21,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping("/livros")
 public class LivrosController {
 
-    private LivrosService livrosService;
+    private final LivrosService livrosService;
 
     @PostMapping
     public ResponseEntity<LivrosEntity> saveLivros (@RequestBody @Valid LivrosRecordDto dto){

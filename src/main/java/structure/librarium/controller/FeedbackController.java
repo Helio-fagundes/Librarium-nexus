@@ -25,8 +25,8 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequestMapping("/feedback")
 public class FeedbackController {
 
-    private FeedbackService feedbackService;
-    private LivrosService livrosService;
+    private final FeedbackService feedbackService;
+    private final LivrosService livrosService;
 
     @PostMapping
     public ResponseEntity<FeedbackEntity> saveFeedback(@RequestBody @Valid FeedbackRecordDto dto){
