@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+.header {
+    position: fixed;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: #e0e0e06b;
+    backdrop-filter: blur(20px);
+}
+a{
+    text-decoration: none;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 200px;
+    height: 80px;
+    margin-left: 50px;
+}
+
+
+.search-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+
+.search-input {
+    width: 100%;
+    padding: 8px 15px;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #f5f5f5;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.397);
+}
+.search-input:focus{
+    outline: 2px solid #0069ff;
+}
+
+.search-container button {
+    background-color: transparent;
+    color: rgb(34, 34, 34);
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 15px;
+    margin-left: 10px;
+}
+.search-container button:hover{
+    background-color: #69a8ff2f;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.user-actions box-icon{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    padding: 12px;
+    
+}
+.user-actions box-icon:hover{
+    cursor: pointer;
+    background-color: #8f8f8f2a;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+}
+
+.user-actions{
+    display: flex;
+    align-items: center;
+}
+
+.user-profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ccc;
+    overflow: hidden;
+    margin: 20px;
+}
+.user-profile:hover{
+    cursor: pointer;
+    outline: 5px solid rgba(99, 99, 99, 0.219);
+}
+
+.main-content {
+    height: 300vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dropdown ul {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    flex-direction: column;
+    width: 200px;
+    height: 230px;
+    background-color: #FFFFFF;
+    right: 100px;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown ul.userflex {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+
+.dropdown ul li{
+    display: block;
+    list-style: none;
+    margin-top: 10px;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.dropdown ul li:hover{
+    background-color: #006aff1a;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.site-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+    padding-top: 200px;
+}
+
+.add-book-btn {
+    background-color: #0069ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.add-book-btn:hover {
+    background-color: #006affb9;
+    transition: all 0.8s ease-out;
+    transform: translateY(-1px);
+}
+
+.add-book-btn span {
+    margin-right: 5px;
+}
+
+.hero-actions {
+    display: flex;
+}
+
+.hero-banner {
+    background: linear-gradient(to right, #0069ff, #f57206d5);
+    border-radius: 10px;
+    padding: 30px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.hero-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    margin-bottom: 25px;
+    max-width: 600px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.primary-btn {
+    background-color: #FF9933;
+    border: none;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+}
+
+.primary-btn span {
+    margin-right: 8px;
+}
+
+.primary-btn:hover{
+    background-color: #ff9933a9;
+    transition: all 0.2s ease-in-out;
+}
+
+.secondary-btn {
+    background-color: rgba(255, 255, 255, 0.13);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.493);
+    font-weight: 400;
+   
+}
+.secondary-btn:hover{
+    color: #000000c4;
+    background-color: rgba(255, 255, 255, 0.288);
+    transition: all 0.2s ease-in-out;
+}
+
+.categories-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.categories-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.category-pill {
+    padding: 8px 15px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.category-pill:hover {
+    background-color: #006aff98;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.category-active {
+    background-color: #0069ff;
+    color: white;
+}
+
+.category-inactive {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.book-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.book-image {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-details {
+    padding: 15px;
+}
+
+.book-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.book-price {
+    color: #0069ff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.book-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.book-tag {
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.book-seller {
+    font-size: 12px;
+    color: #666;
+}
+
+.category {
+    width: 30%;
+    padding: 3px;
+    font-size: 13px;
+    border-radius: 20px;
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.253);
+    cursor: pointer;
+    text-align: center;
+}
+.category:hover{
+    background-color: #006aff;
+    transition: all 0.2s ease-in-out;
+    color: white;
+}

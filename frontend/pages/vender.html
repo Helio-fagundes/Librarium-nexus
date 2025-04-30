@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venda</title>
+    <link rel="stylesheet" href="/css/vender.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="/img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar livros...">
+            <button>Buscar</button>
+        </div>
+
+
+
+        <div class="user-actions">
+            <box-icon name='chat'></box-icon>
+            <div class="dropdown">
+                <div class="user-profile"><img src="/img/picapau.png" alt=""></div>
+                <ul class="dropuser">
+                    <span>Você</span> <br>
+                    <span>you@example.com</span>
+                    <li>Meus livros</li>
+                    <li>Vender livros</li>
+                    <li>Mensagens</li>
+                    <li>Sair</li>
+                </ul>
+            </div>
+        </div>
+        
+    </header>
+    <div class="container">
+        <h1>Vender um livro</h1>
+        <p class="subtitulo">Preencha os detalhes do livro que você deseja vender.</p>
+    
+        <form class="formulario">
+          <div class="imagem-capa">
+            <div class="imagem-preview">Sem imagem</div>
+            <label for="imagem" class="custom-file-upload">Escolher imagem</label>
+            <input type="file" id="imagem" name="imagem" value="">
+            <small>Carregue uma imagem de capa para o livro (recomendado: formato 2:3)</small>
+          </div>
+    
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" placeholder="Título do livro" required>
+    
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" placeholder="Descreva o estado e detalhes do livro" rows="4" required></textarea>
+    
+          <label for="preco">Preço (R$)</label>
+          <input type="number" id="preco" step="0.01" placeholder="99.90" required>
+    
+          <label for="estado">Categorias</label>
+          <select id="estado">
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+          </select>
+    
+          <label for="estado">Estado do Livro</label>
+          <select id="estado">
+            <option value="bom">Bom</option>
+            <option value="ótimo">Ótimo</option>
+            <option value="novo">Novo</option>
+            <option value="usado">Usado</option>
+          </select>
+    
+          <div class="botoes">
+            <button type="button" class="cancelar">Cancelar</button>
+            <button type="submit" class="publicar">Publicar Livro</button>
+          </div>
+        </form>
+      </div>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="/js/vender.js"></script>
+</body>
+
+</html>

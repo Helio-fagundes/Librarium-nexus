@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarium Nexus</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="/img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar livros...">
+            <button>Buscar</button>
+        </div>
+
+        <div class="user-actions">
+           <a href="vender.html" target="_blank"><button class="add-book-btn"><span>+</span>Vender livro</button></a> 
+           <a href="/pages/chat.html"><box-icon name='chat'></box-icon></a>
+            <div class="dropdown">
+                <div class="user-profile"><img src="/img/picapau.png" alt=""></div>
+                <ul class="dropuser">
+                    <span>Você</span> <br>
+                    <span>you@example.com</span>
+                    <li>Meus livros</li>
+                    <li>Vender livros</li>
+                    <li>Mensagens</li>
+                    <li>Sair</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <h1 class="site-title">Librarium  Nexus</h1>
+        <div class="hero-banner">
+            <h2 class="hero-title">Compre e venda livros de forma fácil</h2>
+            <p class="hero-subtitle">Encontre livros especiais ou venda os que já leu. Conecte-se diretamente com
+                compradores e vendedores da sua região.</p>
+            <div class="hero-actions">
+                <div>
+                    <button class="btn primary-btn"><box-icon name='book-bookmark'></box-icon><span></span>Comece a
+                        vender</button>
+                </div>
+                <button class="btn secondary-btn">Ver meu dashboard</button>
+            </div>
+        </div>
+
+        <div class="categories-section">
+            <h3 class="section-title">Categorias</h3>
+            <div class="categories-container">
+                <div class="category-pill category-active">Todas</div>
+                <div class="category-pill category-inactive">Astronomia</div>
+                <div class="category-pill category-inactive">Aventura</div>
+                <div class="category-pill category-inactive">Ciência</div>
+                <div class="category-pill category-inactive">Clássico</div>
+                <div class="category-pill category-inactive">Distopia</div>
+                <div class="category-pill category-inactive">Fantasia</div>
+                <div class="category-pill category-inactive">Ficção</div>
+                <div class="category-pill category-inactive">Ficção Científica</div>
+                <div class="category-pill category-inactive">Juvenil</div>
+                <div class="category-pill category-inactive">Política</div>
+            </div>
+        </div>
+
+        <div class="books-section">
+            <h3 class="section-title">Livros disponíveis</h3>
+            <div class="books-grid">
+                <!-- Placeholders para os livros -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <span></span>
+                    </div>
+                    <div class="book-details">
+                        <div>
+                        <div class="book-title">O Senhor dos Anéis</div>
+                        <div class="book-price">R$ 89,90</div>
+                    </div>
+                        <div class="book-tags">
+                            <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;">Como novo</span>
+                        </div>
+                        <div class="book-seller">Vendedor: João Silva</div>
+                    </div>
+                </div>
+
+                <!-- Espaço para 4 outros livros semelhantes -->
+                <div class="book-card">
+                    <div class="book-image">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-image">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-image">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-image">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="livros-container"></div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+
+</html>

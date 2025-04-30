@@ -1,0 +1,44 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo circular -->
+  <circle cx="160" cy="160" r="160" fill="#0a2e4a"/>
+  
+  <!-- Livros empilhados formando um "N" -->
+  <g>
+    <!-- Primeiro livro (base do N) -->
+    <rect x="80" y="200" width="160" height="30" rx="2" fill="#d4af37"/>
+    <rect x="80" y="196" width="160" height="8" rx="1" fill="#e6c457"/>
+    
+    <!-- Segundo livro (lado esquerdo do N) -->
+    <rect x="80" y="90" width="30" height="110" rx="2" fill="#8b5a2b"/>
+    <rect x="80" y="90" width="30" height="8" rx="1" fill="#a67c52"/>
+    
+    <!-- Terceiro livro (diagonal do N) -->
+    <polygon points="112,90 142,200 172,200 142,90" fill="#903030"/>
+    <polygon points="112,90 142,98 172,98 142,90" fill="#b04040"/>
+    
+    <!-- Quarto livro (lado direito do N) -->
+    <rect x="210" y="90" width="30" height="110" rx="2" fill="#285e36"/>
+    <rect x="210" y="90" width="30" height="8" rx="1" fill="#3a7f4a"/>
+  </g>
+  
+  <!-- Conexões entre os livros (representando "nexus") -->
+  <path d="M110 150 Q160 130 210 150" stroke="#d4af37" stroke-width="3" fill="none"/>
+  <path d="M110 170 Q160 150 210 170" stroke="#d4af37" stroke-width="3" fill="none"/>
+  
+  <!-- Faixa arqueada com o nome -->
+  <path d="M 50 240 A 110 110 0 0 0 270 240" fill="#0a2e4a" stroke="#d4af37" stroke-width="2"/>
+  
+  <!-- Elemento de destaque: pequeno marcador de página -->
+  <path d="M160 85 L170 85 L170 115 L165 110 L160 115 Z" fill="#d4af37"/>
+  
+  <!-- Pequenas estrelas para dar um aspecto místico ao "Nexus" -->
+  <g fill="#ffffff">
+    <circle cx="90" cy="120" r="2"/>
+    <circle cx="120" cy="110" r="1.5"/>
+    <circle cx="180" cy="120" r="2"/>
+    <circle cx="220" cy="130" r="1.5"/>
+    <circle cx="150" cy="180" r="2"/>
+    <circle cx="110" cy="190" r="1"/>
+    <circle cx="200" cy="185" r="1"/>
+  </g>
+</svg>
