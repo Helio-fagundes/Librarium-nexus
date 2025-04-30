@@ -1,9 +1,10 @@
-body{
+body {
     margin: 0;
     padding: 0;
+    display: flex;
     align-items: center;
     justify-content: center;
-  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
@@ -16,6 +17,30 @@ body{
     top: 0;
     background-color: #e0e0e06b;
     backdrop-filter: blur(20px);
+}
+
+.add-book-btn {
+    background-color: #0069ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.add-book-btn:hover {
+    background-color: #006affb9;
+    transition: all 0.8s ease-out;
+    transform: translateY(-1px);
 }
 
 .logo-container {
@@ -48,7 +73,8 @@ body{
     background-color: #f5f5f5;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.397);
 }
-.search-input:focus{
+
+.search-input:focus {
     outline: 2px solid #0069ff;
 }
 
@@ -66,28 +92,30 @@ body{
     font-size: 15px;
     margin-left: 10px;
 }
-.search-container button:hover{
+
+.search-container button:hover {
     background-color: #69a8ff2f;
     transition: all 0.2s ease-in-out;
 }
 
 
-.user-actions box-icon{
+.user-actions box-icon {
     position: relative;
     width: 50px;
     height: 50px;
     margin: 15px;
     padding: 12px;
-    
+
 }
-.user-actions box-icon:hover{
+
+.user-actions box-icon:hover {
     cursor: pointer;
     background-color: #8f8f8f2a;
     border-radius: 10px;
     backdrop-filter: blur(20px);
 }
 
-.user-actions{
+.user-actions {
     display: flex;
     align-items: center;
 }
@@ -100,7 +128,8 @@ body{
     overflow: hidden;
     margin: 20px;
 }
-.user-profile:hover{
+
+.user-profile:hover {
     cursor: pointer;
     outline: 5px solid rgba(99, 99, 99, 0.219);
 }
@@ -136,7 +165,7 @@ body{
 
 
 
-.dropdown ul li{
+.dropdown ul li {
     display: block;
     list-style: none;
     margin-top: 10px;
@@ -144,11 +173,12 @@ body{
     padding: 5px;
 }
 
-.dropdown ul li:hover{
+.dropdown ul li:hover {
     background-color: #006aff1a;
     cursor: pointer;
     border-radius: 5px;
 }
+
 .site-title {
     font-size: 28px;
     margin-bottom: 20px;
@@ -158,17 +188,41 @@ body{
 
 
 /* CHAT */
-#chat-container{
+
+main {
+    align-items: center;
+}
+#chat-container {
     margin-top: 200px;
+    margin-left: 10px;
 }
 
 
-#chat-container #insert-chat{
+#chat-container #insert-chat {
+    width: 1350px;
     display: block;
 }
 
 
-#chat-container #insert-chat .chat{
+#chat-container #insert-chat .chat {
     width: 100%;
-    background-color: #0069ff;
+    display: flex;
+    background-color: #006aff09;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #006aff77;
+}
+
+.user-chat{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #ccc;
+    overflow: hidden;
+    margin: 20px;
+}
+.user-chat img {
+    width: 100%;
+    height: 100%;
 }
