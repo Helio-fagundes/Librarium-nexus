@@ -40,6 +40,7 @@ public class ChatService {
 
             offlineMessages.remove(userId);
             return messages;
+
         }
         return new ArrayList<>();
     }
