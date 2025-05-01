@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librarium Nexus</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="css/index.css">
+
 </head>
 
 <body>
     <header class="header">
         <div class="logo-container">
-            <img src="../img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
+            <img src="img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
+
         </div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Buscar livros...">
@@ -19,10 +21,13 @@
         </div>
 
         <div class="user-actions">
-           <a href="vender.html" target="_blank"><button class="add-book-btn"><span>+</span>Vender livro</button></a> 
-           <a href="../pages/chat.html"><box-icon name='chat'></box-icon></a>
+<<<<<<< HEAD:frontend/pages/index.html
+=======
+            <a href="pages/vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
+            <a href="pages/chat.html"><box-icon name='chat'></box-icon></a>
             <div class="dropdown">
-                <div class="user-profile"><img src="../img/picapau.png" alt=""></div>
+                <div class="user-profile"><img src="img/pessoa.png" alt=""></div>
+>>>>>>> 6c0a189192e2315a8a0013b8f6258c88834f7b32:frontend/index.html
                 <ul class="dropuser">
                     <span>Você</span> <br>
                     <span>you@example.com</span>
@@ -30,14 +35,13 @@
                     <li>Vender livros</li>
                     <li>Mensagens</li>
                     <li>Sair</li>
-                    
                 </ul>
             </div>
         </div>
     </header>
 
     <div class="main-content">
-        <h1 class="site-title">Librarium  Nexus</h1>
+        <h1 class="site-title">Librarium Nexus</h1>
         <div class="hero-banner">
             <h2 class="hero-title">Compre e venda livros de forma fácil</h2>
             <p class="hero-subtitle">Encontre livros especiais ou venda os que já leu. Conecte-se diretamente com
@@ -78,9 +82,9 @@
                     </div>
                     <div class="book-details">
                         <div>
-                        <div class="book-title">O Senhor dos Anéis</div>
-                        <div class="book-price">R$ 89,90</div>
-                    </div>
+                            <div class="book-title">O Senhor dos Anéis</div>
+                            <div class="book-price">R$ 89,90</div>
+                        </div>
                         <div class="book-tags">
                             <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;">Como novo</span>
                         </div>
@@ -113,9 +117,12 @@
         </div>
     </div>
     <div id="livros-container"></div>
- 
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../js/script.js"></script>
+
+    <script src="js/script.js"></script>
+
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
+
 </html>
