@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.hateoas.RepresentationModel;
 
-import java.util.List;
-
 
 @Getter
 @Setter
@@ -26,8 +24,5 @@ public class LivrosEntity extends RepresentationModel<LivrosEntity>{
     private Double preco;
     private Integer id_autor;
     private Integer id_categorias;
-
-    @OneToMany(mappedBy = "id_livros")
-    private List<FeedbackEntity> feedbacks;
 
 }
