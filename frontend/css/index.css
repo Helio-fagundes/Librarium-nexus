@@ -1,12 +1,9 @@
-* {
+body {
+    background-color: #FFF9C4;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: #f3f3f3;
 }
 
 .header {
@@ -52,7 +49,7 @@ a{
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.397);
 }
 .search-input:focus{
-    outline: 2px solid #0069ff;
+    outline: 2px solid  #FBC02D;
 }
 
 .search-container button {
@@ -70,8 +67,9 @@ a{
     margin-left: 10px;
 }
 .search-container button:hover{
-    background-color: #69a8ff2f;
+    background-color:  #fbc12d59;
     transition: all 0.2s ease-in-out;
+    color: #333333;
 }
 
 
@@ -103,6 +101,10 @@ a{
     overflow: hidden;
     margin: 20px;
 }
+.user-profile img{
+    width: 100%;
+    height: 100%;
+}
 .user-profile:hover{
     cursor: pointer;
     outline: 5px solid rgba(99, 99, 99, 0.219);
@@ -123,6 +125,7 @@ a{
     width: 200px;
     height: 230px;
     background-color: #FFFFFF;
+    top: 70px;
     right: 100px;
     margin-top: 10px;
     border-radius: 10px;
@@ -160,7 +163,7 @@ a{
 }
 
 .add-book-btn {
-    background-color: #0069ff;
+    background-color: #FBC02D;
     color: white;
     border: none;
     border-radius: 5px;
@@ -174,7 +177,7 @@ a{
 }
 
 .add-book-btn:hover {
-    background-color: #006affb9;
+    background-color: #F57F17;
     transition: all 0.8s ease-out;
     transform: translateY(-1px);
 }
@@ -188,10 +191,10 @@ a{
 }
 
 .hero-banner {
-    background: linear-gradient(to right, #0069ff, #f57206d5);
+    background: linear-gradient(to right, #FFF176, #f57206d5);
     border-radius: 10px;
     padding: 30px;
-    color: white;
+    color: #333333;
     margin-bottom: 30px;
 }
 
@@ -235,7 +238,7 @@ a{
 
 .secondary-btn {
     background-color: rgba(255, 255, 255, 0.13);
-    color: white;
+    color: #000000c4;
     border: 1px solid rgba(255, 255, 255, 0.493);
     font-weight: 400;
    
@@ -272,13 +275,13 @@ a{
 }
 
 .category-pill:hover {
-    background-color: #006aff98;
+    background-color: #FBC02D;
     color: white;
     transition: all 0.5s ease-in-out;
 }
 
 .category-active {
-    background-color: #0069ff;
+    background-color: #FBC02D;
     color: white;
 }
 
@@ -294,14 +297,15 @@ a{
 }
 
 .book-card {
-    background-color: #fff;
+    height: 400px;
+    background-color: #f8AE61;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 10px 10px 50px rgba(61, 61, 61, 0.301);
 }
 
 .book-image {
-    width: 200px;
+    width: 100%;
     height: 200px;
     background-color: #f0f0f0;
     display: flex;

@@ -4,14 +4,19 @@ const drop = document.querySelector(".dropuser");
 
 const datetext = document.querySelector("#date");
 
-const newdate = new Date();
-const gethours = newdate.getHours();
-const getmin = newdate.getMinutes();
-console.log(gethours)
 
-datetext.innerHTML = `${gethours}:${getmin}`
+function GetDateTime() {
+    const date = new Date();
+    return date.toLocaleString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
 
-
+datetext.innerHTML = GetDateTime();
 
 userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
