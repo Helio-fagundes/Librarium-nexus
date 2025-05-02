@@ -24,6 +24,9 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<UsuarioEntity> saveUsuario(@RequestBody @Valid UsuarioRecordDto dto) {
+        if(usuarioService.getByEmail(dto.email()).isPresent()){
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+        }
         UsuarioEntity savedUsuario = usuarioService.save(dto);
         savedUsuario.add(linkTo(methodOn(UsuarioController.class)
                 .getUsuarioById(savedUsuario.getId_usuario())).withSelfRel());

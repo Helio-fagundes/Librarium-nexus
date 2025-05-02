@@ -30,6 +30,10 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
+    public Optional<UsuarioEntity> getByEmail(String email){
+        return usuarioRepository.findByEmail(email);
+    }
+
     public UsuarioEntity update(Integer id, UsuarioRecordDto dto){
         UsuarioEntity usuario = usuarioRepository.findById(id).get();
         BeanUtils.copyProperties(dto, usuario);
