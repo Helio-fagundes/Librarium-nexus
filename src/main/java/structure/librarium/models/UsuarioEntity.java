@@ -19,6 +19,8 @@ public class UsuarioEntity extends RepresentationModel<UsuarioEntity> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id_usuario;
     private String nome;
+    private String email;
+    private String senha;
     private String cpf;
     private String adress;
     private String tell;

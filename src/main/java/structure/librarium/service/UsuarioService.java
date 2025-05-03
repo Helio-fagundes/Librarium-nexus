@@ -3,6 +3,7 @@ package structure.librarium.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import structure.librarium.config.BCrypt.SenhaUtils;
 import structure.librarium.dto.UsuarioRecordDto;
 import structure.librarium.models.UsuarioEntity;
 import structure.librarium.repository.UsuarioRepository;
@@ -19,6 +20,8 @@ public class UsuarioService {
     public UsuarioEntity save(UsuarioRecordDto dto){
         UsuarioEntity usuario = new UsuarioEntity();
         BeanUtils.copyProperties(dto, usuario, "version");
+        String password = new SenhaUtils().encrypt_senha(dto.senha());
+        usuario.setSenha(password);
         return usuarioRepository.save(usuario);
     }
 
@@ -28,6 +31,10 @@ public class UsuarioService {
 
     public Optional<UsuarioEntity> getById(Integer id){
         return usuarioRepository.findById(id);
+    }
+
+    public Optional<UsuarioEntity> getByEmail(String email){
+        return usuarioRepository.findByEmail(email);
     }
 
     public UsuarioEntity update(Integer id, UsuarioRecordDto dto){
