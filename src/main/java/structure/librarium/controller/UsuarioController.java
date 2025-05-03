@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import structure.librarium.config.BCrypt.SenhaUtils;
 import structure.librarium.dto.UsuarioRecordDto;
 import structure.librarium.models.UsuarioEntity;
 import structure.librarium.service.UsuarioService;
@@ -22,8 +23,8 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
-    @PostMapping
-    public ResponseEntity<UsuarioEntity> saveUsuario(@RequestBody @Valid UsuarioRecordDto dto) {
+    @PostMapping("/registrar")
+    public ResponseEntity<UsuarioEntity> registrarUsuario(@RequestBody @Valid UsuarioRecordDto dto) {
         if(usuarioService.getByEmail(dto.email()).isPresent()){
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         }
@@ -32,6 +33,24 @@ public class UsuarioController {
                 .getUsuarioById(savedUsuario.getId_usuario())).withSelfRel());
         return ResponseEntity.status(HttpStatus.CREATED).body(savedUsuario);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<Object> loginUsuario(@RequestBody @Valid UsuarioRecordDto dto){
+        if(usuarioService.getByEmail(dto.email()).isPresent()){
+            Optional<UsuarioEntity> usuario = usuarioService.getByEmail(dto.email());
+            SenhaUtils senhaUtils = new SenhaUtils();
+            if(senhaUtils.verificar_senha(dto.senha(), usuario.get().getSenha())){
+                UsuarioEntity usuarioUnidade = usuario.get();
+                usuarioUnidade.add(linkTo(methodOn(UsuarioController.class)
+                        .getUsuarioById(usuarioUnidade.getId_usuario())).withSelfRel());
+                return ResponseEntity.ok("usuario logado com sucesso");
+            } else{
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("senha incorreta");
+            }
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("esse email não existe");
+    }
+
 
     @GetMapping
     public ResponseEntity<List<UsuarioEntity>> getAllUsuarios(){
