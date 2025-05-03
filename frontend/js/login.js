@@ -1,0 +1,1 @@
+const btnback = document.querySelector(".btnregister");

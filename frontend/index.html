@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librarium Nexus</title>
     <link rel="stylesheet" href="css/index.css">
-
 </head>
 
 <body>
     <header class="header">
         <div class="logo-container">
             <img src="img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
-
         </div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Buscar livros...">
@@ -50,7 +48,7 @@
                     <button class="btn primary-btn"><box-icon name='book-bookmark'></box-icon><span></span>Comece a
                         vender</button>
                 </div>
-                <button class="btn secondary-btn">Ver meu dashboard</button>
+                <a href="pages/dashboard.html"><button class="btn secondary-btn">Ver meu dashboard</button></a>
             </div>
         </div>
 
@@ -76,92 +74,56 @@
             <div class="books-grid">
                 <!-- Placeholders para os livros -->
                 <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                    <div class="book-details">
-                        <div>
-                            <div class="book-title">O Senhor dos Anéis</div>
-                            <div class="book-price">R$ 89,90</div>
-                        </div>
-                        <div class="book-tags">
-                            <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;">Como novo</span>
-                        </div>
-                        <div class="book-seller">Vendedor: João Silva</div>
+                 
                     </div>
                 </div>
 
-                <!-- Espaço para 4 outros livros semelhantes -->
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+               
 
     <!-- SO SERA EXIBIDO AO CLICAR EM ALGUIM LIVRO -->
-    <div id="book-click">
-        <div class="img-livro">
-            <img src="img/book.png" alt="" srcset="">
+    <div class="container">
+        <a href="#" class="back">← Voltar para a página inicial</a>
+    
+        <div class="book-details-info">
+          <div class="book-image-info">
+            <img src="https://via.placeholder.com/250x350" alt="O Senhor dos Anéis">
+          </div>
+    
+          <div class="book-info">
+            <div class="title-price">
+              <h1>O Senhor dos Anéis</h1>
+              <span class="price">R$ 89,90</span>
+            </div>
+    
+            <div class="tags">
+              <span>Fantasia</span>
+              <span>Aventura</span>
+            </div>
+    
+            <div class="views">
+              <span class="condition">Novo</span>
+            </div>
+    
+            <div class="description">
+              <h3>Descrição</h3>
+              <p>Trilogia clássica de J.R.R. Tolkien. Livro em excelente estado, edição especial com mapas e ilustrações.</p>
+            </div>
+    
+            <div class="seller">
+              <div class="avatar"><img src="img/pessoa.png" alt=""></div>
+              <div>
+                <strong>João Silva</strong><br>
+                <small>Vendedor</small>
+              </div>
+            </div>
+    
+            <button class="message-btn">
+               Enviar mensagem
+            </button>
+          </div>
         </div>
-        
-        <div class="inf-book">
-            <div id="container-book">
-                <h1 id="book-name">
-                    Livro
-                </h1>
-                <span class="caetegories">
-                    Ficção
-                </span><br>
-                <span class="State">NOVO</span>
-            </div>
-
-            <span class="price">R$ 29.99</span><br>
-
-            <div>
-                <h4>Descrição</h4>
-                <p class="description">Trilogia clássica de J.R.R. Tolkien. Livro em excelente estado, edição
-                    especial com mapas e ilustrações.</p>
-            </div>
-
-            <div id="container-user">
-                <div class="fix">
-                <div class="user-img">
-                    <img src="img/pessoa.png" alt="">
-                </div>
-                <div class="user-info">
-                <h4 class="user-name">
-                    Eduarda
-                </h4>
-                <span class="title-user">
-                    Vendedor
-                </span>
-            </div>
-            </div>
-                <button class="msg"><box-icon name='chat'></box-icon>Enviar mensagem</button>
-            </div>
-        </div>
-        <div class="backpage"><h4>← Voltar para a página inicial</h4></div>
-    </div>
-    <!--              -->
-    <div id="livros-container"></div>
+      </div>
+      <!-- EXIBIR LIVRO -->
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
