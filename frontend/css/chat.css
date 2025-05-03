@@ -34,9 +34,10 @@ body {
     font-size: 15px;
 }
 
-a {
+a{
     text-decoration: none;
-}
+    color: #333;
+  }
 
 .add-book-btn:hover {
     background-color: #F57F17;
@@ -50,8 +51,8 @@ a {
 }
 
 .logo-img {
-    width: 200px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-left: 50px;
 }
 

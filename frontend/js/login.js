@@ -6,7 +6,7 @@ const formregister = document.querySelector(".form-register");
 
 const backlogin = document.querySelector(".btnlogin");
 
-// Vai para o formulário de registro
+
 btnback.addEventListener("click", () => {
     formlogin.classList.remove("flex");
     formlogin.classList.add("hidden");
@@ -14,7 +14,7 @@ btnback.addEventListener("click", () => {
     formregister.classList.add("flex");
 });
 
-// Volta para o formulário de login
+
 backlogin.addEventListener("click", () => {
     formregister.classList.remove("flex");
     formregister.classList.add("hidden");

@@ -15,9 +15,9 @@ body {
     background-color: #e0e0e06b;
     backdrop-filter: blur(20px);
 }
-
 a{
-    text-decoration: none;
+  text-decoration: none;
+  color: #333;
 }
 
 .logo-container {
