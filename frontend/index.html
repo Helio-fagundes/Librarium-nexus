@@ -19,18 +19,18 @@
         </div>
 
         <div class="user-actions">
-
             <a href="pages/vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
             <a href="pages/chat.html"><box-icon name='chat'></box-icon></a>
             <div class="dropdown">
-                <div class="user-profile"><img src="img/pessoa.png" alt=""></div>
-
+                <div class="user-profile">
+                    <img src="img/pessoa.png" alt="Foto do usuário">
+                </div>
                 <ul class="dropuser">
                     <span>Você</span> <br>
                     <span>you@example.com</span>
-                    <a href="dashboard.html"><li>Meus livros</li></a>
-                    <a href="vender.html"><li>Vender livros</li></a>
-                    <a href="chat.html"><li>Mensagens</li></a>
+                    <a href="pages/dashboard.html"><li>Meus livros</li></a>
+                    <a href="/pages/vender.html"><li>Vender livros</li></a>
+                    <a href="/pages/chat.html"><li>Mensagens</li></a>
                     <li>Sair</li>
                 </ul>
             </div>
@@ -45,10 +45,16 @@
                 compradores e vendedores da sua região.</p>
             <div class="hero-actions">
                 <div>
-                    <button class="btn primary-btn"><box-icon name='book-bookmark'></box-icon><span></span>Comece a
-                        vender</button>
+                    <a href="pages/vender.html">
+                        <button class="btn primary-btn">
+                            <box-icon name='book-bookmark'></box-icon>
+                            <span></span>Comece a vender
+                        </button>
+                    </a>
                 </div>
-                <a href="pages/dashboard.html"><button class="btn secondary-btn">Ver meu dashboard</button></a>
+                <a href="pages/dashboard.html">
+                    <button class="btn secondary-btn">Ver meu dashboard</button>
+                </a>
             </div>
         </div>
 
@@ -68,64 +74,66 @@
                 <div class="category-pill category-inactive">Política</div>
             </div>
         </div>
-        
+
         <div class="books-section">
             <h3 class="section-title">Livros disponíveis</h3>
             <div class="books-grid">
-                <!-- Placeholders para os livros -->
-                <div class="book-card">
-                 
-                    </div>
+            
+            </div>
+            </div>
+        </div>
+
+        <!-- SO SERA EXIBIDO AO CLICAR EM ALGUM LIVRO -->
+        <div class="container">
+            <a href="#" class="back">← Voltar para a página inicial</a>
+
+            <div class="book-details-info">
+                <div class="book-image-info">
+                    <img src="" alt="O Senhor dos Anéis">
                 </div>
 
-               
+                <div class="book-info">
+                    <div class="title-price">
+                        <h1>O Senhor dos Anéis</h1>
+                        <span class="price">R$ 89,90</span>
+                    </div>
 
-    <!-- SO SERA EXIBIDO AO CLICAR EM ALGUIM LIVRO -->
-    <div class="container">
-        <a href="#" class="back">← Voltar para a página inicial</a>
-    
-        <div class="book-details-info">
-          <div class="book-image-info">
-            <img src="https://via.placeholder.com/250x350" alt="O Senhor dos Anéis">
-          </div>
-    
-          <div class="book-info">
-            <div class="title-price">
-              <h1>O Senhor dos Anéis</h1>
-              <span class="price">R$ 89,90</span>
+                    <div class="tags">
+                        <span>Fantasia</span>
+                        <span>Aventura</span>
+                    </div>
+
+                    <div class="views">
+                        <span class="condition">Novo</span>
+                    </div>
+
+                    <div class="description">
+                        <h3>Descrição</h3>
+                        <p>Trilogia clássica de J.R.R. Tolkien. Livro em excelente estado, edição especial com mapas e
+                            ilustrações.</p>
+                    </div>
+
+                    <div class="seller">
+                        <div class="avatar">
+                            <img src="img/pessoa.png" alt="Foto do vendedor">
+                        </div>
+                        <div>
+                            <strong>João Silva</strong><br>
+                            <small>Vendedor</small>
+                        </div>
+                    </div>
+
+                    <button class="message-btn">
+                        Enviar mensagem
+                    </button>
+                </div>
             </div>
-    
-            <div class="tags">
-              <span>Fantasia</span>
-              <span>Aventura</span>
-            </div>
-    
-            <div class="views">
-              <span class="condition">Novo</span>
-            </div>
-    
-            <div class="description">
-              <h3>Descrição</h3>
-              <p>Trilogia clássica de J.R.R. Tolkien. Livro em excelente estado, edição especial com mapas e ilustrações.</p>
-            </div>
-    
-            <div class="seller">
-              <div class="avatar"><img src="img/pessoa.png" alt=""></div>
-              <div>
-                <strong>João Silva</strong><br>
-                <small>Vendedor</small>
-              </div>
-            </div>
-    
-            <button class="message-btn">
-               Enviar mensagem
-            </button>
-          </div>
         </div>
-      </div>
-      <!-- EXIBIR LIVRO -->
-    <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!-- EXIBIR LIVRO -->
+
+    </div>
+
+    <script src="/js/script.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 

@@ -1,13 +1,16 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8fafc;
+    background: #FFF9C4;
     margin: 0;
     padding: 0;
     display: flex;
     height: 100vh;
 }
 
-
+a{
+    text-decoration: none;
+    color: #000000;
+}
 
 .container {
     max-width: 1000px;
@@ -132,8 +135,8 @@ a {
 }
 
 .logo-img {
-    width: 200px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-left: 50px;
 }
 

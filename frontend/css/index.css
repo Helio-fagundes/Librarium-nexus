@@ -17,7 +17,7 @@ body {
 }
 a{
   text-decoration: none;
-  color: #333;
+  color: #000000;
 }
 
 .logo-container {
@@ -300,7 +300,7 @@ a{
 
 .book-card {
     width: 230px;
-    height: 350px;
+    height: 370px auto;
     background-color: #f8AE61;
     border-radius: 8px;
     overflow: hidden;
@@ -357,9 +357,9 @@ a{
 }
 
 .category {
-    width: 30%;
-    padding: 3px;
-    font-size: 13px;
+    width: 25%;
+    padding: 1px;
+    font-size: 11px;
     border-radius: 20px;
     margin: 10px;
     background-color: #fff;
@@ -369,9 +369,9 @@ a{
 }
 
 .category:hover{
-    background-color: #006aff;
+    background-color: #FBC02D;
     transition: all 0.2s ease-in-out;
-    color: white;
+    color: rgb(26, 26, 26);
 }
 
 /*                          INFO BOOK           */
