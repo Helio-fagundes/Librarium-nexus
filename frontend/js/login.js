@@ -101,7 +101,7 @@ formregister.addEventListener("submit", (e) => {
         password: getValue(Regispassword),
       };
 
-      fetch('http://localhost:8080/api/usuarios', {
+      fetch('http://localhost:8080/usuario/registrar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
