@@ -6,7 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import structure.librarium.config.BCrypt.SenhaUtils;
-import structure.librarium.dto.UsuarioRecordDto;
+import structure.librarium.dto.LoginRecordDto;
+import structure.librarium.dto.RegistrarRecordDto;
 import structure.librarium.models.UsuarioEntity;
 import structure.librarium.service.UsuarioService;
 
@@ -19,12 +20,13 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/usuario")
+@CrossOrigin(origins = {"http://127.0.0.1:5500", "http://localhost:5500", "http://localhost:3000", "http://127.0.0.1:5500/pages/login.html"})
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<UsuarioEntity> registrarUsuario(@RequestBody @Valid UsuarioRecordDto dto) {
+    public ResponseEntity<UsuarioEntity> registrarUsuario(@RequestBody @Valid RegistrarRecordDto dto) {
         if(usuarioService.getByEmail(dto.email()).isPresent()){
             return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
         }
@@ -35,7 +37,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Object> loginUsuario(@RequestBody @Valid UsuarioRecordDto dto){
+    public ResponseEntity<Object> loginUsuario(@RequestBody @Valid LoginRecordDto dto){
         if(usuarioService.getByEmail(dto.email()).isPresent()){
             Optional<UsuarioEntity> usuario = usuarioService.getByEmail(dto.email());
             SenhaUtils senhaUtils = new SenhaUtils();
@@ -82,7 +84,7 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateUsuario(@PathVariable(value = "id") Integer id,
-                                                        @RequestBody @Valid UsuarioRecordDto dto) {
+                                                        @RequestBody @Valid RegistrarRecordDto dto) {
         Optional<UsuarioEntity> usuario = usuarioService.getById(id);
         if(usuario.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário Não Encontrado");

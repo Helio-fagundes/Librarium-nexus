@@ -22,6 +22,6 @@ public class UsuarioEntity extends RepresentationModel<UsuarioEntity> {
     private String email;
     private String senha;
     private String cpf;
-    private String tell;
+    private String tel;
 
 }
