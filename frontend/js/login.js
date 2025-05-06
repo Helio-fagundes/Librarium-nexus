@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 const btnback = document.querySelector(".btnregister");
 
 const formlogin = document.querySelector(".form-container");
@@ -38,20 +40,6 @@ const emailInput = document.querySelector("#Email");
 const passwordInput = document.querySelector("#password");
 const btnLogin = document.querySelector(".Confirm-login");
 
-function setuser(nome, email, cpf, tel, senha){
-    const user = {
-        nome: nome,
-        email: email,
-        senha: senha,
-        CPF: cpf,
-        tel: tel
-        
-    };
-    USER.push(user);
-    localStorage.setItem("USUARIOS",JSON.stringify(USER));
-    console.log(USER);
-}
-
 
 /* GET VALUE */
 function getValue(input){
@@ -70,20 +58,37 @@ let logged = JSON.parse(localStorage.getItem("logged")) || [];
 /* LOGIN */
 btnLogin.addEventListener("click", (e) => {
     e.preventDefault();
-    
-    let getUser = USER.find(user => {
-        return user.email == getValue(emailInput) && user.password == getValue(passwordInput);
-    });
-
-
-    if (getUser) {
-        alert(`SEJA BEM VINDO ${getUser.name} `);
-        logged = [getUser];
-        localStorage.setItem("logged", JSON.stringify(logged))
-        direct();
-    } else {
-        alert("Email ou senha incorretos.");
+    const usuario = {
+        email: getValue(emailInput),
+        senha: getValue(passwordInput)
     }
+
+
+
+    fetch('http://localhost:8080/usuario/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(usuario) 
+    })
+    .then(async response => {
+        if (response.status === 401) {
+            throw new Error('Email ou senha incorretos');
+        }
+        return await response.json();
+    })
+    .then(user => {
+        alert('Login realizado com sucesso!');
+        console.log('Usuário logado:', user);
+        direct();
+    })
+    .catch(error => {
+        alert(error.message);
+        console.error(error);
+    });
 });
 
 

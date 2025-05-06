@@ -1,21 +1,11 @@
-const URL = "https://dummyjson.com/posts";
-
-const list = document.querySelector("#book");
+const URL = "http://localhost:8080/usuario/login";
 
 
 async function getAPI() {
     const resp = await fetch(URL);
     if (resp.status === 200) {
         const object = await resp.json();
-        const posts = object.posts;
-        const array = [];
-        array.push(object);
-        console.log(posts);
-        posts.forEach(post => {
-            const div = document.createElement("div");
-            list.appendChild(div);
-            div.innerHTML = `<p>${post.title}</p> <br> <p>${post.tags}</p>`
-        })
+       console.log(object)
     }
 }
 
