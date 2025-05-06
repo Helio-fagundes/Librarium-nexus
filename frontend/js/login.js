@@ -93,41 +93,38 @@ btnLogin.addEventListener("click", (e) => {
 formregister.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const formData = {
+    const usuario = {
         name: getValue(RegisName),
         email: getValue(RegisEmail),
         CPF: getValue(RegisCPF),
         tel: getValue(RegisTel),
         password: getValue(Regispassword),
-    }
-    
+      };
 
- let exist = USER.find(user => {
-   return getValue(RegisName) === user.name && getValue(RegisEmail) === user.email;
- })
+      fetch('http://localhost:8080/api/usuarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(usuario)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erro na requisição');
+        }
+        return response.json();
+      })
+      .then(data => {
+        alert('Usuário cadastrado com sucesso!');
+        console.log('Usuário criado:', data);
+      })
+      .catch(error => {
+        alert('Erro ao cadastrar usuário');
+        console.error(error);
+      });
 
- let cpf = USER.find(user => {
-    return getValue(RegisCPF) === user.CPF;
- })
-
- let tel = USER.find(user => {
-    return getValue(RegisTel) === user.tel;
- })
 
 
-
-    if (exist) {
-        alert("Nome ou email ja existe");
-    }else if(cpf){
-        alert("esse cpf ja foi cadastrado");
-    }else if (tel) {
-        alert("telefone ja cadatrado");
-    }else if (getValue(Regispassword) !== getValue(RegisconfirPass)) {
-        alert("A senha nao estao iguais");
-    }else{
-        alert("Cadastro concluido");
-        setuser(formData.name, formData.email, formData.CPF, formData.tel, formData.password);
-    }
 
     RegisName.value = "";
     RegisEmail.value = "";
@@ -135,7 +132,11 @@ formregister.addEventListener("submit", (e) => {
     RegisTel.value = "";
     Regispassword.value = "";
     RegisconfirPass.value = "";
-
-
-
 })
+
+
+
+
+
+
+
