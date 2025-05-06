@@ -38,13 +38,14 @@ const emailInput = document.querySelector("#Email");
 const passwordInput = document.querySelector("#password");
 const btnLogin = document.querySelector(".Confirm-login");
 
-function setuser(name, email, CPF, tel, password){
+function setuser(nome, email, cpf, tel, senha){
     const user = {
-        name: name,
+        nome: nome,
         email: email,
-        CPF: CPF,
-        tel: tel,
-        password: password
+        senha: senha,
+        CPF: cpf,
+        tel: tel
+        
     };
     USER.push(user);
     localStorage.setItem("USUARIOS",JSON.stringify(USER));
@@ -94,11 +95,12 @@ formregister.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const usuario = {
-        name: getValue(RegisName),
+        nome: getValue(RegisName),
         email: getValue(RegisEmail),
-        CPF: getValue(RegisCPF),
+        senha: getValue(Regispassword),
+        cpf: getValue(RegisCPF),
         tel: getValue(RegisTel),
-        password: getValue(Regispassword),
+        
       };
 
       fetch('http://localhost:8080/usuario/registrar', {
