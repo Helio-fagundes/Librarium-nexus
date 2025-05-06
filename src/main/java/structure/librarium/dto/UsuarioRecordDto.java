@@ -10,6 +10,5 @@ public record UsuarioRecordDto(
                                String email,
                                @NotBlank String senha,
                                @NotBlank String cpf,
-                               @NotBlank String adress,
                                @NotBlank String tell) {
 }
