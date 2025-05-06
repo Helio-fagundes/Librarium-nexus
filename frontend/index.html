@@ -6,34 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librarium Nexus</title>
     <link rel="stylesheet" href="css/index.css">
-
 </head>
 
 <body>
     <header class="header">
         <div class="logo-container">
             <img src="img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
-
         </div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Buscar livros...">
-            <button>Buscar</button>
+            <button class="btnsearch">Buscar</button>
         </div>
 
         <div class="user-actions">
-
             <a href="pages/vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
             <a href="pages/chat.html"><box-icon name='chat'></box-icon></a>
             <div class="dropdown">
-                <div class="user-profile"><img src="img/pessoa.png" alt=""></div>
-
+                <div class="user-profile">
+                    <img src="img/pessoa.png" alt="Foto do usuário">
+                </div>
                 <ul class="dropuser">
-                    <span>Você</span> <br>
-                    <span>you@example.com</span>
-                    <li>Meus livros</li>
-                    <li>Vender livros</li>
-                    <li>Mensagens</li>
-                    <li>Sair</li>
+                    <span class="user-name">Você</span> <br>
+                    <span class="user-email">you@example.com</span>
+                    <a href="pages/dashboard.html">
+                        <li>Meus livros</li>
+                    </a>
+                    <a href="/pages/vender.html">
+                        <li>Vender livros</li>
+                    </a>
+                    <a href="/pages/chat.html">
+                        <li>Mensagens</li>
+                    </a>
+                    <li class="exit" onclick="exituser()">Sair</li>
                 </ul>
             </div>
         </div>
@@ -47,10 +51,16 @@
                 compradores e vendedores da sua região.</p>
             <div class="hero-actions">
                 <div>
-                    <button class="btn primary-btn"><box-icon name='book-bookmark'></box-icon><span></span>Comece a
-                        vender</button>
+                    <a href="pages/vender.html">
+                        <button class="btn primary-btn">
+                            <box-icon name='book-bookmark'></box-icon>
+                            <span></span>Comece a vender
+                        </button>
+                    </a>
                 </div>
-                <button class="btn secondary-btn">Ver meu dashboard</button>
+                <a href="pages/dashboard.html">
+                    <button class="btn secondary-btn">Ver meu dashboard</button>
+                </a>
             </div>
         </div>
 
@@ -70,101 +80,66 @@
                 <div class="category-pill category-inactive">Política</div>
             </div>
         </div>
-        
+
         <div class="books-section">
             <h3 class="section-title">Livros disponíveis</h3>
+
             <div class="books-grid">
-                <!-- Placeholders para os livros -->
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                    <div class="book-details">
-                        <div>
-                            <div class="book-title">O Senhor dos Anéis</div>
-                            <div class="book-price">R$ 89,90</div>
-                        </div>
-                        <div class="book-tags">
-                            <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;">Como novo</span>
-                        </div>
-                        <div class="book-seller">Vendedor: João Silva</div>
-                    </div>
-                </div>
 
-                <!-- Espaço para 4 outros livros semelhantes -->
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                </div>
-                <div class="book-card">
-                    <div class="book-image">
-                        <span></span>
-                    </div>
-                </div>
             </div>
+
         </div>
     </div>
 
-    <!-- SO SERA EXIBIDO AO CLICAR EM ALGUIM LIVRO -->
-    <div id="book-click">
-        <div class="img-livro">
-            <img src="img/book.png" alt="" srcset="">
-        </div>
-        
-        <div class="inf-book">
-            <div id="container-book">
-                <h1 id="book-name">
-                    Livro
-                </h1>
-                <span class="caetegories">
-                    Ficção
-                </span><br>
-                <span class="State">NOVO</span>
+    <!-- SO SERA EXIBIDO AO CLICAR EM ALGUM LIVRO -->
+    <div class="container">
+        <button class="backcontent">← Voltar para a página inicial</button>
+        <div class="book-details-info">
+            <div class="book-image-info">
+                <img src="" alt="O Senhor dos Anéis">
             </div>
 
-            <span class="price">R$ 29.99</span><br>
-
-            <div>
-                <h4>Descrição</h4>
-                <p class="description">Trilogia clássica de J.R.R. Tolkien. Livro em excelente estado, edição
-                    especial com mapas e ilustrações.</p>
-            </div>
-
-            <div id="container-user">
-                <div class="fix">
-                <div class="user-img">
-                    <img src="img/pessoa.png" alt="">
+            <div class="book-info">
+                <div class="title-price">
+                    <h1 class="nameBook">O Senhor dos Anéis</h1>
+                    <span class="price">R$ 89,90</span>
                 </div>
-                <div class="user-info">
-                <h4 class="user-name">
-                    Eduarda
-                </h4>
-                <span class="title-user">
-                    Vendedor
-                </span>
-            </div>
-            </div>
-                <button class="msg"><box-icon name='chat'></box-icon>Enviar mensagem</button>
+
+                <div class="tags">
+                    <span class="categ">Fantasia</span>
+                </div>
+
+                <div class="views">
+                    <span class="condition">Novo</span>
+                </div>
+
+                <div class="description">
+                    <h3>Descrição</h3>
+                    <p>Trilogia clássica de J.R.R. Tolkien. Livro em excelente estado, edição especial com mapas e
+                        ilustrações.</p>
+                </div>
+
+                <div class="seller">
+                    <div class="avatar">
+                        <img src="img/pessoa.png" alt="Foto do vendedor">
+                    </div>
+                    <div>
+                        <strong>João Silva</strong><br>
+                        <small>Vendedor</small>
+                    </div>
+                </div>
+
+                <a href="/pages/chat.html"><button class="message-btn">
+                    Enviar mensagem
+                </button></a>
             </div>
         </div>
-        <div class="backpage"><h4>← Voltar para a página inicial</h4></div>
     </div>
-    <!--              -->
-    <div id="livros-container"></div>
-    <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- EXIBIR LIVRO -->
+
+    </div>
+
+    <script src="/js/script.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
-
 </html>

@@ -18,8 +18,6 @@
             <button>Buscar</button>
         </div>
 
-
-
         <div class="user-actions">
             <a href="/pages/chat.html"><box-icon name='chat'></box-icon></a>
             <div class="dropdown">
@@ -27,14 +25,13 @@
                 <ul class="dropuser">
                     <span>Você</span> <br>
                     <span>you@example.com</span>
-                    <li>Meus livros</li>
-                    <li>Vender livros</li>
-                    <li>Mensagens</li>
+                    <a href="dashboard.html"><li>Meus livros</li></a>
+                    <a href="vender.html"><li>Vender livros</li></a>
+                    <a href="chat.html"><li>Mensagens</li></a>
                     <li>Sair</li>
                 </ul>
             </div>
         </div>
-        
     </header>
     <div class="container">
         <h1>Vender um livro</h1>
@@ -57,12 +54,32 @@
           <label for="preco">Preço (R$)</label>
           <input type="number" id="preco" step="0.01" placeholder="99.90" required>
     
-          <label for="estado">Categorias</label>
-          <select id="estado">
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
+          <label for="categorias">Categorias</label>
+          <select id="category">
+            <option value="tecnologia">Tecnologia</option>
+            <option value="ficcao">Ficção</option>
+            <option value="romance">Romance</option>
+            <option value="aventura">Aventura</option>
+            <option value="biografia">Biografia</option>
+            <option value="classicos">Clássicos</option>
+            <option value="ciencia">Ciência</option>
+            <option value="ciencia-ficcao">Ciência Ficção</option>
+            <option value="desenvolvimento-pessoal">Desenvolvimento Pessoal</option>
+            <option value="direito">Direito</option>
+            <option value="educacao">Educação</option>
+            <option value="espiritualidade">Espiritualidade</option>
+            <option value="fantasia">Fantasia</option>
+            <option value="gastronomia">Gastronomia</option>
+            <option value="historico">Histórico</option>
+            <option value="infantil">Infantil</option>
+            <option value="jovem-adulto">Jovem Adulto</option>
+            <option value="misterio">Mistério</option>
+            <option value="negocios">Negócios</option>
+            <option value="poesia">Poesia</option>
+            <option value="religiao">Religião</option>
+            <option value="suspense">Suspense</option>
+            <option value="terror">Terror</option>
+            <option value="viagens">Viagens</option>
           </select>
     
           <label for="estado">Estado do Livro</label>

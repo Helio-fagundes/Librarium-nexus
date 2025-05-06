@@ -1,83 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Meus Livros</title>
-  <link rel="stylesheet" href="/frontend/css/dashboard.css">
+    <meta charset="UTF-8">
+    <title>Minha Livraria</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo-container">
-           <a href="/index.html"><img src="/img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img"></a>
-        </div>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Buscar livros...">
-            <button>Buscar</button>
-        </div>
+  <header class="header">
+    <div class="logo-container">
+        <a href="/index.html"><img src="/img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img"></a>
+    </div>
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Buscar livros...">
+        <button>Buscar</button>
+    </div>
 
-        <div class="user-actions">
-            <a href="/vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
-            <a href="/chat.html"><box-icon name='chat'></box-icon></a>
-            <div class="dropdown">
-                <div class="user-profile"><img src="/img/pessoa.png" alt=""></div>
-                <ul class="dropuser">
-                    <span>Você</span> <br>
-                    <span>you@example.com</span>
-                    <li>Meus livros</li>
-                    <li>Vender livros</li>
-                    <li>Mensagens</li>
-                    <li>Sair</li>
-                </ul>
+    <div class="user-actions">
+        <a href="/pages/chat.html"><box-icon name='chat'></box-icon></a>
+        <div class="dropdown">
+            <div class="user-profile"><img src="/img/pessoa.png" alt=""></div>
+            <ul class="dropuser">
+                <span>Você</span> <br>
+                <span>you@example.com</span>
+                <a href="dashboard.html"><li>Meus livros</li></a>
+                <a href="vender.html"><li>Vender livros</li></a>
+                <a href="chat.html"><li>Mensagens</li></a>
+                <li>Sair</li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+    <div class="container">
+        <div class="stats">
+            <div class="card">
+                <div class="icon"></div>
+                <p class="label">Total de Livros</p>
+                <h2 class="value valor">1</h2>
+            </div>
+            <div class="card">
+                <div class="icon"></div>
+                <p class="label">Visualizações Totais</p>
+                <h2 class="value visu">23</h2>
             </div>
         </div>
-    </header>
 
-  <div class="container">
-    <h1>Meus Livros</h1>
+        <!-- Barra de pesquisa -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder=" Buscar por título ou autor...">
+        </div>
 
-    <div class="stats">
-      <div class="card">
-        <h2>Total de Livros</h2>
-        <p class="valor">1</p>
-        <p class="descricao">Livro publicado</p>
-      </div>
-      <div class="card">
-        <h2>Total de Visualizações</h2>
-        <p class="valor">23</p>
-        <p class="descricao">Visualizações nos seus livros</p>
-      </div>
+        <!-- Área de gerenciamento -->
+        <div class="manager">
+            <h2>Gerenciar Livros</h2>
+            <p>Visualize, edite ou exclua seus livros.</p>
+
+            <div class="book-card">
+                <div class="book-cover">180x270</div>
+                <div class="book-info">
+                    <h3>1984</h3>
+                    <p>George Orwell</p>
+                    <p> R$ 34.50</p>
+                    <p> 23 visualizações</p>
+                    <p> 01/08/2023</p>
+                </div>
+                <div class="book-actions">
+                    <button class="view-btn"> Visualizar</button>
+                    <button class="edit-btn"> Editar</button>
+                    <button class="delete-btn"> Excluir</button>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="tabela-container">
-      <h2>Gerenciar Livros</h2>
-      <p>Visualize, edite ou exclua seus livros.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Preço</th>
-            <th>Visualizações</th>
-            <th>Data</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1984</td>
-            <td>R$ 34,50</td>
-            <td>23</td>
-            <td>01/08/2023</td>
-            <td class="acoes">
-              <span title="Visualizar">Visualizar</span>
-              <span title="Editar">Edita</span>
-              <span title="Excluir" class="excluir">Excluir</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <script src="/js/dashboard.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="/js/dashboard.js"></script>
 </body>
 </html>

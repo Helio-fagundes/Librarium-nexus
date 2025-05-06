@@ -23,13 +23,13 @@
                     livro</button></a>
 
             <div class="dropdown">
-                <div class="user-profile"><img src="../img/picapau.png" alt=""></div>
+                <div class="user-profile"><img src="/img/pessoa.png" alt=""></div>
                 <ul class="dropuser">
                     <span>Eduarda Muller</span> <br>
                     <span>you@example.com</span>
-                    <li>Meus livros</li>
-                    <li>Vender livros</li>
-                    <li>Mensagens</li>
+                    <a href="dashboard.html"><li>Meus livros</li></a>
+                    <a href="vender.html"><li>Vender livros</li></a>
+                    <a href="chat.html"><li>Mensagens</li></a>
                     <li>Sair</li>
                 </ul>
             </div>
@@ -67,6 +67,24 @@
         </section>
     </main>
 
+    <div class="mensagem-container">
+        <div class="voltar"><a href="#">← Voltar para mensagens</a></div>
+        <div class="mensagem">
+          <div class="usuario">
+            <div class="letra">M</div>
+            <div class="conteudo">
+              <div class="nome">Maria Oliveira</div>
+              <div class="texto">Oi! Você faz entrega ou preciso buscar?</div>
+              <div class="hora">07:15</div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="entrada">
+          <input type="text" placeholder="Digite sua mensagem...">
+          <button>Enviar</button>
+        </div>
+      </div>
 
 
     <script src="/js/chat.js"></script>

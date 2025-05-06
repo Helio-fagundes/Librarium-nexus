@@ -6,6 +6,7 @@ body {
     justify-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fff9c48a;
+    height: 100vh;
 }
 
 
@@ -34,9 +35,10 @@ body {
     font-size: 15px;
 }
 
-a {
+a{
     text-decoration: none;
-}
+    color: #000000;
+  }
 
 .add-book-btn:hover {
     background-color: #F57F17;
@@ -50,8 +52,8 @@ a {
 }
 
 .logo-img {
-    width: 200px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-left: 50px;
 }
 
@@ -197,15 +199,19 @@ a {
 
 main {
     align-items: center;
-    z-index: -1;
 }
 
 
 #chat-container {
-    margin-top: 200px;
+    margin-top: 50px;
     margin-left: 10px;
+    cursor: pointer;
+    
 }
 
+#chat-container:hover{
+    background-color: #ffffff59;
+}
 
 #chat-container #insert-chat {
     width: 1350px;
@@ -223,6 +229,7 @@ main {
     border: 1px solid #FBC02D;
     justify-content: space-between;
 }
+
 
 #chat-container #insert-chat .chat .user {
     display: flex;
@@ -244,3 +251,106 @@ main {
 #date-info{
     margin: 10px;
 }
+
+
+
+
+
+
+
+.mensagem-container {
+    position: relative;
+    top: 50px;
+    display: none;
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    background: #f9fbfd;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .voltar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .mensagem {
+    margin-top: 20px;
+  }
+  
+  .usuario {
+    display: flex;
+    align-items: flex-start;
+    background: #eef2f7;
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 400px;
+  }
+  
+  .letra {
+    background-color: #cfd7df;
+    color: #333;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 32px;
+    font-weight: bold;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  .conteudo {
+    flex: 1;
+  }
+  
+  .nome {
+    font-weight: bold;
+    font-size: 14px;
+    color: #2c2c2c;
+  }
+  
+  .texto {
+    font-size: 14px;
+    margin-top: 4px;
+    color: #1d1d1d;
+  }
+  
+  .hora {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    margin-top: 5px;
+  }
+  
+  .entrada {
+    display: flex;
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+  }
+  
+  .entrada input {
+    position: relative;
+    top: 450px;
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .entrada button {
+    position: relative;
+    top: 450px;
+    background-color: #4e8ef7;
+    border: none;
+    padding: 0 16px;
+    color: white;
+    border-radius: 6px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 18px;
+  }

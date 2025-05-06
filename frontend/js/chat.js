@@ -23,5 +23,18 @@ userprofile.addEventListener("click", () => {
 });
 
 
+const msgcontainer = document.querySelector(".mensagem-container");
+const chat = document.querySelector("#chat-container");
+const back = document.querySelector(".voltar");
 
-
+chat.addEventListener("click", () => {
+    if (msgcontainer.style.display === "none" || msgcontainer.style.display === "") {
+        chat.style.display = "none";
+        msgcontainer.style.display = "block"; 
+    }
+});
+back.addEventListener("click", (e) => {
+    e.preventDefault();
+    msgcontainer.style.display = "none";
+    chat.style.display = "block";
+});
