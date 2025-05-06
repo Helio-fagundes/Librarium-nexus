@@ -56,6 +56,7 @@ public.addEventListener("click", () => {
         localStorage.setItem("Books", JSON.stringify(books));
 
         alert("Livro adicionado com sucesso");
+        window.location.href = "/index.html";
     };
 
     if (file) {

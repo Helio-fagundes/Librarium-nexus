@@ -15,7 +15,7 @@
         </div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Buscar livros...">
-            <button>Buscar</button>
+            <button class="btnsearch">Buscar</button>
         </div>
 
         <div class="user-actions">
@@ -26,12 +26,18 @@
                     <img src="img/pessoa.png" alt="Foto do usuário">
                 </div>
                 <ul class="dropuser">
-                    <span>Você</span> <br>
-                    <span>you@example.com</span>
-                    <a href="pages/dashboard.html"><li>Meus livros</li></a>
-                    <a href="/pages/vender.html"><li>Vender livros</li></a>
-                    <a href="/pages/chat.html"><li>Mensagens</li></a>
-                    <li>Sair</li>
+                    <span class="user-name">Você</span> <br>
+                    <span class="user-email">you@example.com</span>
+                    <a href="pages/dashboard.html">
+                        <li>Meus livros</li>
+                    </a>
+                    <a href="/pages/vender.html">
+                        <li>Vender livros</li>
+                    </a>
+                    <a href="/pages/chat.html">
+                        <li>Mensagens</li>
+                    </a>
+                    <li class="exit" onclick="exituser()">Sair</li>
                 </ul>
             </div>
         </div>
@@ -77,64 +83,63 @@
 
         <div class="books-section">
             <h3 class="section-title">Livros disponíveis</h3>
+
             <div class="books-grid">
-            
+
             </div>
-            </div>
+
         </div>
+    </div>
 
-        <!-- SO SERA EXIBIDO AO CLICAR EM ALGUM LIVRO -->
-        <div class="container">
-            <a href="#" class="back">← Voltar para a página inicial</a>
+    <!-- SO SERA EXIBIDO AO CLICAR EM ALGUM LIVRO -->
+    <div class="container">
+        <button class="backcontent">← Voltar para a página inicial</button>
+        <div class="book-details-info">
+            <div class="book-image-info">
+                <img src="" alt="O Senhor dos Anéis">
+            </div>
 
-            <div class="book-details-info">
-                <div class="book-image-info">
-                    <img src="" alt="O Senhor dos Anéis">
+            <div class="book-info">
+                <div class="title-price">
+                    <h1 class="nameBook">O Senhor dos Anéis</h1>
+                    <span class="price">R$ 89,90</span>
                 </div>
 
-                <div class="book-info">
-                    <div class="title-price">
-                        <h1>O Senhor dos Anéis</h1>
-                        <span class="price">R$ 89,90</span>
-                    </div>
-
-                    <div class="tags">
-                        <span>Fantasia</span>
-                        <span>Aventura</span>
-                    </div>
-
-                    <div class="views">
-                        <span class="condition">Novo</span>
-                    </div>
-
-                    <div class="description">
-                        <h3>Descrição</h3>
-                        <p>Trilogia clássica de J.R.R. Tolkien. Livro em excelente estado, edição especial com mapas e
-                            ilustrações.</p>
-                    </div>
-
-                    <div class="seller">
-                        <div class="avatar">
-                            <img src="img/pessoa.png" alt="Foto do vendedor">
-                        </div>
-                        <div>
-                            <strong>João Silva</strong><br>
-                            <small>Vendedor</small>
-                        </div>
-                    </div>
-
-                    <button class="message-btn">
-                        Enviar mensagem
-                    </button>
+                <div class="tags">
+                    <span class="categ">Fantasia</span>
                 </div>
+
+                <div class="views">
+                    <span class="condition">Novo</span>
+                </div>
+
+                <div class="description">
+                    <h3>Descrição</h3>
+                    <p>Trilogia clássica de J.R.R. Tolkien. Livro em excelente estado, edição especial com mapas e
+                        ilustrações.</p>
+                </div>
+
+                <div class="seller">
+                    <div class="avatar">
+                        <img src="img/pessoa.png" alt="Foto do vendedor">
+                    </div>
+                    <div>
+                        <strong>João Silva</strong><br>
+                        <small>Vendedor</small>
+                    </div>
+                </div>
+
+                <a href="/pages/chat.html"><button class="message-btn">
+                    Enviar mensagem
+                </button></a>
             </div>
         </div>
-        <!-- EXIBIR LIVRO -->
+    </div>
+    <!-- EXIBIR LIVRO -->
 
     </div>
 
     <script src="/js/script.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
-
 </html>
