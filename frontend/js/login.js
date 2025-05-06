@@ -104,10 +104,12 @@ formregister.addEventListener("submit", (e) => {
       fetch('http://localhost:8080/usuario/registrar', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify(usuario)
-      })
+    })
       .then(response => {
         if (!response.ok) {
           throw new Error('Erro na requisição');
