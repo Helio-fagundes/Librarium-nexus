@@ -343,6 +343,8 @@ main {
   }
   
   .entrada button {
+    position: relative;
+    top: 450px;
     background-color: #4e8ef7;
     border: none;
     padding: 0 16px;
