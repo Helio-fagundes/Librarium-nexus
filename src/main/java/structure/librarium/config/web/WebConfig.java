@@ -13,7 +13,7 @@ public class WebConfig {
             @Override
             public void addCorsMappings(org.springframework.web.servlet.config.annotation.CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000", "http://localhost:8080", "file://")
+                        .allowedOrigins("http://localhost:3000", "http://localhost:8080", "https://librarium-nexus.vercel.app/pages/login.html", "file://")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
