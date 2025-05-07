@@ -60,8 +60,6 @@ btnLogin.addEventListener("click", (e) => {
         senha: getValue(passwordInput)
     }
 
-
-
     fetch('http://localhost:8080/usuario/login', {
         method: 'POST',
         headers: {
