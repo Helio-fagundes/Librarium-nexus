@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 const btnback = document.querySelector(".btnregister");
 
 const formlogin = document.querySelector(".form-container");
@@ -22,7 +20,7 @@ backlogin.addEventListener("click", () => {
     formlogin.classList.remove("hidden");
     formlogin.classList.add("flex");
 });
-// FORM LOGIN E REGISTER
+
 
 const RegisName = document.querySelector("#RegisName");
 const RegisEmail = document.querySelector("#RegisEmail");
@@ -41,11 +39,11 @@ const passwordInput = document.querySelector("#password");
 const btnLogin = document.querySelector(".Confirm-login");
 
 
-/* GET VALUE */
+
 function getValue(input){
     return input.value.trim();
 }
-///
+
 
 function direct(){
     window.location.href = "/index.html";
@@ -55,7 +53,6 @@ function direct(){
 
 let logged = JSON.parse(localStorage.getItem("logged")) || [];
 
-/* LOGIN */
 btnLogin.addEventListener("click", (e) => {
     e.preventDefault();
     const usuario = {
@@ -95,7 +92,6 @@ btnLogin.addEventListener("click", (e) => {
 
 
 
-/* REGISTER */
 formregister.addEventListener("submit", (e) => {
     e.preventDefault();
 
