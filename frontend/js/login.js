@@ -50,9 +50,6 @@ function direct(){
 }
 
 
-
-let logged = JSON.parse(localStorage.getItem("logged")) || [];
-
 btnLogin.addEventListener("click", (e) => {
     e.preventDefault();
     const usuario = {
