@@ -128,14 +128,11 @@ a {
 .dropdown ul {
     opacity: 0;
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     flex-direction: column;
     width: 200px;
     height: 230px;
     background-color: #FFFFFF;
-    top: 70px;
-    right: 100px;
-    margin-top: 10px;
     border-radius: 10px;
     padding: 10px;
     transform: translateY(-10px);
@@ -159,7 +156,7 @@ a {
 }
 
 .dropdown ul li:hover {
-    background-color: #006aff1a;
+    background-color: #fbc12d59;
     cursor: pointer;
     border-radius: 5px;
 }

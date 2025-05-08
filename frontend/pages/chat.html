@@ -12,7 +12,8 @@
     <header class="header">
         <div class="logo-container">
 
-           <a href="/index.html"><img src="../img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img"></a>
+            <a href="/index.html"><img src="../img/Design_sem_nome-removebg-preview.png" alt="logo"
+                    class="logo-img"></a>
         </div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Buscar livros...">
@@ -27,9 +28,15 @@
                 <ul class="dropuser">
                     <span>Eduarda Muller</span> <br>
                     <span>you@example.com</span>
-                    <a href="dashboard.html"><li>Meus livros</li></a>
-                    <a href="vender.html"><li>Vender livros</li></a>
-                    <a href="chat.html"><li>Mensagens</li></a>
+                    <a href="dashboard.html">
+                        <li>Meus livros</li>
+                    </a>
+                    <a href="vender.html">
+                        <li>Vender livros</li>
+                    </a>
+                    <a href="chat.html">
+                        <li>Mensagens</li>
+                    </a>
                     <li>Sair</li>
                 </ul>
             </div>
@@ -70,23 +77,24 @@
     <div class="mensagem-container">
         <div class="voltar"><a href="#">← Voltar para mensagens</a></div>
         <div class="mensagem">
-          <div class="usuario">
-            <div class="letra">M</div>
-            <div class="conteudo">
-              <div class="nome">Maria Oliveira</div>
-              <div class="texto">Oi! Você faz entrega ou preciso buscar?</div>
-              <div class="hora">07:15</div>
+            <div class="usuario">
+                <div class="letra">M</div>
+                <div class="conteudo">
+                    <div class="nome">Maria Oliveira</div>
+                    <div class="texto">Oi! Você faz entrega ou preciso buscar?</div>
+                    <div class="hora">07:15</div>
+                </div>
             </div>
-          </div>
         </div>
-      
+
         <div class="entrada">
-          <input type="text" placeholder="Digite sua mensagem...">
-          <button>Enviar</button>
+            <input type="text" placeholder="Digite sua mensagem...">
+            <button>Enviar</button>
         </div>
-      </div>
+    </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="/js/socket.js"></script>
     <script src="/js/chat.js"></script>
 </body>
 

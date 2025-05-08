@@ -1,24 +1,8 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #f0f4ff;
+    background: #fff9c48a;
     color: #333;
-}
-
-
-.add-book-btn {
-    background: #5e35b1;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.add-book-btn:hover {
-    background: #512da8;
 }
 
 .container {
@@ -210,7 +194,7 @@ a{
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.397);
 }
 .search-input:focus{
-    outline: 2px solid #0069ff;
+    outline: 2px solid #fff9c4f8;
 }
 
 .search-container button {
@@ -232,21 +216,6 @@ a{
     transition: all 0.2s ease-in-out;
 }
 
-
-.user-actions box-icon{
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin: 15px;
-    padding: 12px;
-    
-}
-.user-actions box-icon:hover{
-    cursor: pointer;
-    background-color: #8f8f8f2a;
-    border-radius: 10px;
-    backdrop-filter: blur(20px);
-}
 
 .user-actions{
     display: flex;
@@ -272,23 +241,15 @@ a{
     outline: 5px solid #fbc12d44;
 }
 
-.main-content {
-    height: 300vh;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
 
 .dropdown ul {
     opacity: 0;
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     flex-direction: column;
     width: 200px;
     height: 230px;
     background-color: #FFFFFF;
-    right: 100px;
-    margin-top: 10px;
     border-radius: 10px;
     padding: 10px;
     transform: translateY(-10px);
@@ -312,7 +273,7 @@ a{
 }
 
 .dropdown ul li:hover{
-    background-color: #006aff1a;
+    background-color: #fbc12d59;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -325,8 +286,19 @@ a{
 
 
 
-.book-list{
-    border: 2px solid rgba(0, 0, 0, 0.219);
-    padding: 20px;
-    border-radius: 10px;
+
+.user-actions box-icon{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    padding: 12px;
+    
 }
+.user-actions box-icon:hover{
+    cursor: pointer;
+    background-color: #8f8f8f2a;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+}
+

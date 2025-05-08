@@ -138,7 +138,7 @@ a{
 
 .user-profile:hover {
     cursor: pointer;
-    outline: 5px solid rgba(99, 99, 99, 0.219);
+    outline: 5px solid #fbc12d59;
 }
 
 .main-content {
@@ -148,23 +148,20 @@ a{
     padding: 20px;
 }
 
+
 .dropdown ul {
     opacity: 0;
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     flex-direction: column;
     width: 200px;
     height: 230px;
-    background-color: #fffffff1;
-    backdrop-filter: blur(50px);
-    right: 100px;
-    margin-top: 10px;
+    background-color: #FFFFFF;
     border-radius: 10px;
     padding: 10px;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
 }
-
 .dropdown ul.userflex {
     opacity: 1;
     visibility: visible;
@@ -182,7 +179,7 @@ a{
 }
 
 .dropdown ul li:hover {
-    background-color: #006aff1a;
+    background-color: #fbc12d59;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -203,31 +200,28 @@ main {
 
 
 #chat-container {
-    margin-top: 50px;
-    margin-left: 10px;
     cursor: pointer;
-    
 }
 
-#chat-container:hover{
-    background-color: #ffffff59;
-}
 
 #chat-container #insert-chat {
     width: 1350px;
     display: block;
 }
 
-
 #chat-container #insert-chat .chat {
     display: flex;
     width: 100%;
+    margin-bottom: 20px;
     background-color: #006aff09;
     backdrop-filter: blur(20px);
     border-radius: 10px;
     padding: 10px;
     border: 1px solid #FBC02D;
     justify-content: space-between;
+}
+#chat-container #insert-chat .chat:hover{
+    background-color: #99999927;
 }
 
 
@@ -252,21 +246,14 @@ main {
     margin: 10px;
 }
 
-
-
-
-
-
-
 .mensagem-container {
-    position: relative;
     top: 50px;
     display: none;
     width: 70%;
     height: 70%;
     margin: auto;
     font-family: Arial, sans-serif;
-    background: #f9fbfd;
+    background: #f9fbfd94;
     border-radius: 10px;
     padding: 20px;
   }
@@ -278,6 +265,8 @@ main {
   }
   
   .mensagem {
+    display: flex;
+    justify-content: right;
     margin-top: 20px;
   }
   
