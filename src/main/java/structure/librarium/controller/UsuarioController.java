@@ -45,7 +45,7 @@ public class UsuarioController {
                 UsuarioEntity usuarioUnidade = usuario.get();
                 usuarioUnidade.add(linkTo(methodOn(UsuarioController.class)
                         .getUsuarioById(usuarioUnidade.getId_usuario())).withSelfRel());
-                return ResponseEntity.ok("usuario logado com sucesso");
+                return ResponseEntity.ok(usuario);
             } else{
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("senha incorreta");
             }
