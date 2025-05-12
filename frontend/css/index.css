@@ -131,7 +131,7 @@ a {
     position: fixed;
     flex-direction: column;
     width: 200px;
-    height: 230px;
+    height: 250px;
     background-color: #FFFFFF;
     border-radius: 10px;
     padding: 10px;
@@ -362,8 +362,8 @@ a {
 }
 
 .category {
-    width: 25%;
-    padding: 1px;
+    width: 80px;
+    padding: 5px;
     font-size: 11px;
     border-radius: 20px;
     margin: 10px;

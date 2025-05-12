@@ -56,8 +56,8 @@ btnLogin.addEventListener("click", (e) => {
         email: getValue(emailInput),
         senha: getValue(passwordInput)
     }
-
-    fetch('http://localhost:8080/usuario/login', {
+    
+    fetch('http://54.173.229.152:8080/usuario/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -75,12 +75,15 @@ btnLogin.addEventListener("click", (e) => {
     .then(user => {
         alert('Login realizado com sucesso!');
         console.log('Usuário logado:', user);
+        localStorage.setItem("logged", JSON.stringify(user));
+
         direct();
     })
     .catch(error => {
         alert(error.message);
         console.error(error);
     });
+
 });
 
 
@@ -99,7 +102,7 @@ formregister.addEventListener("submit", (e) => {
         
       };
 
-      fetch('http://localhost:8080/usuario/registrar', {
+      fetch('http://54.173.229.152:8080/usuario/registrar', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -122,8 +125,7 @@ formregister.addEventListener("submit", (e) => {
         alert('Erro ao cadastrar usuário');
         console.error(error);
       });
-
-
+  
 
 
     RegisName.value = "";

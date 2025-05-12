@@ -1,6 +1,5 @@
 const http = require('http');
 const sockjs = require('sockjs');
-
 const echo = sockjs.createServer();
 
 echo.on('connection', function (conn) {

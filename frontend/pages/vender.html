@@ -2,102 +2,108 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venda</title>
-    <link rel="stylesheet" href="/css/vender.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Venda</title>
+  <link rel="stylesheet" href="/css/vender.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <a href="/index.html"><img src="/img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img"></a>
-        </div>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Buscar livros...">
-            <button>Buscar</button>
-        </div>
+  <header class="header">
+    <div class="logo-container">
+      <a href="/index.html"><img src="/img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img"></a>
+    </div>
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Buscar livros...">
+      <button>Buscar</button>
+    </div>
 
-        <div class="user-actions">
-            <a href="/pages/chat.html"><box-icon name='chat'></box-icon></a>
-            <div class="dropdown">
-                <div class="user-profile"><img src="/img/pessoa.png" alt=""></div>
-                <ul class="dropuser">
-                    <span>Você</span> <br>
-                    <span>you@example.com</span>
-                    <a href="dashboard.html"><li>Meus livros</li></a>
-                    <a href="vender.html"><li>Vender livros</li></a>
-                    <a href="chat.html"><li>Mensagens</li></a>
-                    <li>Sair</li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <div class="container">
-        <h1>Vender um livro</h1>
-        <p class="subtitulo">Preencha os detalhes do livro que você deseja vender.</p>
-    
-        <form class="formulario">
-          <div class="imagem-capa">
-            <div class="imagem-preview">Sem imagem</div>
-            <label for="imagem" class="custom-file-upload">Escolher imagem</label>
-            <input type="file" id="imagem" name="imagem" value="">
-            <small>Carregue uma imagem de capa para o livro (recomendado: formato 2:3)</small>
-          </div>
-    
-          <label for="titulo">Título</label>
-          <input type="text" id="titulo" placeholder="Título do livro" required>
-    
-          <label for="descricao">Descrição</label>
-          <textarea id="descricao" placeholder="Descreva o estado e detalhes do livro" rows="4" required></textarea>
-    
-          <label for="preco">Preço (R$)</label>
-          <input type="number" id="preco" step="0.01" placeholder="99.90" required>
-    
-          <label for="categorias">Categorias</label>
-          <select id="category">
-            <option value="tecnologia">Tecnologia</option>
-            <option value="ficcao">Ficção</option>
-            <option value="romance">Romance</option>
-            <option value="aventura">Aventura</option>
-            <option value="biografia">Biografia</option>
-            <option value="classicos">Clássicos</option>
-            <option value="ciencia">Ciência</option>
-            <option value="ciencia-ficcao">Ciência Ficção</option>
-            <option value="desenvolvimento-pessoal">Desenvolvimento Pessoal</option>
-            <option value="direito">Direito</option>
-            <option value="educacao">Educação</option>
-            <option value="espiritualidade">Espiritualidade</option>
-            <option value="fantasia">Fantasia</option>
-            <option value="gastronomia">Gastronomia</option>
-            <option value="historico">Histórico</option>
-            <option value="infantil">Infantil</option>
-            <option value="jovem-adulto">Jovem Adulto</option>
-            <option value="misterio">Mistério</option>
-            <option value="negocios">Negócios</option>
-            <option value="poesia">Poesia</option>
-            <option value="religiao">Religião</option>
-            <option value="suspense">Suspense</option>
-            <option value="terror">Terror</option>
-            <option value="viagens">Viagens</option>
-          </select>
-    
-          <label for="estado">Estado do Livro</label>
-          <select id="estado">
-            <option value="bom">Bom</option>
-            <option value="ótimo">Ótimo</option>
-            <option value="novo">Novo</option>
-            <option value="usado">Usado</option>
-          </select>
-    
-          <div class="botoes">
-            <button type="button" class="cancelar">Cancelar</button>
-            <button type="submit" class="publicar">Publicar Livro</button>
-          </div>
-        </form>
+    <div class="user-actions">
+      <a href="/pages/chat.html"><box-icon name='chat'></box-icon></a>
+      <div class="dropdown">
+        <div class="user-profile"><img src="/img/pessoa.png" alt=""></div>
+        <ul class="dropuser">
+          <span>Você</span> <br>
+          <span>you@example.com</span>
+          <a href="dashboard.html">
+            <li>Meus livros</li>
+          </a>
+          <a href="vender.html">
+            <li>Vender livros</li>
+          </a>
+          <a href="chat.html">
+            <li>Mensagens</li>
+          </a>
+          <li>Sair</li>
+        </ul>
       </div>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="../js/vender.js"></script>
+    </div>
+  </header>
+  <div class="container">
+    <h1>Vender um livro</h1>
+    <p class="subtitulo">Preencha os detalhes do livro que você deseja vender.</p>
+
+    <form class="formulario">
+      <div class="imagem-capa">
+        <div class="imagem-preview">Sem imagem</div>
+        <label for="imagem" class="custom-file-upload">Escolher imagem</label>
+        <input type="file" id="imagem" name="imagem" value="">
+        <small>Carregue uma imagem de capa para o livro (recomendado: formato 2:3)</small>
+      </div>
+
+      <label for="titulo">Título</label>
+      <input type="text" id="titulo" placeholder="Título do livro" required>
+
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" placeholder="Descreva o estado e detalhes do livro" rows="4" required></textarea>
+
+      <label for="preco">Preço (R$)</label>
+      <input type="number" id="preco" step="0.01" placeholder="99.90" required>
+
+      <label for="categorias">Categorias</label>
+      <select id="category">
+        <option value="1">Tecnologia</option>
+        <option value="2">Ficção</option>
+        <option value="3">Romance</option>
+        <option value="4">Aventura</option>
+        <option value="5">Biografia</option>
+        <option value="6">Clássicos</option>
+        <option value="7">Ciência</option>
+        <option value="8">Ciência Ficção</option>
+        <option value="9">Desenvolvimento Pessoal</option>
+        <option value="10">Direito</option>
+        <option value="11">Educação</option>
+        <option value="12">Espiritualidade</option>
+        <option value="13">Fantasia</option>
+        <option value="14">Gastronomia</option>
+        <option value="15">Histórico</option>
+        <option value="16">Infantil</option>
+        <option value="17">Jovem Adulto</option>
+        <option value="18">Mistério</option>
+        <option value="19">Negócios</option>
+        <option value="20">Poesia</option>
+        <option value="21">Religião</option>
+        <option value="22">Suspense</option>
+        <option value="23">Terror</option>
+        <option value="24">Viagens</option>
+      </select>
+
+      <label for="estado">Estado do Livro</label>
+      <select id="estado">
+        <option value="bom">Bom</option>
+        <option value="ótimo">Ótimo</option>
+        <option value="novo">Novo</option>
+        <option value="usado">Usado</option>
+      </select>
+
+      <div class="botoes">
+        <button type="button" class="cancelar">Cancelar</button>
+        <button type="submit" class="publicar">Publicar Livro</button>
+      </div>
+    </form>
+  </div>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="../js/vender.js"></script>
 </body>
 
 </html>

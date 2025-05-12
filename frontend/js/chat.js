@@ -86,7 +86,6 @@ back.addEventListener("click", (e) => {
         if (message) {
             socket.send(message); 
             console.log('Mensagem enviada:', message);
-
             const chatContainer = document.getElementById('insert-chat');
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('chat');

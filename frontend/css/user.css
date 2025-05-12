@@ -1,0 +1,259 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    background-color: #FFF9C4;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #e0e0e06b;
+    backdrop-filter: blur(20px);
+}
+
+main {
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 120vh;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+}
+
+.user-actions box-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    padding: 12px;
+
+}
+
+.user-actions box-icon:hover {
+    cursor: pointer;
+    background-color: #8f8f8f2a;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ccc;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.user-profile img {
+    width: 100%;
+    height: 100%;
+}
+
+.user-profile:hover {
+    cursor: pointer;
+    outline: 5px solid rgba(99, 99, 99, 0.219);
+}
+
+
+.dropdown ul {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    flex-direction: column;
+    width: 200px;
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown ul.userflex {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+
+.dropdown ul li {
+    display: block;
+    list-style: none;
+    margin-top: 10px;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.dropdown ul li:hover {
+    background-color: #fbc12d59;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-book-btn {
+    background-color: #FBC02D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.add-book-btn:hover {
+    background-color: #F57F17;
+    transition: all 0.8s ease-out;
+    transform: translateY(-1px);
+}
+
+.add-book-btn span {
+    margin-right: 5px;
+}
+
+
+.user-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.295);
+}
+
+.user-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.user-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f7f7f74f;
+}
+
+.container-profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-image {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.add-image:hover {
+    transform: translateY(-5px);
+    background-color: #ffda7e85;
+    transition: all 0.1s ease-in-out;
+}
+
+.delete-img {
+    background-color: #ff000096;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-img:hover {
+    transition: all 0.5s ease-in;
+    background-color: hsla(0, 100%, 50%, 0.74);
+}
+
+.form-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.185);
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f7f7f74f;
+}
+
+.form-user input {
+    padding: 7px;
+    border: 1.5px solid rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    outline: none;
+}
+
+.form-user input:focus {
+    outline: #FBC02D;
+    border: 1px solid #FBC02D;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-user .cancel {
+    background-color: rgba(255, 79, 79, 0.932);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(0, 0, 0, 0.226);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.form-user .confirm {
+    background-color: #ffda7e85;
+    border-radius: 10px;
+    border: 1.5px solid rgba(0, 0, 0, 0.226);
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.form-user .cancel:hover,
+.form-user .confirm:hover {
+    transition: all 0.5s ease-out;
+    transform: translateY(-5px);
+}
+
+
+.form-user .cancel:active,
+.form-user .confirm:active {
+    transition: all 0.5s ease-out;
+    transform: translateY(-0px);
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.281);
+}

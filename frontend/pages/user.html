@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações de Usuario</title>
+    <link rel="stylesheet" href="/css/user.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="/img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
+        </div>
+        <div class="user-actions">
+            <a href="/pages/vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
+            <a href="/pages/chat.html"><box-icon name='chat'></box-icon></a>
+            <div class="dropdown">
+                <div class="user-profile">
+                    <img src="/img/pessoa.png" alt="Foto do usuário">
+                </div>
+                <ul class="dropuser">
+                    <span class="user-name">Você</span> <br>
+                    <span class="user-email">you@example.com</span>
+                    <a href="/pages/dashboard.html">
+                        <li>Meus livros</li>
+                    </a>
+                    <a href="/pages/vender.html">
+                        <li>Vender livros</li>
+                    </a>
+                    <a href="/pages/chat.html">
+                        <li>Mensagens</li>
+                    </a>
+                    <a href="/pages/user.html">
+                        <li>Configurações</li>
+                    </a>
+                    <li class="exit" onclick="exituser()">Sair</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h1>Configurações do Perfil</h1>
+        <div class="user-photo">
+            <h3>Foto de Perfil</h3>
+            <p>Esta é sua imagem de perfil pública. Clique na imagem para alterá-la.</p>
+            <div class="container-profile">
+                <div class="user-img imagem-preview">
+                    <img src="/img/pessoa.png" alt="">
+                </div>
+                <h5>Alterar foto</h5>
+                <input type="file" name="imagem" id="imagem" style="display: none;" class="imagem-input">
+                <button type="button" class="add-image">Fazer upload</button>
+                <button class="delete-img">Remover</button>
+            </div>
+        </div>
+
+
+        <section class="user-info">
+            <h1>Informações Pessoais</h1>
+            <p>Atualize suas informações pessoais aqui.</p>
+            <div class="form-user">
+                <h4>Nome completo</h4>
+                <input type="text" placeholder="Digite aqui" id="complete-name">
+                <h4>Nome de usuario</h4>
+                <input type="text">
+                <h4>Email</h4>
+                <input type="email">
+                <h4>Biografia</h4>
+                <input type="text">
+                <p>Breve descrição sobre você. Máximo de 160 caracteres.</p>
+                <button class="confirm">Salvar Alterações</button>
+                <button class="cancel">Cancelar</button>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="/js/user.js"></script>
+</body>
+
+</html>

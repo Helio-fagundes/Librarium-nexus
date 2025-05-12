@@ -5,20 +5,32 @@ userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
 
-const Books = JSON.parse(localStorage.getItem("Books")) || [];
 
 const totalbooks = document.querySelector(".valor");
-totalbooks.innerHTML = `${Books.length}`;
-
 const visu = document.querySelector(".visu");
-const click = JSON.parse(localStorage.getItem("click")) || 0;
-visu.innerHTML = `${click}`;
 
-function listbook() {
+
+async function getBooks() {
+    try {
+        const response = await fetch("http://54.173.229.152:8080/livros");
+
+        if (response.status === 200) {
+            const books = await response.json(); 
+            listbook(books);
+        } else {
+            alert("Erro na API");
+        }
+    } catch (error) {
+        console.error("Erro ao buscar livros:", error);
+    }
+
+}
+
+
+function listbook(books) {
     const listbookContainer = document.querySelector(".book-card");
     listbookContainer.innerHTML = ""; 
-
-    Books.forEach((livro, i) => { 
+    books.forEach((livro) => {
         const div = document.createElement("div");
         div.classList.add("book-item");
         div.innerHTML = `
@@ -30,31 +42,36 @@ function listbook() {
                 <p>${livro.autor}</p>
                 <p>R$ ${livro.preco}</p>
                 <p>${livro.visualizacoes} visualizações</p>
-                <p>${livro.data}</p>
+                <p>${livro.id_livros}</p>
             </div>
             <div class="book-actions">
                 <button class="view-btn">Visualizar</button>
                 <button class="edit-btn">Editar</button>
-                <button class="delete-btn" onclick="del(${i})">Excluir</button>
+                <button class="delete-btn" onclick="del(${livro.id_livros})">Excluir</button>
             </div>
         `;
-        div.classList.add("book-list")
+        div.classList.add("book-list");
         listbookContainer.appendChild(div);
     });
 }
 
-function del(i) {
-    Books.splice(i, 1);
-    localStorage.setItem("Books", JSON.stringify(Books));
-    totalbooks.innerHTML = `${Books.length}`;
-    click++; 
-    localStorage.setItem("click", JSON.stringify(click));
-    visu.innerHTML = `${click}`;
-    listbook();
-    alert("Livro excluído com sucesso!");
-    setTimeout(() => {
-        location.reload();
-    }, 500);
+
+async function del(id_livros) {
+    try {
+        const response = await fetch(`http://54.173.229.152:8080/livros/${id_livros}`, {
+            method: "DELETE",
+        });
+
+        if (response.ok) {
+            alert("Livro excluído com sucesso!");
+            getBooks();
+        } else {
+            alert("Erro ao excluir o livro.");
+        }
+    } catch (error) {
+        console.error("Erro ao excluir o livro:", error);
+    }
 }
 
-listbook();
+
+getBooks();
