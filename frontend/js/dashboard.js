@@ -43,8 +43,6 @@ async function getBooks() {
     }
 
 }
-
-
 function listbook(books) {
     const listbookContainer = document.querySelector(".book-card");
     console.log(books.length);

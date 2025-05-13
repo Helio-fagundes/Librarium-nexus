@@ -1,5 +1,6 @@
 const userprofile = document.querySelector(".user-profile");
 const drop = document.querySelector(".dropuser");
+
 userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
@@ -22,9 +23,6 @@ const categorias = [
     { id: 19, nome: "Negócios" }, { id: 20, nome: "Poesia" }, { id: 21, nome: "Religião" },
     { id: 22, nome: "Suspense" }, { id: 23, nome: "Terror" }, { id: 24, nome: "Viagens" }
 ];
-
-
-
 async function getBooks() {
     try {
         const resp = await fetch(URL);
@@ -46,6 +44,7 @@ async function getBooks() {
         console.error("Erro na requisição:", error);
     }
 }
+let img = JSON.parse(localStorage.getItem("imagem"));
 
 
 function exibirLivros(lista) {
@@ -69,7 +68,7 @@ function exibirLivros(lista) {
                     <div class="category">${categoria.nome}</div>
                 </div>
                 <div class="book-tags">
-                    <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;"></span>
+                    <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;">Bom</span>
                 </div>
                 <div class="book-seller">Vendedor: ${logged.nome}</div>
             </div>`;
@@ -85,6 +84,7 @@ function exibirLivros(lista) {
 
 function readBook(book) {
     const categoria = categorias.find(cat => cat.id === book.id_categorias) || { nome: 'Categoria desconhecida' };
+    let fotoPerfil = localStorage.getItem("fotoPerfil");
     infocard.innerHTML = `
         <button class="backcontent">← Voltar para a página inicial</button>
         <div class="book-details-info">
@@ -100,7 +100,7 @@ function readBook(book) {
                     <div class="category">${categoria.nome}</div>
                 </div>
                 <div class="views">
-                    <span class="condition"></span>
+                    <span class="condition">Bom</span>
                 </div>
                 <div class="description">
                     <h3>Descrição</h3>
@@ -108,7 +108,7 @@ function readBook(book) {
                 </div>
                 <div class="seller">
                     <div class="avatar">
-                        <img src="img/pessoa.png" alt="Foto do vendedor">
+                        <img src="${fotoPerfil}" alt="Foto do vendedor">
                     </div>
                     <div>
                         <strong>${logged.nome}</strong><br>
@@ -119,7 +119,6 @@ function readBook(book) {
             </div>
         </div>
     `;
-
     document.querySelector(".backcontent").addEventListener("click", () => {
         infocard.style.display = "none";
         maincontent.style.display = "block";
