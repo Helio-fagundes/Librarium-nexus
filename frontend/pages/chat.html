@@ -11,7 +11,6 @@
 <body>
     <header class="header">
         <div class="logo-container">
-
             <a href="/index.html"><img src="../img/Design_sem_nome-removebg-preview.png" alt="logo"
                     class="logo-img"></a>
         </div>
@@ -22,18 +21,21 @@
             <div class="dropdown">
                 <div class="user-profile"><img src="/img/pessoa.png" alt=""></div>
                 <ul class="dropuser">
-                    <span>Eduarda Muller</span> <br>
-                    <span>you@example.com</span>
-                    <a href="dashboard.html">
+                    <span class="user-name">Você</span> <br>
+                    <span class="user-email">you@example.com</span>
+                    <a href="pages/dashboard.html">
                         <li>Meus livros</li>
                     </a>
-                    <a href="vender.html">
+                    <a href="/pages/vender.html">
                         <li>Vender livros</li>
                     </a>
-                    <a href="chat.html">
+                    <a href="/pages/chat.html">
                         <li>Mensagens</li>
                     </a>
-                    <li>Sair</li>
+                    <a href="/pages/user.html">
+                        <li>Configurações</li>
+                    </a>
+                    <li class="exit" onclick="exituser()">Sair</li>
                 </ul>
             </div>
         </div>
@@ -44,10 +46,6 @@
             <div id="insert-chat">
                 <!-- SERA INSERIDO O CHAT AQUI -->
                 <div class="chat">
-
-                    <div class="user-for">
-                        <h1>Name</h1>
-                    </div>
 
                     <div class="user">
                         <div class="user-chat">

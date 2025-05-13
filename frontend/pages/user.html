@@ -11,11 +11,12 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="/img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
+            <a href="/index.html"><img src="../img/Design_sem_nome-removebg-preview.png" alt="logo"
+                    class="logo-img"></a>
         </div>
         <div class="user-actions">
-            <a href="/pages/vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
-            <a href="/pages/chat.html"><box-icon name='chat'></box-icon></a>
+            <a href="vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
+            <a href="chat.html"><box-icon name='chat'></box-icon></a>
             <div class="dropdown">
                 <div class="user-profile">
                     <img src="/img/pessoa.png" alt="Foto do usuário">
@@ -23,16 +24,16 @@
                 <ul class="dropuser">
                     <span class="user-name">Você</span> <br>
                     <span class="user-email">you@example.com</span>
-                    <a href="/pages/dashboard.html">
+                    <a href="dashboard.html">
                         <li>Meus livros</li>
                     </a>
-                    <a href="/pages/vender.html">
+                    <a href="vender.html">
                         <li>Vender livros</li>
                     </a>
-                    <a href="/pages/chat.html">
+                    <a href="chat.html">
                         <li>Mensagens</li>
                     </a>
-                    <a href="/pages/user.html">
+                    <a href="user.html">
                         <li>Configurações</li>
                     </a>
                     <li class="exit" onclick="exituser()">Sair</li>
@@ -63,11 +64,11 @@
             <p>Atualize suas informações pessoais aqui.</p>
             <div class="form-user">
                 <h4>Nome completo</h4>
-                <input type="text" placeholder="Digite aqui" id="complete-name">
+                <input type="text" id="complete-name">
                 <h4>Nome de usuario</h4>
-                <input type="text">
+                <input type="text" id="user-name">
                 <h4>Email</h4>
-                <input type="email">
+                <input type="email" id="email">
                 <h4>Biografia</h4>
                 <input type="text">
                 <p>Breve descrição sobre você. Máximo de 160 caracteres.</p>

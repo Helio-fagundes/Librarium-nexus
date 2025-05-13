@@ -5,6 +5,24 @@ userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
 
+let fotoPerfil = localStorage.getItem("fotoPerfil");
+const userprofileimg = document.querySelector(".user-profile");
+userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
+
+const userName = document.querySelector(".user-name");
+const userEmail = document.querySelector(".user-email");
+
+if (logged) {
+    userName.innerHTML = `${logged.nome}`;
+    userEmail.innerHTML = `${logged.email}`;
+} else {
+    console.log("Nenhum usuário logado.");
+}
+
+function exituser() {
+    localStorage.removeItem("logged");
+    window.location.href = "/pages/login.html";
+}
 
 const totalbooks = document.querySelector(".valor");
 const visu = document.querySelector(".visu");
@@ -15,7 +33,7 @@ async function getBooks() {
         const response = await fetch("http://54.173.229.152:8080/livros");
 
         if (response.status === 200) {
-            const books = await response.json(); 
+            const books = await response.json();
             listbook(books);
         } else {
             alert("Erro na API");
@@ -29,7 +47,7 @@ async function getBooks() {
 
 function listbook(books) {
     const listbookContainer = document.querySelector(".book-card");
-    listbookContainer.innerHTML = ""; 
+    listbookContainer.innerHTML = "";
     books.forEach((livro) => {
         const div = document.createElement("div");
         div.classList.add("book-item");
@@ -72,6 +90,5 @@ async function del(id_livros) {
         console.error("Erro ao excluir o livro:", error);
     }
 }
-
-
 getBooks();
+

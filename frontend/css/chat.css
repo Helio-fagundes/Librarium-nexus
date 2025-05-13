@@ -9,7 +9,10 @@ body {
     height: 100vh;
 }
 
-
+a {
+    text-decoration: none;
+    color: black;
+}
 .header {
     position: fixed;
     display: flex;
@@ -21,6 +24,7 @@ body {
     backdrop-filter: blur(20px);
 }
 
+
 .add-book-btn {
     background-color: #FBC02D;
     color: white;
@@ -29,22 +33,17 @@ body {
     padding: 8px 15px;
     font-weight: bold;
     cursor: pointer;
+    font-size: 15px;
     display: flex;
     align-items: center;
-    font-weight: 400;
-    font-size: 15px;
 }
-
-a{
-    text-decoration: none;
-    color: #000000;
-  }
 
 .add-book-btn:hover {
     background-color: #F57F17;
     transition: all 0.8s ease-out;
     transform: translateY(-1px);
 }
+
 
 .logo-container {
     display: flex;
@@ -58,13 +57,17 @@ a{
 }
 
 
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
 .user-actions box-icon {
     position: relative;
     width: 50px;
     height: 50px;
     margin: 15px;
     padding: 12px;
-
 }
 
 .user-actions box-icon:hover {
@@ -74,10 +77,6 @@ a{
     backdrop-filter: blur(20px);
 }
 
-.user-actions {
-    display: flex;
-    align-items: center;
-}
 
 .user-profile {
     width: 45px;
@@ -87,7 +86,8 @@ a{
     overflow: hidden;
     margin: 20px;
 }
-.user-profile img{
+
+.user-profile img {
     width: 100%;
     height: 100%;
 }
@@ -96,6 +96,7 @@ a{
     cursor: pointer;
     outline: 5px solid #fbc12d59;
 }
+
 
 .main-content {
     height: 300vh;
@@ -118,13 +119,12 @@ a{
     transform: translateY(-10px);
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
 }
+
 .dropdown ul.userflex {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
-
-
 
 .dropdown ul li {
     display: block;
@@ -140,6 +140,7 @@ a{
     border-radius: 5px;
 }
 
+
 .site-title {
     font-size: 28px;
     margin-bottom: 20px;
@@ -148,17 +149,9 @@ a{
 }
 
 
-/* CHAT */
-
-main {
-    align-items: center;
-}
-
-
 #chat-container {
     cursor: pointer;
 }
-
 
 #chat-container #insert-chat {
     width: 1350px;
@@ -176,7 +169,8 @@ main {
     border: 1px solid #FBC02D;
     justify-content: space-between;
 }
-#chat-container #insert-chat .chat:hover{
+
+#chat-container #insert-chat .chat:hover {
     background-color: #99999927;
 }
 
@@ -185,7 +179,7 @@ main {
     display: flex;
 }
 
-.user-chat{
+.user-chat {
     width: 70px;
     height: 70px;
     border-radius: 50%;
@@ -193,14 +187,17 @@ main {
     overflow: hidden;
     margin: 20px;
 }
+
 .user-chat img {
     width: 100%;
     height: 100%;
 }
 
-#date-info{
+
+#date-info {
     margin: 10px;
 }
+
 
 .mensagem-container {
     top: 50px;
@@ -212,30 +209,31 @@ main {
     background: #f9fbfd94;
     border-radius: 10px;
     padding: 20px;
-  }
-  
-  .voltar a {
+}
+
+.voltar a {
     text-decoration: none;
     color: #333;
     font-size: 14px;
-  }
-  
-  .mensagem {
+}
+
+
+.mensagem {
     display: flex;
     justify-content: right;
     margin-top: 20px;
-  }
-  
-  .usuario {
+}
+
+.usuario {
     display: flex;
     align-items: flex-start;
     background: #eef2f7;
     border-radius: 8px;
     padding: 10px;
     max-width: 400px;
-  }
-  
-  .letra {
+}
+
+.letra {
     background-color: #cfd7df;
     color: #333;
     width: 32px;
@@ -246,48 +244,49 @@ main {
     font-weight: bold;
     margin-right: 10px;
     flex-shrink: 0;
-  }
-  
-  .conteudo {
+}
+
+.conteudo {
     flex: 1;
-  }
-  
-  .nome {
+}
+
+.nome {
     font-weight: bold;
     font-size: 14px;
     color: #2c2c2c;
-  }
-  
-  .texto {
+}
+
+.texto {
     font-size: 14px;
     margin-top: 4px;
     color: #1d1d1d;
-  }
-  
-  .hora {
+}
+
+.hora {
     font-size: 12px;
     color: #999;
     text-align: right;
     margin-top: 5px;
-  }
-  
-  .entrada {
+}
+
+
+.entrada {
     display: flex;
     margin-top: 30px;
     border-top: 1px solid #ccc;
     padding-top: 15px;
-  }
-  
-  .entrada input {
+}
+
+.entrada input {
     position: relative;
     top: 450px;
     flex: 1;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
-  }
-  
-  .entrada button {
+}
+
+.entrada button {
     position: relative;
     top: 450px;
     background-color: #4e8ef7;
@@ -298,4 +297,4 @@ main {
     margin-left: 8px;
     cursor: pointer;
     font-size: 18px;
-  }
+}

@@ -1,9 +1,29 @@
 const userprofile = document.querySelector(".user-profile");
-
 const drop = document.querySelector(".dropuser");
-
 const datetext = document.querySelector("#date");
+const userName = document.querySelector(".user-name");
+const userEmail = document.querySelector(".user-email");
 
+
+let fotoPerfil = localStorage.getItem("fotoPerfil");
+const userprofileimg = document.querySelector(".user-profile");
+userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
+const userchat = document.querySelector(".user-chat");
+userchat.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
+
+
+let logged = JSON.parse(localStorage.getItem("logged"));
+if (logged) {
+    userName.innerHTML = `${logged.nome}`;
+    userEmail.innerHTML = `${logged.email}`;
+} else {
+    console.log("Nenhum usuário logado.");
+}
+
+function exituser() {
+    localStorage.removeItem("logged");
+    window.location.href = "/pages/login.html";
+}
 
 function GetDateTime() {
     const date = new Date();
@@ -43,35 +63,35 @@ back.addEventListener("click", (e) => {
 (function () {
     const socket = new SockJS('http://localhost:3000/chat');
 
-   
+
     socket.onopen = function () {
         console.log('Conectado ao servidor');
     };
 
-   
+
     socket.onmessage = function (e) {
         console.log('Mensagem recebida:', e.data);
 
-    
+
         const chatContainer = document.querySelector('.mensagem-container');
         const messageDiv = document.createElement('div');
-        messageDiv.classList.add('mensagem');  
+        messageDiv.classList.add('mensagem');
         messageDiv.innerHTML = `
           <div class="usuario">
             <div class="letra">M</div>
             <div class="conteudo">
-                <div class="nome">Maria Oliveira</div>
-                <div class="texto">${e.data}</div>  <!-- Usando e.data para exibir a mensagem -->
+                <div class="nome">${logged.nome}</div>
+                <div class="texto">${e.data}</div> 
                 <div class="hora">07:15</div>
             </div>
           </div>
         `;
         chatContainer.appendChild(messageDiv);
 
-        messageInput.value = ''; 
+        messageInput.value = '';
     };
 
-   
+
     socket.onclose = function () {
         console.log('Conexão fechada');
     };
@@ -79,12 +99,10 @@ back.addEventListener("click", (e) => {
 
     const sendButton = document.querySelector('.entrada button');
     const messageInput = document.querySelector('.entrada input');
-
- 
     sendButton.addEventListener('click', function () {
         const message = messageInput.value.trim();
         if (message) {
-            socket.send(message); 
+            socket.send(message);
             console.log('Mensagem enviada:', message);
             const chatContainer = document.getElementById('insert-chat');
             const messageDiv = document.createElement('div');
@@ -92,7 +110,7 @@ back.addEventListener("click", (e) => {
             messageDiv.innerHTML = `
             <div class="user">
                 <div class="user-chat">
-                    <img src="/img/pessoa.png" alt="Usuário">
+                    <img src="${fotoPerfil}" alt="Usuário">
                 </div>
                 <div>
                     <h4>Você</h4>

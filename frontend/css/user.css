@@ -1,31 +1,37 @@
-body {
-    box-sizing: border-box;
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 400;
-    background-color: #FFF9C4;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFF9C4;
+    font-size: 1rem;
 }
 
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     background-color: #e0e0e06b;
     backdrop-filter: blur(20px);
+    padding: 10px;
 }
 
 main {
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 120vh;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+    min-height: 120vh;
 }
+
 
 a {
     text-decoration: none;
     color: black;
 }
+
 
 .logo-container {
     display: flex;
@@ -33,39 +39,40 @@ a {
 }
 
 .logo-img {
-    width: 100px;
-    height: 100px;
-    margin-left: 50px;
+    width: 6rem;
+    height: 6rem;
+    margin-left: 3rem;
 }
 
-.user-actions box-icon {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin: 15px;
-    padding: 12px;
-
-}
-
-.user-actions box-icon:hover {
-    cursor: pointer;
-    background-color: #8f8f8f2a;
-    border-radius: 10px;
-    backdrop-filter: blur(20px);
-}
 
 .user-actions {
     display: flex;
     align-items: center;
 }
 
+.user-actions box-icon {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    margin: 1rem;
+    padding: 0.75rem;
+    cursor: pointer;
+}
+
+.user-actions box-icon:hover {
+    background-color: #8f8f8f2a;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+}
+
+
 .user-profile {
-    width: 45px;
-    height: 45px;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     background-color: #ccc;
     overflow: hidden;
-    margin: 20px;
+    margin: 1rem;
 }
 
 .user-profile img {
@@ -75,22 +82,21 @@ a {
 
 .user-profile:hover {
     cursor: pointer;
-    outline: 5px solid rgba(99, 99, 99, 0.219);
+    outline: 5px solid #fbc12d4d;
 }
 
 
 .dropdown ul {
     opacity: 0;
     visibility: hidden;
-    position: fixed;
+    position: absolute;
     flex-direction: column;
-    width: 200px;
-    height: 250px;
-    background-color: #ffffff;
+    width: 12rem;
+    background-color: #fff;
     border-radius: 10px;
-    padding: 10px;
+    padding: 0.625rem;
     transform: translateY(-10px);
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
 }
 
 .dropdown ul.userflex {
@@ -99,44 +105,41 @@ a {
     transform: translateY(0);
 }
 
-
-
 .dropdown ul li {
-    display: block;
     list-style: none;
-    margin-top: 10px;
+    margin-top: 0.625rem;
+    padding: 0.5rem;
     border-radius: 2px;
-    padding: 5px;
 }
 
 .dropdown ul li:hover {
-    background-color: #fbc12d59;
+    background-color: #00000059;
     cursor: pointer;
     border-radius: 5px;
 }
+
 
 .add-book-btn {
     background-color: #FBC02D;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 8px 15px;
+    padding: 0.5rem 1rem;
     font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-weight: 400;
-    font-size: 15px;
+    font-size: 0.9375rem;
 }
 
 .add-book-btn:hover {
     background-color: #F57F17;
-    transition: all 0.8s ease-out;
-    transform: translateY(-1px);
+    transform: translateY(-0.1rem);
+    transition: transform 0.3s ease-out;
 }
 
 .add-book-btn span {
-    margin-right: 5px;
+    margin-right: 0.3125rem;
 }
 
 
@@ -144,11 +147,11 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70px;
-    height: 70px;
+    width: 4.375rem;
+    height: 4.375rem;
     border-radius: 50%;
     overflow: hidden;
-    margin: 10px;
+    margin: 0.625rem;
     border: 1px solid rgba(0, 0, 0, 0.295);
 }
 
@@ -162,45 +165,45 @@ a {
     flex-direction: column;
     align-items: center;
     border: 1px solid rgba(0, 0, 0, 0.13);
-    padding: 10px;
+    padding: 1rem;
     border-radius: 10px;
     background-color: #f7f7f74f;
 }
 
+
 .container-profile {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+}
+
+
+.add-image, .delete-img {
+    margin: 0.625rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .add-image {
     background-color: #ffffff;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
 }
 
 .add-image:hover {
-    transform: translateY(-5px);
+    transform: translateY(-0.3125rem);
     background-color: #ffda7e85;
-    transition: all 0.1s ease-in-out;
 }
 
 .delete-img {
     background-color: #ff000096;
-    margin: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
 }
 
 .delete-img:hover {
-    transition: all 0.5s ease-in;
     background-color: hsla(0, 100%, 50%, 0.74);
 }
+
 
 .form-user {
     display: flex;
@@ -208,13 +211,13 @@ a {
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(0, 0, 0, 0.185);
-    padding: 20px;
+    padding: 1.25rem;
     border-radius: 10px;
     background-color: #f7f7f74f;
 }
 
 .form-user input {
-    padding: 7px;
+    padding: 0.4375rem;
     border: 1.5px solid rgba(0, 0, 0, 0.26);
     border-radius: 10px;
     outline: none;
@@ -222,38 +225,92 @@ a {
 
 .form-user input:focus {
     outline: #FBC02D;
-    border: 1px solid #FBC02D;
+    border: 1.5px solid #FBC02D;
     transition: all 0.3s ease-in-out;
+}
+
+.form-user .cancel, .form-user .confirm {
+    padding: 0.625rem;
+    border-radius: 10px;
+    border: 1.5px solid rgba(0, 0, 0, 0.226);
+    margin: 0.625rem;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
 }
 
 .form-user .cancel {
     background-color: rgba(255, 79, 79, 0.932);
-    padding: 10px;
-    border-radius: 10px;
-    border: 1.5px solid rgba(0, 0, 0, 0.226);
-    margin: 10px;
-    cursor: pointer;
 }
 
 .form-user .confirm {
     background-color: #ffda7e85;
-    border-radius: 10px;
-    border: 1.5px solid rgba(0, 0, 0, 0.226);
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
 }
 
-.form-user .cancel:hover,
-.form-user .confirm:hover {
-    transition: all 0.5s ease-out;
-    transform: translateY(-5px);
+.form-user .cancel:hover, .form-user .confirm:hover {
+    transform: translateY(-0.3125rem);
 }
 
-
-.form-user .cancel:active,
-.form-user .confirm:active {
-    transition: all 0.5s ease-out;
-    transform: translateY(-0px);
+.form-user .cancel:active, .form-user .confirm:active {
+    transform: translateY(0);
     box-shadow: 5px 0 20px rgba(0, 0, 0, 0.281);
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .logo-img {
+        width: 4rem;
+        height: 4rem;
+        margin-left: 1rem;
+    }
+
+    .user-actions {
+        justify-content: flex-end;
+        margin-top: 1rem;
+    }
+
+    .dropdown ul {
+        width: 100%;
+    }
+
+    .user-profile {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .form-user {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .add-book-btn {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .add-book-btn {
+        font-size: 0.875rem;
+    }
+
+    .user-profile {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .user-actions box-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.5rem;
+    }
 }

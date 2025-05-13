@@ -4,15 +4,14 @@ userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
 
-
 const logged = JSON.parse(localStorage.getItem("logged"));
-
 const URL = "http://54.173.229.152:8080/livros";
 const booksGrid = document.querySelector(".books-grid");
 const infocard = document.querySelector(".container");
 const maincontent = document.querySelector('.main-content');
 
 let Books = [];
+
 const categorias = [
     { id: 1, nome: "Tecnologia" }, { id: 2, nome: "Ficção" }, { id: 3, nome: "Romance" },
     { id: 4, nome: "Aventura" }, { id: 5, nome: "Biografia" }, { id: 6, nome: "Clássicos" },
@@ -23,6 +22,8 @@ const categorias = [
     { id: 19, nome: "Negócios" }, { id: 20, nome: "Poesia" }, { id: 21, nome: "Religião" },
     { id: 22, nome: "Suspense" }, { id: 23, nome: "Terror" }, { id: 24, nome: "Viagens" }
 ];
+
+
 
 async function getBooks() {
     try {
@@ -46,13 +47,6 @@ async function getBooks() {
     }
 }
 
-const estadosLivro = [
-    { value: "bom", label: "Bom" },
-    { value: "ótimo", label: "Ótimo" },
-    { value: "novo", label: "Novo" },
-    { value: "usado", label: "Usado" }
-];
-
 
 function exibirLivros(lista) {
     booksGrid.innerHTML = "";
@@ -61,23 +55,21 @@ function exibirLivros(lista) {
         return;
     }
     lista.forEach(book => {
-        const categoria = categorias.find(cat => cat.id === book.id_categorias);
+        const categoria = categorias.find(cat => cat.id === book.id_categorias) || { nome: 'Categoria desconhecida' };
         const div = document.createElement("div");
-        let storageimg = JSON.parse(localStorage.getItem("imagem")) || {};
-        
         div.classList.add("book-card");
         div.innerHTML = `
             <div class="book-image">
-                <img src="${storageimg.imagem}" alt="">
+                <img src="" alt="Imagem do livro">
             </div>
             <div class="book-details">
                 <div>
                     <div class="book-title">${book.nome}</div>
                     <div class="book-price">R$${book.preco}</div>
-                    <div class="category">${categoria ? categoria.nome : 'Categoria desconhecida'}</div>
+                    <div class="category">${categoria.nome}</div>
                 </div>
                 <div class="book-tags">
-                    <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;">${book.estado}</span>
+                    <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;"></span>
                 </div>
                 <div class="book-seller">Vendedor: ${logged.nome}</div>
             </div>`;
@@ -92,7 +84,7 @@ function exibirLivros(lista) {
 }
 
 function readBook(book) {
-    const categoria = categorias.find(cat => cat.id === book.id_categorias);
+    const categoria = categorias.find(cat => cat.id === book.id_categorias) || { nome: 'Categoria desconhecida' };
     infocard.innerHTML = `
         <button class="backcontent">← Voltar para a página inicial</button>
         <div class="book-details-info">
@@ -105,10 +97,10 @@ function readBook(book) {
                     <span class="price">R$ ${book.preco}</span>
                 </div>
                 <div class="tags">
-                    <div class="category">${categoria ? categoria.nome : 'Categoria desconhecida'}</div>
+                    <div class="category">${categoria.nome}</div>
                 </div>
                 <div class="views">
-                    <span class="condition">${book.estado}</span>
+                    <span class="condition"></span>
                 </div>
                 <div class="description">
                     <h3>Descrição</h3>
@@ -119,7 +111,7 @@ function readBook(book) {
                         <img src="img/pessoa.png" alt="Foto do vendedor">
                     </div>
                     <div>
-                        <strong></strong><br>
+                        <strong>${logged.nome}</strong><br>
                         <small>Vendedor</small>
                     </div>
                 </div>
@@ -170,3 +162,8 @@ search.addEventListener("keydown", (e) => {
 });
 
 getBooks();
+
+let fotoPerfil = localStorage.getItem("fotoPerfil");
+const userprofileimg = document.querySelector(".user-profile");
+userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
+
