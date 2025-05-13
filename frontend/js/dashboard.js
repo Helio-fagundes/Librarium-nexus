@@ -9,9 +9,9 @@ let fotoPerfil = localStorage.getItem("fotoPerfil");
 const userprofileimg = document.querySelector(".user-profile");
 userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
 
+let logged = JSON.parse(localStorage.getItem("logged"));
 const userName = document.querySelector(".user-name");
 const userEmail = document.querySelector(".user-email");
-
 if (logged) {
     userName.innerHTML = `${logged.nome}`;
     userEmail.innerHTML = `${logged.email}`;
@@ -47,6 +47,8 @@ async function getBooks() {
 
 function listbook(books) {
     const listbookContainer = document.querySelector(".book-card");
+    console.log(books.length);
+    totalbooks.innerHTML = `${books.length}`;
     listbookContainer.innerHTML = "";
     books.forEach((livro) => {
         const div = document.createElement("div");
