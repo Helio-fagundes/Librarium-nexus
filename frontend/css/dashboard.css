@@ -1,6 +1,7 @@
-/* Estilo Geral */
 body {
     margin: 0;
+    box-sizing: border-box;
+    padding: 0;
     font-family: 'Segoe UI', sans-serif;
     background: #fff9c48a;
     color: #333;
@@ -12,7 +13,6 @@ body {
     padding: 120px 20px 40px;
 }
 
-/* Estatísticas */
 .stats {
     display: flex;
     gap: 20px;
@@ -25,12 +25,11 @@ body {
     background: white;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
-    min-width: 250px; /* Ajuste para telas menores */
+    min-width: 250px;
 }
 
-/* Ícones e texto */
 .icon {
     font-size: 30px;
 }
@@ -47,7 +46,6 @@ body {
     color: #000;
 }
 
-/* Barra de Pesquisa */
 .search-container {
     margin-bottom: 30px;
 }
@@ -59,7 +57,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 10px;
     background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .manager h2 {
@@ -71,14 +69,13 @@ body {
     color: #555;
 }
 
-/* Cartões de Livros */
 .book-card {
     display: flex;
     background: #fff;
     border-radius: 12px;
     padding: 20px;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -96,7 +93,7 @@ body {
     overflow: hidden;
 }
 
-.book-cover img{
+.book-cover img {
     width: 200px;
     height: 270px;
 }
@@ -152,8 +149,7 @@ body {
     background: #d32f2f;
 }
 
-/* Header Fixo */
-.header {
+header {
     position: fixed;
     display: flex;
     justify-content: space-evenly;
@@ -170,7 +166,6 @@ a {
     color: #000000;
 }
 
-/* Logo */
 .logo-container {
     display: flex;
     align-items: center;
@@ -182,7 +177,6 @@ a {
     margin-left: 50px;
 }
 
-/* Busca */
 .search-container {
     display: flex;
     flex-grow: 1;
@@ -225,7 +219,6 @@ a {
     transition: all 0.2s ease-in-out;
 }
 
-/* Ações do Usuário */
 .user-actions {
     display: flex;
     align-items: center;
@@ -250,7 +243,6 @@ a {
     outline: 5px solid #fbc12d44;
 }
 
-/* Dropdown */
 .dropdown ul {
     opacity: 0;
     visibility: hidden;
@@ -285,7 +277,6 @@ a {
     border-radius: 5px;
 }
 
-/* Título */
 .site-title {
     font-size: 28px;
     margin-bottom: 20px;
@@ -293,7 +284,6 @@ a {
     padding-top: 200px;
 }
 
-/* Estilo dos Ícones */
 .user-actions box-icon {
     position: relative;
     width: 50px;
@@ -309,7 +299,6 @@ a {
     backdrop-filter: blur(20px);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -342,8 +331,28 @@ a {
 }
 
 @media (max-width: 480px) {
+    .user-profile {
+        width: 80px;
+        height: 80px;
+    }
+    .search-container input {
+        width: 70%;
+    }
+    .search-container button {
+        width: 80px;
+    }
+
+    .manager {
+        display: flex;
+        flex-direction: column;
+    }
+
+    box-icon {
+        display: none;
+    }
+
     .book-card {
-        padding: 15px;
+        width: 150px;
     }
 
     .book-cover {

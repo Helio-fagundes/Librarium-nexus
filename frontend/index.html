@@ -19,30 +19,35 @@
         </div>
         <div class="user-actions">
             <a href="pages/vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
-            <a href="pages/chat.html"><box-icon name='chat'></box-icon></a>
-            <div class="dropdown">
-                <div class="user-profile">
-                    <img src="img/pessoa.png" alt="Foto do usuário">
-                </div>
-                <ul class="dropuser">
-                    <span class="user-name">Você</span> <br>
-                    <span class="user-email">you@example.com</span>
-                    <a href="pages/dashboard.html">
-                        <li>Meus livros</li>
-                    </a>
-                    <a href="/pages/vender.html">
-                        <li>Vender livros</li>
-                    </a>
-                    <a href="/pages/chat.html">
-                        <li>Mensagens</li>
-                    </a>
-                    <a href="/pages/user.html">
-                        <li>Configurações</li>
-                    </a>
-                    <li class="exit" onclick="exituser()">Sair</li>
-                </ul>
+
+            <div class="chaticon">
+                <a href="pages/chat.html"><box-icon name='chat'></box-icon></a>
             </div>
-        </div>
+                <div class="dropdown">
+                    <div class="user-profile">
+                        <img src="img/pessoa.png" alt="Foto do usuário">
+                    </div>
+
+                    <ul class="dropuser">
+                        <span class="user-name">Você</span> <br>
+                        <span class="user-email">you@example.com</span>
+                        <a href="pages/dashboard.html">
+                            <li>Meus livros</li>
+                        </a>
+                        <a href="/pages/vender.html">
+                            <li>Vender livros</li>
+                        </a>
+                        <a href="/pages/chat.html">
+                            <li>Mensagens</li>
+                        </a>
+                        <a href="/pages/user.html">
+                            <li>Configurações</li>
+                        </a>
+                        <li class="exit" onclick="exituser()">Sair</li>
+                    </ul>
+                </div>
+            </div>
+
     </header>
 
     <div class="main-content">
@@ -132,8 +137,8 @@
                 </div>
 
                 <a href="/pages/chat.html"><button class="message-btn">
-                    Enviar mensagem
-                </button></a>
+                        Enviar mensagem
+                    </button></a>
             </div>
         </div>
     </div>
@@ -144,4 +149,5 @@
     <script src="/js/script.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
+
 </html>

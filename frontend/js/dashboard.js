@@ -1,14 +1,11 @@
 const userprofile = document.querySelector(".user-profile");
 const drop = document.querySelector(".dropuser");
-
 userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
-
 let fotoPerfil = localStorage.getItem("fotoPerfil");
 const userprofileimg = document.querySelector(".user-profile");
 userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
-
 let logged = JSON.parse(localStorage.getItem("logged"));
 const userName = document.querySelector(".user-name");
 const userEmail = document.querySelector(".user-email");
@@ -18,16 +15,12 @@ if (logged) {
 } else {
     console.log("Nenhum usuário logado.");
 }
-
 function exituser() {
     localStorage.removeItem("logged");
     window.location.href = "/pages/login.html";
 }
-
 const totalbooks = document.querySelector(".valor");
 const visu = document.querySelector(".visu");
-
-
 async function getBooks() {
     try {
         const response = await fetch("http://54.173.229.152:8080/livros");
@@ -72,8 +65,6 @@ function listbook(books) {
         listbookContainer.appendChild(div);
     });
 }
-
-
 async function del(id_livros) {
     try {
         const response = await fetch(`http://54.173.229.152:8080/livros/${id_livros}`, {

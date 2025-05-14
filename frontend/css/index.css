@@ -548,26 +548,25 @@ a {
 
 
 @media (max-width: 768px) {
-    /* Adjusting the book grid to be responsive on smaller screens */
     .books-grid {
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .book-card {
-        width: 100%; 
+        width: 100%;
     }
 
     .hero-title {
-        font-size: 24px; 
+        font-size: 24px;
     }
 
     .hero-subtitle {
-        font-size: 12px; 
+        font-size: 12px;
     }
 
     .search-container {
         margin: 0 5px;
-        max-width: 250px; 
+        max-width: 250px;
     }
 
     .user-profile {
@@ -587,26 +586,61 @@ a {
 }
 
 @media (max-width: 480px) {
-    /* Adjusting layout for very small screens */
+    .search-container input {
+        position: absolute;
+        width: 150px;
+    }
+
+    .categories-container {
+        overflow: auto;
+    }
+
+    .user-profile {
+        width: 60px;
+        height: 60px;
+    }
+
+    .dropdown ul {
+        right: 0;
+    }
+
+    .chaticon box-icon {
+        position: fixed;
+        right: 0;
+        top: 600px;
+        background-color: #ffffff;
+        border-radius: 10px;
+    }
+
+    .add-book-btn {
+        display: none;
+    }
+
+    .logo-container img {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+    }
+
     .books-grid {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr;
     }
 
     .book-card {
-        width: 100%; 
+        width: 65%;
     }
 
     .hero-title {
-        font-size: 20px; 
+        font-size: 20px;
     }
 
     .hero-subtitle {
-        font-size: 10px; 
+        font-size: 10px;
     }
 
     .search-container {
         margin: 0 5px;
-        max-width: 200px; 
+        max-width: 200px;
     }
 
     .book-details-info {

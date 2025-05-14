@@ -12,7 +12,7 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     background-color: #e0e0e06b;
     backdrop-filter: blur(20px);
@@ -38,41 +38,46 @@ a {
     align-items: center;
 }
 
-.logo-img {
-    width: 6rem;
-    height: 6rem;
-    margin-left: 3rem;
+.logo-container img {
+    width: 80px;
+    height: 80px;
 }
-
 
 .user-actions {
     display: flex;
     align-items: center;
 }
 
-.user-actions box-icon {
-    position: relative;
-    width: 3rem;
-    height: 3rem;
-    margin: 1rem;
-    padding: 0.75rem;
-    cursor: pointer;
-}
-
-.user-actions box-icon:hover {
-    background-color: #8f8f8f2a;
-    border-radius: 10px;
-    backdrop-filter: blur(20px);
-}
-
-
 .user-profile {
-    width: 3rem;
-    height: 3rem;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: #ccc;
     overflow: hidden;
-    margin: 1rem;
+}
+
+.add-book-btn {
+    background-color: #FBC02D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.add-book-btn:hover {
+    background-color: #F57F17;
+    transition: all 0.8s ease-out;
+    transform: translateY(-1px);
+}
+
+.add-book-btn span {
+    margin-right: 5px;
 }
 
 .user-profile img {
@@ -91,15 +96,16 @@ a {
     visibility: hidden;
     position: absolute;
     flex-direction: column;
-    width: 12rem;
     background-color: #fff;
     border-radius: 10px;
+    width: 50%;
     padding: 0.625rem;
     transform: translateY(-10px);
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
 }
 
 .dropdown ul.userflex {
+    width: 50%;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -113,7 +119,7 @@ a {
 }
 
 .dropdown ul li:hover {
-    background-color: #00000059;
+    background-color: #ffe39d;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -178,11 +184,12 @@ a {
 }
 
 
-.add-image, .delete-img {
+.add-image,
+.delete-img {
     margin: 0.625rem;
     padding: 1rem;
     border-radius: 10px;
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.226);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 }
@@ -201,7 +208,8 @@ a {
 }
 
 .delete-img:hover {
-    background-color: hsla(0, 100%, 50%, 0.74);
+    background-color: hsla(0, 100%, 70%, 0.74);
+    transform: translateY(-0.3125rem);
 }
 
 
@@ -229,7 +237,8 @@ a {
     transition: all 0.3s ease-in-out;
 }
 
-.form-user .cancel, .form-user .confirm {
+.form-user .cancel,
+.form-user .confirm {
     padding: 0.625rem;
     border-radius: 10px;
     border: 1.5px solid rgba(0, 0, 0, 0.226);
@@ -246,22 +255,19 @@ a {
     background-color: #ffda7e85;
 }
 
-.form-user .cancel:hover, .form-user .confirm:hover {
+.form-user .cancel:hover,
+.form-user .confirm:hover {
     transform: translateY(-0.3125rem);
 }
 
-.form-user .cancel:active, .form-user .confirm:active {
+.form-user .cancel:active,
+.form-user .confirm:active {
     transform: translateY(0);
     box-shadow: 5px 0 20px rgba(0, 0, 0, 0.281);
 }
 
 
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
     .logo-img {
         width: 4rem;
         height: 4rem;
@@ -295,17 +301,23 @@ a {
 
 @media (max-width: 480px) {
     .logo-img {
-        width: 3rem;
-        height: 3rem;
+        width: 80px;
+        height: 80px;
     }
 
-    .add-book-btn {
-        font-size: 0.875rem;
+    .logo-container {
+        margin: 0;
+    }
+
+    .dropdown ul {
+        width: 50%;
+        right: 0;
     }
 
     .user-profile {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 65px;
+        height: 65px;
+        margin-bottom: 10px;
     }
 
     .user-actions box-icon {

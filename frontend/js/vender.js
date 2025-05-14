@@ -42,12 +42,46 @@ function gerarIdLivro() {
 
 public.addEventListener("click", (e) => {
     e.preventDefault();
+    if (inputTitle.value.trim() === "") {
+        alert("O título é obrigatório.");
+        inputTitle.focus();
+        return;
+    }
+
+    if (description.value.trim() === "") {
+        alert("A descrição é obrigatória.");
+        description.focus();
+        return;
+    }
+
+    const preco = parseFloat(precoinput.value);
+    if (isNaN(preco) || preco <= 0) {
+        alert("Digite um preço válido.");
+        precoinput.focus();
+        return;
+    }
+
+    if (category.value === "" || category.value === "selecione") {
+        alert("Selecione uma categoria.");
+        category.focus();
+        return;
+    }
+
+    if (estado.value === "" || estado.value === "selecione") {
+        alert("Selecione um estado.");
+        estado.focus();
+        return;
+    }
+
+
+    alert("Formulário válido! Pronto para ser enviado.");
+
 
     function getvalue(input) {
         return input.value;
     }
 
-    const idLivro = gerarIdLivro(); 
+    const idLivro = gerarIdLivro();
 
     const livro = {
         id_livro: idLivro,
@@ -55,7 +89,7 @@ public.addEventListener("click", (e) => {
         descricao: getvalue(description),
         preco: parseFloat(getvalue(precoinput)),
         id_categorias: parseInt(getvalue(category)),
-        id_autor: 1 
+        id_autor: 1
     };
 
 
@@ -100,14 +134,14 @@ function salvarImagem(idLivro) {
         reader.onloadend = function () {
             const base64String = reader.result;
 
-            
+
             const livros = JSON.parse(localStorage.getItem("livros")) || [];
             const livroIndex = livros.findIndex(livro => livro.id_livro === idLivro);
 
             if (livroIndex !== -1) {
-                livros[livroIndex].imagem = base64String; 
-                livros[livroIndex].estado = estadoLivro; 
-                localStorage.setItem("livros", JSON.stringify(livros)); 
+                livros[livroIndex].imagem = base64String;
+                livros[livroIndex].estado = estadoLivro;
+                localStorage.setItem("livros", JSON.stringify(livros));
                 console.log("Imagem salva com sucesso no livro!", livros[livroIndex]);
             }
         };
