@@ -44,8 +44,6 @@ async function getBooks() {
         console.error("Erro na requisição:", error);
     }
 }
-let img = JSON.parse(localStorage.getItem("imagem"));
-
 
 function exibirLivros(lista) {
     booksGrid.innerHTML = "";
@@ -89,7 +87,7 @@ function readBook(book) {
         <button class="backcontent">← Voltar para a página inicial</button>
         <div class="book-details-info">
             <div class="book-image-info">
-                <img src="" alt="${book.nome}">
+                <img src="${book.imagem_url}" alt="${book.nome}">
             </div>
             <div class="book-info">
                 <div class="title-price">
@@ -141,6 +139,8 @@ function exituser() {
     window.location.href = "/pages/login.html";
 }
 
+
+// SEARCH
 const search = document.querySelector('.search-input');
 const btnsearch = document.querySelector(".btnsearch");
 
