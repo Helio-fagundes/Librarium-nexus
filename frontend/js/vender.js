@@ -89,8 +89,7 @@ form.addEventListener("submit", (e) => {
     formData.append("descricao", description.value.trim());
     formData.append("preco", preco);
     formData.append("id_categorias", parseInt(category.value));
-    formData.append("id_autor", usuarioLogado?.id || 1);
-    formData.append("estado", estado.value); 
+    formData.append("id_autor", usuarioLogado?.id_usuario || null);
 
     fetch("http://54.173.229.152:8080/livros", {
         method: "POST",
@@ -99,7 +98,7 @@ form.addEventListener("submit", (e) => {
     .then(async res => {
         const text = await res.text();
         if (!res.ok) throw new Error(text);
-        return JSON.parse(text);
+        return text;
     })
     .then(data => {
         alert("Livro adicionado com sucesso");

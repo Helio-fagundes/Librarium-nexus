@@ -15,6 +15,29 @@ if (logged) {
 } else {
     console.log("Nenhum usuário logado.");
 }
+
+
+
+let usuarios = [];
+
+async function getuser() {
+    try {
+        const URL = "http://54.173.229.152:8080/usuario";
+        const resp = await fetch(URL);
+        const data = await resp.json();
+        if (resp.status === 200) {
+            console.log("API de Usuário Funcionando");
+            usuarios = data; 
+            console.log("USUÁRIOS", usuarios);
+        } else {
+            console.log("Erro ao conectar à API de Autores");
+        }
+    } catch (error) {
+        console.error("Erro na Requisição de Autores", error);
+    }
+}
+
+
 function exituser() {
     localStorage.removeItem("logged");
     window.location.href = "/pages/login.html";
@@ -42,15 +65,16 @@ function listbook(books) {
     totalbooks.innerHTML = `${books.length}`;
     listbookContainer.innerHTML = "";
     books.forEach((livro) => {
+        const vendedor = usuarios.find(user => user.id_usuario === livro.id_autor) || { nome: "Desconhecido"};
         const div = document.createElement("div");
         div.classList.add("book-item");
         div.innerHTML = `
             <div class="book-cover">
-                <img src="${livro.imagem}" alt="Capa do livro">
+                <img src="${livro.imagem_url}" alt="Capa do livro">
             </div>
             <div class="book-info">
                 <h3>${livro.nome}</h3>
-                <p>${livro.autor}</p>
+                <p>${vendedor.nome}</p>
                 <p>R$ ${livro.preco}</p>
                 <p>${livro.visualizacoes} visualizações</p>
                 <p>${livro.id_livros}</p>
@@ -81,5 +105,9 @@ async function del(id_livros) {
         console.error("Erro ao excluir o livro:", error);
     }
 }
-getBooks();
 
+async function init() {
+    await getuser();
+    await getBooks();
+}
+init()

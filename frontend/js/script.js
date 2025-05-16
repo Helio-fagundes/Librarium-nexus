@@ -1,6 +1,5 @@
 const userprofile = document.querySelector(".user-profile");
 const drop = document.querySelector(".dropuser");
-
 userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
@@ -10,8 +9,10 @@ const URL = "http://54.173.229.152:8080/livros";
 const booksGrid = document.querySelector(".books-grid");
 const infocard = document.querySelector(".container");
 const maincontent = document.querySelector('.main-content');
+const categoriesContainer = document.querySelector(".categories-container");
 
 let Books = [];
+let usuarios = [];
 
 const categorias = [
     { id: 1, nome: "Tecnologia" }, { id: 2, nome: "Ficção" }, { id: 3, nome: "Romance" },
@@ -23,6 +24,7 @@ const categorias = [
     { id: 19, nome: "Negócios" }, { id: 20, nome: "Poesia" }, { id: 21, nome: "Religião" },
     { id: 22, nome: "Suspense" }, { id: 23, nome: "Terror" }, { id: 24, nome: "Viagens" }
 ];
+
 async function getBooks() {
     try {
         const resp = await fetch(URL);
@@ -31,8 +33,7 @@ async function getBooks() {
             console.log("API funcionando");
             Books = data;
             exibirLivros(Books);
-            console.log("Todos os livros carregados:", Books);
-
+            gerarCategorias(); 
             if (logged && logged.id) {
                 const meusLivros = Books.filter(book => book.id_usuario === logged.id);
                 console.log("Meus livros:", meusLivros);
@@ -45,19 +46,35 @@ async function getBooks() {
     }
 }
 
+async function getuser() {
+    try {
+        const resp = await fetch("http://54.173.229.152:8080/usuario");
+        const data = await resp.json();
+        if (resp.status === 200) {
+            usuarios = data;
+        } else {
+            console.log("Erro ao conectar à API de Usuários");
+        }
+    } catch (error) {
+        console.error("Erro na Requisição de Usuários", error);
+    }
+}
+
 function exibirLivros(lista) {
     booksGrid.innerHTML = "";
     if (lista.length === 0) {
         booksGrid.innerHTML = "<p>Nenhum livro encontrado.</p>";
         return;
     }
+
     lista.forEach(book => {
         const categoria = categorias.find(cat => cat.id === book.id_categorias) || { nome: 'Categoria desconhecida' };
+        const vendedor = usuarios.find(user => user.id_usuario === book.id_autor) || { nome: "Desconhecido" };
         const div = document.createElement("div");
         div.classList.add("book-card");
         div.innerHTML = `
             <div class="book-image">
-                <img src="" alt="Imagem do livro">
+                <img src="${book.imagem_url}" alt="Imagem do livro">
             </div>
             <div class="book-details">
                 <div>
@@ -65,13 +82,12 @@ function exibirLivros(lista) {
                     <div class="book-price">R$${book.preco}</div>
                     <div class="category">${categoria.nome}</div>
                 </div>
-                <div class="book-tags">
-                    <span class="book-tag" style="background-color: #e8f4e8; color: #4caf50;">Bom</span>
-                </div>
-                <div class="book-seller">Vendedor: ${logged.nome}</div>
+                <div class="book-tags"></div>
+                <div class="book-seller">Vendedor: ${vendedor.nome}</div>
             </div>`;
+
         div.addEventListener("click", () => {
-            readBook(book);
+            readBook(book, vendedor);
             infocard.style.display = "block";
             maincontent.style.display = "none";
         });
@@ -80,9 +96,8 @@ function exibirLivros(lista) {
     });
 }
 
-function readBook(book) {
+function readBook(book, vendedor) {
     const categoria = categorias.find(cat => cat.id === book.id_categorias) || { nome: 'Categoria desconhecida' };
-    let fotoPerfil = localStorage.getItem("fotoPerfil");
     infocard.innerHTML = `
         <button class="backcontent">← Voltar para a página inicial</button>
         <div class="book-details-info">
@@ -94,29 +109,24 @@ function readBook(book) {
                     <h1 class="nameBook">${book.nome}</h1>
                     <span class="price">R$ ${book.preco}</span>
                 </div>
-                <div class="tags">
-                    <div class="category">${categoria.nome}</div>
-                </div>
-                <div class="views">
-                    <span class="condition">Bom</span>
-                </div>
+                <div class="tags"><div class="category">${categoria.nome}</div></div>
+                <div class="views"><span class="condition">Bom</span></div>
                 <div class="description">
                     <h3>Descrição</h3>
                     <p>${book.descricao}</p>
                 </div>
                 <div class="seller">
-                    <div class="avatar">
-                        <img src="${fotoPerfil}" alt="Foto do vendedor">
-                    </div>
+                    <div class="avatar"><img src="${fotoPerfil}" alt="Foto do vendedor"></div>
                     <div>
-                        <strong>${logged.nome}</strong><br>
+                        <strong>${vendedor.nome}</strong><br>
                         <small>Vendedor</small>
                     </div>
                 </div>
-                <button class="message-btn">Enviar mensagem</button>
+                <a href="/pages/chat.html"><button class="message-btn">Enviar mensagem</button></a>
             </div>
         </div>
     `;
+
     document.querySelector(".backcontent").addEventListener("click", () => {
         infocard.style.display = "none";
         maincontent.style.display = "block";
@@ -124,9 +134,49 @@ function readBook(book) {
     });
 }
 
+function gerarCategorias() {
+    categoriesContainer.innerHTML = '';
+
+    const todasPill = document.createElement('div');
+    todasPill.classList.add('category-pill', 'category-active');
+    todasPill.textContent = 'Todas';
+    categoriesContainer.appendChild(todasPill);
+
+    categorias.sort((a, b) => a.nome.localeCompare(b.nome)).forEach(cat => {
+        const div = document.createElement('div');
+        div.classList.add('category-pill', 'category-inactive');
+        div.textContent = cat.nome;
+        categoriesContainer.appendChild(div);
+    });
+
+    categoriesContainer.querySelectorAll('.category-pill').forEach(pill => {
+        pill.addEventListener('click', () => {
+            categoriesContainer.querySelectorAll('.category-pill').forEach(el => {
+                el.classList.remove('category-active');
+                el.classList.add('category-inactive');
+            });
+
+            pill.classList.add('category-active');
+            pill.classList.remove('category-inactive');
+
+            const categoriaSelecionada = pill.textContent;
+
+            if (categoriaSelecionada === 'Todas') {
+                exibirLivros(Books);
+            } else {
+                const livrosFiltrados = Books.filter(book => {
+                    const cat = categorias.find(c => c.id === book.id_categorias);
+                    return cat && cat.nome === categoriaSelecionada;
+                });
+                exibirLivros(livrosFiltrados);
+            }
+        });
+    });
+}
+
+
 const userName = document.querySelector(".user-name");
 const userEmail = document.querySelector(".user-email");
-
 if (logged) {
     userName.innerHTML = `${logged.nome}`;
     userEmail.innerHTML = `${logged.email}`;
@@ -140,7 +190,6 @@ function exituser() {
 }
 
 
-// SEARCH
 const search = document.querySelector('.search-input');
 const btnsearch = document.querySelector(".btnsearch");
 
@@ -155,14 +204,15 @@ btnsearch.addEventListener("click", () => {
 });
 
 search.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        btnsearch.click();
-    }
+    if (e.key === "Enter") btnsearch.click();
 });
 
-getBooks();
-
 let fotoPerfil = localStorage.getItem("fotoPerfil");
-const userprofileimg = document.querySelector(".user-profile");
-userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
+document.querySelector(".user-profile").innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
 
+
+async function init() {
+    await getuser();
+    await getBooks();
+}
+init();
