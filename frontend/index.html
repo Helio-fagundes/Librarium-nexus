@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <header class="header">
+    <header>
         <div class="logo-container">
             <img src="img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
         </div>
@@ -19,7 +19,6 @@
         </div>
         <div class="user-actions">
             <a href="pages/vender.html"><button class="add-book-btn"><span>+</span>Vender livro</button></a>
-
             <div class="chaticon">
                 <a href="pages/chat.html"><box-icon name='chat'></box-icon></a>
             </div>
@@ -27,30 +26,28 @@
                 <div class="user-profile">
                     <img src="img/pessoa.png" alt="Foto do usuário">
                 </div>
-
                 <ul class="dropuser">
                     <span class="user-name">Você</span> <br>
                     <span class="user-email">you@example.com</span>
                     <a href="pages/dashboard.html">
                         <li>Meus livros</li>
                     </a>
-                    <a href="/pages/vender.html">
+                    <a href="pages/vender.html">
                         <li>Vender livros</li>
                     </a>
-                    <a href="/pages/chat.html">
+                    <a href="pages/chat.html">
                         <li>Mensagens</li>
                     </a>
-                    <a href="/pages/user.html">
+                    <a href="pages/user.html">
                         <li>Configurações</li>
                     </a>
                     <li class="exit" onclick="exituser()">Sair</li>
                 </ul>
             </div>
         </div>
-
     </header>
 
-    <div class="main-content">
+    <main class="main-content">
         <h1 class="site-title">Librarium Nexus</h1>
         <div class="hero-banner">
             <h2 class="hero-title">Compre e venda livros de forma fácil</h2>
@@ -64,10 +61,10 @@
                             <span></span>Comece a vender
                         </button>
                     </a>
+                    <a href="pages/dashboard.html">
+                        <button class="btn secondary-btn">Ver meu dashboard</button>
+                    </a>
                 </div>
-                <a href="pages/dashboard.html">
-                    <button class="btn secondary-btn">Ver meu dashboard</button>
-                </a>
             </div>
         </div>
 
@@ -75,16 +72,14 @@
 
         <div class="books-section">
             <h3 class="section-title">Livros disponíveis</h3>
-
             <div class="books-grid">
-
+                <!-- Livros renderizados aqui via JS -->
             </div>
-
         </div>
-    </div>
+        </div> 
+    </main>
 
-    <!-- SO SERA EXIBIDO AO CLICAR EM ALGUM LIVRO -->
-    <div class="container">
+    <section class="container">
         <button class="backcontent">← Voltar para a página inicial</button>
         <div class="book-details-info">
             <div class="book-image-info">
@@ -99,10 +94,6 @@
 
                 <div class="tags">
                     <span class="categ">Fantasia</span>
-                </div>
-
-                <div class="views">
-                    <span class="condition">Novo</span>
                 </div>
 
                 <div class="description">
@@ -121,15 +112,12 @@
                     </div>
                 </div>
 
-                <a href="/pages/chat.html"><button class="message-btn">
-                        Enviar mensagem
-                    </button></a>
+                <a href="/pages/chat.html"><button class="message-btn">Enviar mensagem</button></a>
             </div>
         </div>
-    </div>
-    <!-- EXIBIR LIVRO -->
+    </section>
 
-    </div>
+
 
     <script src="/js/script.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>

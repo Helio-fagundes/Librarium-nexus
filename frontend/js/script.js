@@ -110,7 +110,6 @@ function readBook(book, vendedor) {
                     <span class="price">R$ ${book.preco}</span>
                 </div>
                 <div class="tags"><div class="category">${categoria.nome}</div></div>
-                <div class="views"><span class="condition">Bom</span></div>
                 <div class="description">
                     <h3>Descrição</h3>
                     <p>${book.descricao}</p>
@@ -124,6 +123,7 @@ function readBook(book, vendedor) {
                 </div>
                 <a href="/pages/chat.html"><button class="message-btn">Enviar mensagem</button></a>
             </div>
+        </div>
         </div>
     `;
 

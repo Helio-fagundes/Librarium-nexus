@@ -92,6 +92,7 @@ a {
 
 
 .dropdown ul {
+    width: 200px !important;
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -126,6 +127,9 @@ a {
 
 
 .add-book-btn {
+    position: relative;
+    right: 20px;
+    display: flex;
     background-color: #FBC02D;
     color: white;
     border: none;
@@ -133,7 +137,6 @@ a {
     padding: 0.5rem 1rem;
     font-weight: bold;
     cursor: pointer;
-    display: flex;
     align-items: center;
     font-size: 0.9375rem;
 }
@@ -144,9 +147,7 @@ a {
     transition: transform 0.3s ease-out;
 }
 
-.add-book-btn span {
-    margin-right: 0.3125rem;
-}
+
 
 
 .user-img {
