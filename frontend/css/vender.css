@@ -195,6 +195,7 @@ input[type="file"] {
   color: #64748b;
   font-size: 14px;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 input[type="text"],

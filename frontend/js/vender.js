@@ -45,7 +45,7 @@ const publicBtn = document.querySelector(".publicar");
 const form = document.querySelector(".formulario");
 
 function direct() {
-    window.location.href = "/pages/login.js";
+    window.location.href = "/index.html";
 }
 
 // Publicar livro
@@ -107,7 +107,7 @@ form.addEventListener("submit", (e) => {
         })
         .then(data => {
             alert("Livro adicionado com sucesso");
-            refreshpage();
+            direct();
         })
         .catch(error => {
             console.error("Erro detalhado:", error.message);
