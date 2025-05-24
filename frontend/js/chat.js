@@ -179,7 +179,6 @@ async function getuser() {
             return;
         }
         const user = await resp.json();
-        console.log("Usuários recebidos:", user);
     } catch (error) {
         console.error("Erro ao conectar com a API:", error);
     }
