@@ -100,7 +100,7 @@ body {
     font-weight: 500;
 }
 
-.form-container .btnregister:hover{
+.form-container .btnregister:hover {
     background-color: #fff17675;
     backdrop-filter: blur(20px);
     box-shadow: 10px 0 90px rgba(0, 0, 0, 0.226);
@@ -130,7 +130,7 @@ body {
     margin-bottom: 200px;
     width: 300px;
     height: 200px;
-    
+
 }
 
 .form-register .img {
@@ -203,16 +203,45 @@ body {
     font-weight: 500;
 }
 
-.form-register .btnregister:hover{
+.form-register .btnregister:hover {
     background-color: #fff17675;
     backdrop-filter: blur(20px);
     box-shadow: 10px 0 90px rgba(0, 0, 0, 0.226);
     transition: all 0.5s ease-in-out;
 }
+
 .hidden {
     display: none;
 }
 
 .flex {
     display: flex;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons ion-icon {
+    margin-left: 10px;
+}
+
+
+
+.icons .facebook ion-icon {
+    width: 50px;
+    padding: 5px 0px 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icons .facebook ion-icon:hover {
+    color: #0865FE;
+    transition: all 0.5s ease-in-out;
+    background-color: rgba(202, 202, 202, 0.671);
+    border-radius: 10%;
 }

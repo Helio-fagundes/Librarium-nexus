@@ -43,16 +43,62 @@ backlogin.addEventListener("click", () => {
     formlogin.classList.remove("hidden");
     formlogin.classList.add("flex");
 });
-// VALIDAÇÃO SIMPLES REGISTRO
+
+// Validação de CPF
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, '');
+
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+
+    let soma = 0;
+    for (let i = 0; i < 9; i++) {
+        soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+
+    let resto = soma % 11;
+    let dig1 = resto < 2 ? 0 : 11 - resto;
+
+    if (parseInt(cpf.charAt(9)) !== dig1) return false;
+
+    soma = 0;
+    for (let i = 0; i < 10; i++) {
+        soma += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+
+    resto = soma % 11;
+    let dig2 = resto < 2 ? 0 : 11 - resto;
+
+    return parseInt(cpf.charAt(10)) === dig2;
+}
+
+// Validação de telefone
+function validarTelefone(telefone) {
+    telefone = telefone.replace(/[^\d]+/g, '');
+    return telefone.length >= 10 && telefone.length <= 11;
+}
+
+// Validação simples de registro
 function validateRegister(usuario) {
     if (!usuario.nome || !usuario.email || !usuario.senha || !usuario.cpf || !usuario.tel) {
         alert("Por favor, preencha todos os campos.");
         return false;
     }
+
+    if (!validarCPF(usuario.cpf)) {
+        alert("CPF inválido.");
+        return false;
+    }
+
+    if (!validarTelefone(usuario.tel)) {
+        alert("Telefone inválido.");
+        return false;
+    }
+
     if (usuario.senha !== getValue(RegisconfirPass)) {
         alert("As senhas não conferem.");
         return false;
     }
+
     return true;
 }
 
@@ -64,8 +110,8 @@ registerForm.addEventListener("submit", (e) => {
         nome: getValue(RegisName),
         email: getValue(RegisEmail),
         senha: getValue(Regispassword),
-        cpf: getValue(RegisCPF),
-        tel: getValue(RegisTel),
+        cpf: getValue(RegisCPF).replace(/[^\d]+/g, ''),
+        tel: getValue(RegisTel).replace(/[^\d]+/g, '')
     };
 
     if (!validateRegister(usuario)) return;
@@ -79,24 +125,24 @@ registerForm.addEventListener("submit", (e) => {
         credentials: 'include',
         body: JSON.stringify(usuario)
     })
-        .then(async response => {
-            if (!response.ok) {
-                return response.json().then(err => {
-                    throw new Error(err.message || 'Erro ao cadastrar usuário');
-                });
-            }
-            return response.json();
-        })
-        .then(data => {
-            alert('Usuário cadastrado com sucesso!');
-            console.log('Usuário criado:', data);
-            registerForm.reset();
-            backlogin.click();
-        })
-        .catch(error => {
-            alert(`Erro ao cadastrar usuário: ${error.message}`);
-            console.error(error);
-        });
+    .then(async response => {
+        if (!response.ok) {
+            return response.json().then(err => {
+                throw new Error(err.message || 'Erro ao cadastrar usuário');
+            });
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert('Usuário cadastrado com sucesso!');
+        console.log('Usuário criado:', data);
+        registerForm.reset();
+        backlogin.click();
+    })
+    .catch(error => {
+        alert(`Erro ao cadastrar usuário: ${error.message}`);
+        console.error(error);
+    });
 });
 
 // Login
@@ -112,7 +158,8 @@ btnLogin.addEventListener("click", (e) => {
         alert("Por favor, preencha email e senha.");
         return;
     }
-    return fetch('http://54.173.229.152:8080/usuario/login', {
+
+    fetch('http://54.173.229.152:8080/usuario/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -121,23 +168,23 @@ btnLogin.addEventListener("click", (e) => {
         credentials: 'include',
         body: JSON.stringify(usuario)
     })
-        .then(async response => {
-            if (response.status === 401) {
-                throw new Error('Email ou senha incorretos');
-            }
-            if (!response.ok) {
-                throw new Error('Erro na autenticação');
-            }
-            return await response.json();
-        })
-        .then(user => {
-            alert('Login realizado com sucesso!');
-            console.log('Usuário logado:', user);
-            localStorage.setItem("logged", JSON.stringify(user));
-            direct();
-        })
-        .catch(error => {
-            alert(error.message);
-            console.error(error);
-        });
+    .then(async response => {
+        if (response.status === 401) {
+            throw new Error('Email ou senha incorretos');
+        }
+        if (!response.ok) {
+            throw new Error('Erro na autenticação');
+        }
+        return await response.json();
+    })
+    .then(user => {
+        alert('Login realizado com sucesso!');
+        console.log('Usuário logado:', user);
+        localStorage.setItem("logged", JSON.stringify(user));
+        direct();
+    })
+    .catch(error => {
+        alert(error.message);
+        console.error(error);
+    });
 });
