@@ -1,126 +1,205 @@
 const userprofile = document.querySelector(".user-profile");
-const drop = document.querySelector(".dropuser");
-const datetext = document.querySelector("#date");
 const userName = document.querySelector(".user-name");
 const userEmail = document.querySelector(".user-email");
+const drop = document.querySelector(".dropuser");
+const contactslist = document.querySelector(".mylistcontact");
+const usertext = document.querySelector(".user-id-box");
+// LOCAL STORAGE
+const fotoPerfil = localStorage.getItem("fotoPerfil") || "/img/Design_sem_nome-removebg-preview.png";
+const logged = JSON.parse(localStorage.getItem("logged"));
+const vendedores = JSON.parse(localStorage.getItem("chatUser")) || [];
 
+// Mensagens salvas
+let mensagensSalvas = JSON.parse(localStorage.getItem("chatMensagens")) || {};
 
-let fotoPerfil = localStorage.getItem("fotoPerfil");
-const userprofileimg = document.querySelector(".user-profile");
-userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
-const userchat = document.querySelector(".user-chat");
-userchat.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
+// Exibe imagem do perfil
+userprofile.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
 
-
-let logged = JSON.parse(localStorage.getItem("logged"));
+// Preenche nome e e-mail no menu profile
 if (logged) {
-    userName.innerHTML = `${logged.nome}`;
-    userEmail.innerHTML = `${logged.email}`;
+    userName.textContent = logged.nome;
+    userEmail.textContent = logged.email;
 } else {
-    console.log("Nenhum usuário logado.");
+    alert("Você não está logado.");
+    direct();
 }
 
+// Toggle do menu dropdown
+userprofile.addEventListener("click", () => {
+    drop.classList.toggle("userflex");
+});
+
+usertext.innerHTML = `<h1>Olá, ${logged.nome}</h1>`;
+
+
+// Logout
 function exituser() {
     localStorage.removeItem("logged");
     window.location.href = "/pages/login.html";
 }
 
-function GetDateTime() {
-    const date = new Date();
-    return date.toLocaleString('pt-BR', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+// Redirecionar se não estiver logado
+function direct() {
+    window.location.href = "/pages/login.html";
+}
+
+// WEBSOCKET & CHAT
+let socket;
+let userId = logged?.id_usuario;
+let recipientId;
+let chatHistory = new Map();
+
+function conectar() {
+    if (!userId) {
+        alert("Você não está logado.");
+        direct();
+        return;
+    }
+
+    socket = new SockJS('http://54.173.229.152:8080/chat');
+
+    socket.onopen = () => {
+        console.log('Conectado ao WebSocket');
+        document.getElementById('chatArea').style.display = 'block';
+
+        socket.send(JSON.stringify({
+            type: 'JOIN',
+            senderId: userId,
+            content: 'connected'
+        }));
+    };
+
+    socket.onmessage = (event) => {
+        const message = JSON.parse(event.data);
+        if (message.type === 'CHAT') {
+            salvarNoHistorico(message);
+            if (message.senderId === recipientId || message.senderId === userId) {
+                exibirMensagem(message);
+            }
+        }
+    };
+
+    socket.onclose = () => {
+        console.log('Desconectado do WebSocket');
+    };
+}
+
+function iniciarChat(nomeContato) {
+    recipientId = document.getElementById('recipientId').value.trim();
+
+    if (!recipientId) {
+        alert('Destinatário inválido');
+        return;
+    }
+
+    document.getElementById('chatHeader').textContent = `Chat com ${nomeContato}`;
+    document.getElementById('messages').innerHTML = '';
+
+    const historico = mensagensSalvas[recipientId] || [];
+    historico.forEach(exibirMensagem);
+}
+
+function enviarMensagem() {
+    const input = document.getElementById('messageInput');
+    const content = input.value.trim();
+
+    if (!content || !recipientId || socket.readyState !== WebSocket.OPEN) return;
+
+    const message = {
+        type: 'CHAT',
+        senderId: userId,
+        recipientId,
+        content
+    };
+
+    socket.send(JSON.stringify(message));
+    salvarNoHistorico(message);
+    exibirMensagem(message);
+    input.value = '';
+}
+
+function salvarNoHistorico(message) {
+    const chatId = message.senderId === userId ? message.recipientId : message.senderId;
+
+    if (!mensagensSalvas[chatId]) mensagensSalvas[chatId] = [];
+    mensagensSalvas[chatId].push(message);
+    localStorage.setItem("chatMensagens", JSON.stringify(mensagensSalvas));
+}
+
+function exibirMensagem(message) {
+    const messagesDiv = document.getElementById('messages');
+    const div = document.createElement('div');
+    div.className = `message ${message.senderId === userId ? 'sent' : 'received'}`;
+    div.textContent = message.content;
+    messagesDiv.appendChild(div);
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+document.getElementById('messageInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') enviarMensagem();
+});
+
+function selecionarContato(id, nome) {
+    document.getElementById('recipientId').value = id;
+    iniciarChat(nome);
+}
+
+function addToContactList() {
+    if (!contactslist || !vendedores) {
+        console.error("Elemento .mylistcontact ou vendedores não encontrado.");
+        return;
+    }
+    contactslist.innerHTML = "";
+    vendedores.forEach(vendedor => {
+        if (!vendedor.id_usuario || !vendedor.nome) return;
+
+        const li = document.createElement("li");
+        li.innerHTML = `<img src="/img/user-square.png" alt=""> ${vendedor.nome}`;
+        li.style.cursor = "pointer";
+
+        li.addEventListener("click", () => {
+            selecionarContato(vendedor.id_usuario, vendedor.nome);
+        });
+
+        contactslist.appendChild(li);
     });
 }
 
-datetext.innerHTML = GetDateTime();
+async function getuser() {
+    const URL = "http://54.173.229.152:8080/usuario";
 
-userprofile.addEventListener("click", () => {
-    drop.classList.toggle("userflex");
-});
-
-
-const msgcontainer = document.querySelector(".mensagem-container");
-const chat = document.querySelector("#chat-container");
-const back = document.querySelector(".voltar");
-
-chat.addEventListener("click", () => {
-    if (msgcontainer.style.display === "none" || msgcontainer.style.display === "") {
-        chat.style.display = "none";
-        msgcontainer.style.display = "block";
-    }
-});
-back.addEventListener("click", (e) => {
-    e.preventDefault();
-    msgcontainer.style.display = "none";
-    chat.style.display = "block";
-});
-
-
-(function () {
-    const socket = new SockJS('http://localhost:3000/chat');
-
-
-    socket.onopen = function () {
-        console.log('Conectado ao servidor');
-    };
-
-
-    socket.onmessage = function (e) {
-        console.log('Mensagem recebida:', e.data);
-
-
-        const chatContainer = document.querySelector('.mensagem-container');
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('mensagem');
-        messageDiv.innerHTML = `
-          <div class="usuario">
-            <div class="letra">M</div>
-            <div class="conteudo">
-                <div class="nome">${logged.nome}</div>
-                <div class="texto">${e.data}</div> 
-                <div class="hora">07:15</div>
-            </div>
-          </div>
-        `;
-        chatContainer.appendChild(messageDiv);
-
-        messageInput.value = '';
-    };
-
-
-    socket.onclose = function () {
-        console.log('Conexão fechada');
-    };
-
-
-    const sendButton = document.querySelector('.entrada button');
-    const messageInput = document.querySelector('.entrada input');
-    sendButton.addEventListener('click', function () {
-        const message = messageInput.value.trim();
-        if (message) {
-            socket.send(message);
-            console.log('Mensagem enviada:', message);
-            const chatContainer = document.getElementById('insert-chat');
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('chat');
-            messageDiv.innerHTML = `
-            <div class="user">
-                <div class="user-chat">
-                    <img src="${fotoPerfil}" alt="Usuário">
-                </div>
-                <div>
-                    <h4>Você</h4>
-                    <p>${message}</p>
-                </div>
-            </div>
-        `;
-            chatContainer.appendChild(messageDiv);
+    try {
+        const resp = await fetch(URL);
+        if (!resp.ok) {
+            console.error("Erro na requisição:", resp.status);
+            return;
         }
-    });
-})();
+        const user = await resp.json();
+        console.log("Usuários recebidos:", user);
+    } catch (error) {
+        console.error("Erro ao conectar com a API:", error);
+    }
+}
 
+const urlParams = new URLSearchParams(window.location.search);
+const idFromUrl = urlParams.get('userId');
 
+if (idFromUrl) {
+    const vendedorSelecionado = vendedores.find(v => v.id_usuario === idFromUrl);
+    if (vendedorSelecionado) {
+        selecionarContato(vendedorSelecionado.id_usuario, vendedorSelecionado.nome);
+    } else {
+        console.warn("Vendedor do ID da URL não encontrado. Iniciando com o primeiro da lista.");
+        if (vendedores.length > 0) {
+            selecionarContato(vendedores[0].id_usuario, vendedores[0].nome);
+        }
+    }
+} else {
+    if (vendedores.length > 0) {
+        selecionarContato(vendedores[0].id_usuario, vendedores[0].nome);
+    }
+}
+
+addToContactList();
+getuser();
+conectar();

@@ -123,7 +123,7 @@ if (logged) {
 }
 
 //  foto de perfil
-const fotoPerfil = localStorage.getItem("fotoPerfil");
+const fotoPerfil = localStorage.getItem("fotoPerfil") || "/img/Design_sem_nome-removebg-preview.png";
 const userprofileimg = document.querySelector(".user-profile");
 
 if (fotoPerfil) {

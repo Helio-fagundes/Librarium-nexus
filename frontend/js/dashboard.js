@@ -3,12 +3,13 @@ const drop = document.querySelector(".dropuser");
 userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
-let fotoPerfil = localStorage.getItem("fotoPerfil");
+const fotoPerfil = localStorage.getItem("fotoPerfil") || "/img/Design_sem_nome-removebg-preview.png";
 const userprofileimg = document.querySelector(".user-profile");
-userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
+
 let logged = JSON.parse(localStorage.getItem("logged"));
 const userName = document.querySelector(".user-name");
 const userEmail = document.querySelector(".user-email");
+
 if (logged) {
     userName.innerHTML = `${logged.nome}`;
     userEmail.innerHTML = `${logged.email}`;
@@ -16,7 +17,7 @@ if (logged) {
     console.log("Nenhum usuário logado.");
 }
 
-
+userprofile.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
 
 let usuarios = [];
 

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
     <link rel="stylesheet" href="/css/chat.css">
+    <link rel="icon" type="image/png" href="/img/Design_sem_nome-removebg-preview.png" />
 </head>
 
 <body>
@@ -19,7 +20,7 @@
                     livro</button></a>
 
             <div class="dropdown">
-                <div class="user-profile"><img src="/img/pessoa.png" alt=""></div>
+                <div class="user-profile"><img src="/img/Design_sem_nome-removebg-preview.png" alt=""></div>
                 <ul class="dropuser">
                     <span class="user-name">Você</span> <br>
                     <span class="user-email">you@example.com</span>
@@ -41,57 +42,43 @@
         </div>
     </header>
 
-    <main>
-        <section id="chat-container">
-            <div id="insert-chat">
-                <!-- SERA INSERIDO O CHAT AQUI -->
-                <div class="chat">
-
-                    <div class="user">
-                        <div class="user-chat">
-                            <img src="/img/pessoa.png" alt="">
-                        </div>
-
-                        <div>
-                            <h4>Eduarda</h4>
-                            <p>Mensagem</p>
-                        </div>
-
-                    </div>
-
-                    <div id="date-info">
-                        <span id="date"></span>
-                        <span id="hours"></span>
-                    </div>
-
-                </div>
-                <!--  -->
+    <div class="container">
+        <!-- Lateral esquerda: ID e Contatos -->
+        <div class="user-info">
+            <div class="user-id-box">
+                
             </div>
 
-        </section>
-    </main>
+            <hr style="margin: 20px 0;">
 
-    <div class="mensagem-container">
-        <div class="voltar"><a href="#">← Voltar para mensagens</a></div>
-        <div class="mensagem">
-            <div class="usuario">
-                <div class="letra">M</div>
-                <div class="conteudo">
-                    <div class="nome">Maria Oliveira</div>
-                    <div class="texto">Oi! Você faz entrega ou preciso buscar?</div>
-                    <div class="hora">07:15</div>
-                </div>
+            <div class="contacts-list">
+                <h4 style="font-weight: 500; font-size: 20px;">Contatos</h4>
+                <ul class="mylistcontact">
+
+                </ul>
             </div>
         </div>
 
-        <div class="entrada">
-            <input type="text" placeholder="Digite sua mensagem...">
-            <button>Enviar</button>
+        <!-- Área do chat -->
+        <div class="chat-area" id="chatArea">
+            <div class="select-recipient">
+                <input type="text" id="recipientId" placeholder="ID do destinatário">
+                <button onclick="iniciarChat()">Iniciar Chat</button>
+            </div>
+
+            <h3 id="chatHeader"></h3>
+
+            <div class="messages" id="messages"></div>
+
+            <div class="input-area">
+                <input type="text" id="messageInput" placeholder="Digite sua mensagem">
+                <button onclick="enviarMensagem()">Enviar</button>
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
     <script src="/js/chat.js"></script>
 </body>
-
 </html>

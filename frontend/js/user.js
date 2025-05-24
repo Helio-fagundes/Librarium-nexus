@@ -73,6 +73,6 @@ inputImagem.addEventListener("change", function () {
     }
 });
 
-let fotoPerfil = localStorage.getItem("fotoPerfil");
+const fotoPerfil = localStorage.getItem("fotoPerfil") || "/img/Design_sem_nome-removebg-preview.png";
 const userprofileimg = document.querySelector(".user-profile");
 userprofileimg.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;

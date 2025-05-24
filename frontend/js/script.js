@@ -1,18 +1,33 @@
 const userprofile = document.querySelector(".user-profile");
 const drop = document.querySelector(".dropuser");
+
 userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
 
-const logged = JSON.parse(localStorage.getItem("logged"));
+
+
+const fotoPerfil = localStorage.getItem("fotoPerfil") || "/img/Design_sem_nome-removebg-preview.png";
+userprofile.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
+
+const userName = document.querySelector(".user-name");
+const userEmail = document.querySelector(".user-email");
+
+if (logged) {
+    if (userName) userName.innerHTML = `${logged.nome}`;
+    if (userEmail) userEmail.innerHTML = `${logged.email}`;
+} else {
+    console.log("Nenhum usuário logado.");
+}
+
 const URL = "http://54.173.229.152:8080/livros";
 const booksGrid = document.querySelector(".books-grid");
 const infocard = document.querySelector(".container");
 const maincontent = document.querySelector('.main-content');
 const categoriesContainer = document.querySelector(".categories-container");
 
-let Books = [];
 let usuarios = [];
+let Books = [];
 
 const categorias = [
     { id: 1, nome: "Tecnologia" }, { id: 2, nome: "Ficção" }, { id: 3, nome: "Romance" },
@@ -33,7 +48,8 @@ async function getBooks() {
             console.log("API funcionando");
             Books = data;
             exibirLivros(Books);
-            gerarCategorias(); 
+            gerarCategorias();
+
             if (logged && logged.id) {
                 const meusLivros = Books.filter(book => book.id_usuario === logged.id);
                 console.log("Meus livros:", meusLivros);
@@ -69,7 +85,7 @@ function exibirLivros(lista) {
 
     lista.forEach(book => {
         const categoria = categorias.find(cat => cat.id === book.id_categorias) || { nome: 'Categoria desconhecida' };
-        const vendedor = usuarios.find(user => user.id_usuario === book.id_autor) || { nome: "Desconhecido" };
+        const vendedor = usuarios.find(user => user.id_usuario === book.id_autor) || { nome: "Desconhecido", id_usuario: null };
         const div = document.createElement("div");
         div.classList.add("book-card");
         div.innerHTML = `
@@ -121,9 +137,10 @@ function readBook(book, vendedor) {
                         <small>Vendedor</small>
                     </div>
                 </div>
-                <a href="/pages/chat.html"><button class="message-btn">Enviar mensagem</button></a>
+                <a href="/pages/chat.html">
+                    <button class="message-btn" data-userid="${vendedor.id_usuario}">Enviar mensagem</button>
+                </a>
             </div>
-        </div>
         </div>
     `;
 
@@ -131,6 +148,20 @@ function readBook(book, vendedor) {
         infocard.style.display = "none";
         maincontent.style.display = "block";
         exibirLivros(Books);
+    });
+    infocard.querySelector('.message-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        const userId = e.target.getAttribute('data-userid');
+        let vendedores = JSON.parse(localStorage.getItem("chatUser"));
+        vendedores = Array.isArray(vendedores) ? vendedores : [];
+
+        if (!vendedores.some(v => v.id_usuario === vendedor.id_usuario)) {
+            vendedores.push(vendedor);
+            localStorage.setItem("chatUser", JSON.stringify(vendedores));
+            console.log("Vendedores armazenados:", vendedores);
+        }
+
+        window.location.href = `/pages/chat.html?userId=${userId}`;
     });
 }
 
@@ -174,21 +205,19 @@ function gerarCategorias() {
     });
 }
 
+async function exituser() {
+    try {
+        await fetch("http://54.173.229.152:8080/logout", {
+            method: "POST",
+            credentials: "include"
+        });
+    } catch (e) {
+        console.error("Erro ao encerrar sessão no servidor", e);
+    }
 
-const userName = document.querySelector(".user-name");
-const userEmail = document.querySelector(".user-email");
-if (logged) {
-    userName.innerHTML = `${logged.nome}`;
-    userEmail.innerHTML = `${logged.email}`;
-} else {
-    console.log("Nenhum usuário logado.");
-}
-
-function exituser() {
     localStorage.removeItem("logged");
     window.location.href = "/pages/login.html";
 }
-
 
 const search = document.querySelector('.search-input');
 const btnsearch = document.querySelector(".btnsearch");
@@ -206,10 +235,6 @@ btnsearch.addEventListener("click", () => {
 search.addEventListener("keydown", (e) => {
     if (e.key === "Enter") btnsearch.click();
 });
-
-let fotoPerfil = localStorage.getItem("fotoPerfil");
-document.querySelector(".user-profile").innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;
-
 
 async function init() {
     await getuser();
