@@ -101,7 +101,7 @@ function exibirLivros(lista) {
             <div class="book-details">
                 <div>
                     <div class="book-title">${book.nome}</div>
-                    <div class="book-price">R$${book.preco}</div>
+                   <div class="book-price">${book.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</div>
                     <div class="category">${categoria.nome}</div>
                 </div>
                 <div class="book-tags"></div>
@@ -129,7 +129,7 @@ function readBook(book, vendedor) {
             <div class="book-info">
                 <div class="title-price">
                     <h1 class="nameBook">${book.nome}</h1>
-                    <span class="price">R$ ${book.preco}</span>
+                    <div class="book-price">${book.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</div>
                 </div>
                 <div class="tags"><div class="category">${categoria.nome}</div></div>
                 <div class="description">
