@@ -2,14 +2,13 @@
     box-sizing: border-box;
 }
 
-html, body {
+body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    overflow-x: hidden;
     font-family: 'Segoe UI', sans-serif;
     background: #fff9c48a;
     color: #333;
+    height: 50vh;
 }
 
 /* Container principal */
@@ -255,7 +254,7 @@ a {
     position: fixed;
     flex-direction: column;
     width: 200px;
-    height: 270px;
+    height: 310px;
     background-color: #fff;
     border-radius: 10px;
     padding: 10px;
@@ -304,6 +303,61 @@ a {
     backdrop-filter: blur(20px);
 }
 
+footer {
+    position: relative;
+    top: 100%;
+    background-color: #222;
+    color: #eee;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo-img-footer {
+    width: 40px;
+    height: 40px;
+}
+
+
+.footer-nav a {
+    color: #eee;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ffe5a2a9;
+}
+
+.footer-copy {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+
+
 /* Media Queries (Responsividade) */
 @media (max-width: 768px) {
     header {
@@ -323,6 +377,7 @@ a {
     }
     .dropdown ul {
         right: 0;
+        height: 300px;
     }
 
     .book-card {
@@ -344,6 +399,17 @@ a {
         text-align: center;
     }
 }
+
+@media (max-width: 820px) {
+
+  .dropdown ul {
+    right: 10px;
+    left: auto;
+    height: 310px;
+    box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.212);
+  }
+}
+
 
 @media (max-width: 480px) {
     .user-profile {
@@ -385,5 +451,9 @@ a {
 
     .book-actions button {
         padding: 6px 10px;
+    }
+     .dropdown ul {
+        right: 0;
+        height: 310px;
     }
 }

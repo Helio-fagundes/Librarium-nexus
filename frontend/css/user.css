@@ -95,38 +95,40 @@ a {
 
 
 .dropdown ul {
-    width: 200px !important;
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 50%;
-    padding: 0.625rem;
-    transform: translateY(-10px);
-    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  flex-direction: column;
+  width: 200px;
+  height: 310px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.212);
+  z-index: 2;
 }
 
 .dropdown ul.userflex {
-    width: 50%;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .dropdown ul li {
-    list-style: none;
-    margin-top: 0.625rem;
-    padding: 0.5rem;
-    border-radius: 2px;
+  list-style: none;
+  margin-top: 10px;
+  border-radius: 2px;
+  padding: 5px;
 }
 
 .dropdown ul li:hover {
-    background-color: #ffe39d;
-    cursor: pointer;
-    border-radius: 5px;
+  background-color: #fbc12d59;
+  cursor: pointer;
+  border-radius: 5px;
 }
+
 
 
 .add-book-btn {
@@ -242,7 +244,7 @@ a {
 }
 
 .form-user .cancel,
-.form-user .confirm {
+.form-user #confirm {
     padding: 0.625rem;
     border-radius: 10px;
     border: 1.5px solid rgba(0, 0, 0, 0.226);
@@ -255,21 +257,85 @@ a {
     background-color: rgba(255, 79, 79, 0.932);
 }
 
-.form-user .confirm {
+.form-user #confirm {
     background-color: #ffda7e85;
 }
 
 .form-user .cancel:hover,
-.form-user .confirm:hover {
+.form-user #confirm:hover {
     transform: translateY(-0.3125rem);
 }
 
 .form-user .cancel:active,
-.form-user .confirm:active {
+.form-user #confirm:active {
     transform: translateY(0);
     box-shadow: 5px 0 20px rgba(0, 0, 0, 0.281);
 }
 
+footer {
+    position: relative;
+    top: 100%;
+    background-color: #222;
+    color: #eee;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.logo-img-footer {
+    width: 40px;
+    height: 40px;
+}
+
+
+.footer-nav a {
+    color: #eee;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ffe5a2a9;
+}
+
+.footer-copy {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #aaa;
+}
+
+textarea {
+    position: relative;
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+textarea:focus {
+    outline: 1px solid #ffdd88;
+}
 
 @media (max-width: 768px) {
     .logo-img {
@@ -280,7 +346,6 @@ a {
 
     .user-actions {
         justify-content: flex-end;
-        margin-top: 1rem;
     }
 
     .dropdown ul {
@@ -299,11 +364,15 @@ a {
 
     .add-book-btn {
         font-size: 1rem;
-        padding: 0.75rem 1.5rem;
+        padding: 0.7rem;
     }
 }
 
 @media (max-width: 480px) {
+    .user-actions {
+        margin: 0;
+    }
+
     .logo-img {
         width: 80px;
         height: 80px;
@@ -324,9 +393,13 @@ a {
         margin-bottom: 10px;
     }
 
-    .user-actions box-icon {
-        width: 2.5rem;
-        height: 2.5rem;
-        padding: 0.5rem;
+    .add-book-btn {
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 320px) {
+    .add-book-btn {
+        margin-left: 40px;
     }
 }

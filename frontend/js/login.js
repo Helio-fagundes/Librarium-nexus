@@ -125,24 +125,24 @@ registerForm.addEventListener("submit", (e) => {
         credentials: 'include',
         body: JSON.stringify(usuario)
     })
-    .then(async response => {
-        if (!response.ok) {
-            return response.json().then(err => {
-                throw new Error(err.message || 'Erro ao cadastrar usuário');
-            });
-        }
-        return response.json();
-    })
-    .then(data => {
-        alert('Usuário cadastrado com sucesso!');
-        console.log('Usuário criado:', data);
-        registerForm.reset();
-        backlogin.click();
-    })
-    .catch(error => {
-        alert(`Erro ao cadastrar usuário: ${error.message}`);
-        console.error(error);
-    });
+        .then(async response => {
+            if (!response.ok) {
+                return response.json().then(err => {
+                    throw new Error(err.message || 'Erro ao cadastrar usuário');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert('Usuário cadastrado com sucesso!');
+            console.log('Usuário criado:', data);
+            registerForm.reset();
+            backlogin.click();
+        })
+        .catch(error => {
+            alert(`Erro ao cadastrar usuário: ${error.message}`);
+            console.error(error);
+        });
 });
 
 // Login
@@ -168,23 +168,51 @@ btnLogin.addEventListener("click", (e) => {
         credentials: 'include',
         body: JSON.stringify(usuario)
     })
-    .then(async response => {
-        if (response.status === 401) {
-            throw new Error('Email ou senha incorretos');
-        }
-        if (!response.ok) {
-            throw new Error('Erro na autenticação');
-        }
-        return await response.json();
-    })
-    .then(user => {
-        alert('Login realizado com sucesso!');
-        console.log('Usuário logado:', user);
-        localStorage.setItem("logged", JSON.stringify(user));
-        direct();
-    })
-    .catch(error => {
-        alert(error.message);
-        console.error(error);
-    });
+        .then(async response => {
+            if (response.status === 401) {
+                throw new Error('Email ou senha incorretos');
+            }
+            if (!response.ok) {
+                throw new Error('Erro na autenticação');
+            }
+            return await response.json();
+        })
+        .then(user => {
+            alert('Login realizado com sucesso!');
+            console.log('Usuário logado:', user);
+            localStorage.setItem("logged", JSON.stringify(user));
+            direct();
+        })
+        .catch(error => {
+            alert(error.message);
+            console.error(error);
+        });
+});
+
+const forgotcontainer = document.getElementById("forgot-password");
+const forgotbtn = document.querySelector(".forgot");
+const confirmfor = document.querySelector(".confirmfor");
+
+confirmfor.addEventListener("click", () => {
+    alert("Codigo de verificação enviado ao seu Email")
+    forgotcontainer.classList.remove("flex");
+    forgotcontainer.classList.add("hidden");
+    formlogin.classList.remove("hidden");
+    formlogin.classList.add("flex");
+})
+
+
+forgotbtn.addEventListener("click", () => {
+    const isHidden = forgotcontainer.classList.contains("hidden");
+
+    if (isHidden) {
+        formlogin.classList.remove("flex");
+        formlogin.classList.add("hidden");
+        forgotcontainer.classList.remove("hidden");
+        forgotcontainer.classList.add("flex");
+        
+    } else {
+        forgotcontainer.classList.remove("flex");
+        forgotcontainer.classList.add("hidden");
+    }
 });

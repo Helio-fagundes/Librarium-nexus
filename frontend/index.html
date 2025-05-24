@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Librarium Nexus</title>
     <link rel="stylesheet" href="css/index.css">
-    <link rel="icon" type="image/png" href="/img/Design_sem_nome-removebg-preview.png"/>
+    <link rel="icon" type="image/png" href="/img/Design_sem_nome-removebg-preview.png" />
 </head>
 
 <body>
     <header>
         <div class="logo-container">
-            <img src="img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img">
+            <a href="index.html"><img src="img/Design_sem_nome-removebg-preview.png" alt="logo" class="logo-img"></a>
         </div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Buscar livros...">
@@ -30,6 +30,9 @@
                 <ul class="dropuser">
                     <span class="user-name">Você</span> <br>
                     <span class="user-email">you@example.com</span>
+                    <a href="index.html">
+                        <li>inicio</li>
+                    </a>
                     <a href="pages/dashboard.html">
                         <li>Meus livros</li>
                     </a>
@@ -77,14 +80,14 @@
                 <!-- Livros renderizados aqui via JS -->
             </div>
         </div>
-        </div> 
+        </div>
     </main>
 
     <section class="container">
         <button class="backcontent">← Voltar para a página inicial</button>
         <div class="book-details-info">
             <div class="book-image-info">
-                <img src="" alt="O Senhor dos Anéis">
+                <img src="" alt="">
             </div>
 
             <div class="book-info">
@@ -112,12 +115,30 @@
                         <small>Vendedor</small>
                     </div>
                 </div>
-
                 <a href="/pages/chat.html"><button class="message-btn">Enviar mensagem</button></a>
             </div>
         </div>
     </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="img/Design_sem_nome-removebg-preview.png" alt="Librarium Nexus Logo" class="logo-img-footer">
+                <span>Librarium Nexus</span>
+            </div>
+            <nav class="footer-nav">
+                <a href="pages/vender.html">Vender livros</a>
+                <a href="pages/dashboard.html">Meu dashboard</a>
+                <a href="pages/chat.html">Chat</a>
+                <a href="pages/user.html">Configurações</a>
+            </nav>
+            <div class="footer-copy">
+                &copy; 2025 Librarium Nexus. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
     <script src="/js/script.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
+
 </html>

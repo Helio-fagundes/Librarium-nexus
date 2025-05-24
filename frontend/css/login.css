@@ -188,7 +188,6 @@ body {
     backdrop-filter: blur(20px);
     box-shadow: 10px 0 90px rgba(0, 0, 0, 0.226);
     transition: all 0.5s ease-in-out;
-
 }
 
 .form-register .btnlogin {
@@ -218,30 +217,53 @@ body {
     display: flex;
 }
 
-.icons {
-    display: flex;
+#forgot-password {
+    position: relative;
+    top: 350px;
+    width: 20%;
+    background-color: #f0f0f042;
+    border-radius: 10px;
+    box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.212);
+    padding: 10px;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+#forgot-password p {
+    margin: 10px;
 }
 
-.icons ion-icon {
-    margin-left: 10px;
+#forgot-password input {
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
 }
 
+#forgot-password input:focus {
+    outline: 2px solid #5e5e5e4b;
+    box-shadow: 10px 0 50px rgba(0, 0, 0, 0.226);
+    transition: box-shadow 0.5s ease-in-out;
+}
 
-
-.icons .facebook ion-icon {
-    width: 50px;
-    padding: 5px 0px 5px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#forgot-password button {
+    width: 50%;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #FFF176;
+    font-size: 20px;
+    font-weight: 400;
     cursor: pointer;
 }
 
-.icons .facebook ion-icon:hover {
-    color: #0865FE;
+#forgot-password button:hover {
+    background-color: #fff176b9;
+    backdrop-filter: blur(20px);
+    box-shadow: 10px 0 90px rgba(0, 0, 0, 0.226);
     transition: all 0.5s ease-in-out;
-    background-color: rgba(202, 202, 202, 0.671);
-    border-radius: 10%;
 }

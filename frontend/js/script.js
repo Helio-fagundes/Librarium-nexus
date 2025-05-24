@@ -5,7 +5,13 @@ userprofile.addEventListener("click", () => {
     drop.classList.toggle("userflex");
 });
 
+const logged = JSON.parse(localStorage.getItem("logged"))
+const usuarioLogado = JSON.parse(localStorage.getItem("logged"));
 
+if (!logged || !logged.id_usuario) {
+    alert("Você precisa estar logado para acessar esta página.");
+    window.location.href = "/pages/login.html";
+}
 
 const fotoPerfil = localStorage.getItem("fotoPerfil") || "/img/Design_sem_nome-removebg-preview.png";
 userprofile.innerHTML = `<img src="${fotoPerfil}" alt="User Profile"/>`;

@@ -9,6 +9,10 @@ const fotoPerfil = localStorage.getItem("fotoPerfil") || "/img/Design_sem_nome-r
 const logged = JSON.parse(localStorage.getItem("logged"));
 const vendedores = JSON.parse(localStorage.getItem("chatUser")) || [];
 
+if (!logged || !logged.id_usuario) {
+    alert("Você precisa estar logado para acessar esta página.");
+    window.location.href = "/pages/login.html";
+}
 // Mensagens salvas
 let mensagensSalvas = JSON.parse(localStorage.getItem("chatMensagens")) || {};
 

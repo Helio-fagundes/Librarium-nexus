@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,15 +19,7 @@
                 </div>
                 <input type="email" placeholder="Email" id="Email">
                 <input type="password" placeholder="Senha" id="password">
-                <button class="Confirm-login">Confirmar</button> <span>Esqueceu a senha ?</span><br>
-                <div class="icons">
-                    <div class="google">
-                        <ion-icon name="logo-google" size="large"></ion-icon>
-                    </div>
-                    <div class="facebook">
-                        <ion-icon name="logo-facebook" size="large"></ion-icon>
-                    </div>
-                </div>
+                <button class="Confirm-login">Confirmar</button> <span class="forgot">Esqueceu a senha ?</span><br>
             </form>
         </div>
         <!--            REGISTER             -->
@@ -48,6 +39,14 @@
                 <button class="Regisconfirmbtn">Confirmar</button>
             </form>
         </div>
+
+        <div id="forgot-password" class="hidden">
+            <h3>Recuperar Senha</h3>
+            <p>Digite seu email para recuperar</p>
+            <input type="email" placeholder="Email"> <br>
+            <button class="confirmfor">Confirmar</button>
+        </div>
+
     </main>
     <script src="/js/login.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

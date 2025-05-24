@@ -2,6 +2,11 @@ const imagemInput = document.getElementById('imagem');
 const preview = document.querySelector('.imagem-preview');
 const usuarioLogado = JSON.parse(localStorage.getItem("logged"));
 
+if (!usuarioLogado || !usuarioLogado.id_usuario) {
+    alert("Você precisa estar logado para acessar esta página.");
+    window.location.href = "/pages/login.html";
+}
+
 let selectedFile = null;
 
 // Captura e preview da imagem
@@ -39,8 +44,8 @@ const estado = document.querySelector("#estado");
 const publicBtn = document.querySelector(".publicar");
 const form = document.querySelector(".formulario");
 
-function refreshpage() {
-    window.location.href = "/index.html";
+function direct() {
+    window.location.href = "/pages/login.js";
 }
 
 // Publicar livro
@@ -95,19 +100,19 @@ form.addEventListener("submit", (e) => {
         method: "POST",
         body: formData
     })
-    .then(async res => {
-        const text = await res.text();
-        if (!res.ok) throw new Error(text);
-        return text;
-    })
-    .then(data => {
-        alert("Livro adicionado com sucesso");
-        refreshpage();
-    })
-    .catch(error => {
-        console.error("Erro detalhado:", error.message);
-        alert("Erro ao cadastrar o livro. Tente novamente.");
-    });
+        .then(async res => {
+            const text = await res.text();
+            if (!res.ok) throw new Error(text);
+            return text;
+        })
+        .then(data => {
+            alert("Livro adicionado com sucesso");
+            refreshpage();
+        })
+        .catch(error => {
+            console.error("Erro detalhado:", error.message);
+            alert("Erro ao cadastrar o livro. Tente novamente.");
+        });
 });
 
 // dados do usuario logado
