@@ -18,6 +18,9 @@
 - **PostgreSQL** – Banco de dados relacional de código aberto.
 - **Docker** – Containerização do ambiente de desenvolvimento e produção.
 - **AWS (Amazon Web Services)** – Hospedagem, banco de dados, e armazenamento escalável na nuvem.
+- **WebSocket** - Chat em tempo real
+- **HATEOAS** - links dinâmicos
+- **BCrypt** - Criptografia de senhas
 
 ## 📦 Funcionalidades
 
